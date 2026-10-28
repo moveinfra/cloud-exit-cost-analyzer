@@ -1,0 +1,39 @@
+apiVersion: v1
+entries:
+  cloud-exit-cost-analyzer:
+  - annotations:
+      artifacthub.io/category: monitoring-logging
+      artifacthub.io/license: Apache-2.0
+      artifacthub.io/links: |
+        - name: Website
+          url: https://moveinfra.eu
+        - name: EU Cloud Map
+          url: https://moveinfra.eu/eu-cloud-map
+    apiVersion: v2
+    appVersion: 0.1.0
+    created: "2026-10-28T14:50:27.871197846Z"
+    description: See what your Kubernetes cluster costs today and what it would cost
+      on UpCloud, based on real usage. Read-only, nothing leaves the cluster.
+    digest: d719d43ecfbab52ec5c800ae6c261fb54fb8b01a41494a2a817478cb63ed48c9
+    home: https://github.com/moveinfra/cloud-exit-cost-analyzer
+    icon: https://moveinfra.eu/favicon.svg
+    keywords:
+    - kubernetes
+    - cost
+    - finops
+    - upcloud
+    - cloud-migration
+    - eu-cloud
+    - rightsizing
+    maintainers:
+    - email: hello@moveinfra.eu
+      name: MoveInfra
+      url: https://moveinfra.eu
+    name: cloud-exit-cost-analyzer
+    sources:
+    - https://github.com/moveinfra/cloud-exit-cost-analyzer
+    type: application
+    urls:
+    - https://github.com/moveinfra/cloud-exit-cost-analyzer/releases/download/v0.1.0/cloud-exit-cost-analyzer-0.1.0.tgz
+    version: 0.1.0
+generated: "2026-10-28T14:50:27.870635425Z"
