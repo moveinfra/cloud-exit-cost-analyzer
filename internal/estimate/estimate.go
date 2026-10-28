@@ -167,6 +167,21 @@ func Build(snap *collect.Snapshot, store *usage.Store, book *pricing.Book, o Opt
 	}
 	r.Recommendations = recommendations(snap, rows, zone, r.Scenarios)
 	r.Notes = notes(r, o)
+	// empty lists, not null, for scripts reading the JSON
+	if r.Current.Lines == nil {
+		r.Current.Lines = []Line{}
+	}
+	if r.Recommendations == nil {
+		r.Recommendations = []Recommendation{}
+	}
+	for i := range r.Scenarios {
+		if r.Scenarios[i].Nodes == nil {
+			r.Scenarios[i].Nodes = []NodeGroup{}
+		}
+		if r.Scenarios[i].Lines == nil {
+			r.Scenarios[i].Lines = []Line{}
+		}
+	}
 	if r.Samples == 0 || r.CoverageHours < 24 {
 		r.Warning = r.Notes[0]
 	}
@@ -210,6 +225,9 @@ func current(snap *collect.Snapshot, book *pricing.Book, o Options, dates *map[s
 		regions[n.Region]++
 	}
 	c.Provider, c.Region = top(providers), top(regions)
+	if c.Provider == "upcloud" {
+		return currentUpCloud(snap, book, o, c)
+	}
 	cloud := book.Clouds[c.Provider]
 	var region *pricing.Region
 	if cloud != nil {
@@ -317,6 +335,59 @@ func current(snap *collect.Snapshot, book *pricing.Book, o Options, dates *map[s
 	if eur, ok := book.FX.ToEUR(c.Total, c.Currency); ok {
 		c.TotalEUR = eur
 	}
+	return c
+}
+
+// currentUpCloud prices a cluster that already runs on UpCloud. Nodes carry no plan label, so each is priced as the
+// cheapest plan of the configured families with the same vCPU and memory; the report says so.
+func currentUpCloud(snap *collect.Snapshot, book *pricing.Book, o Options, c Current) Current {
+	c.Currency = "EUR"
+	z, err := book.UpCloud.Zone(c.Region, o.PlanFamilies...)
+	if err != nil {
+		c.Missing = append(c.Missing, err.Error())
+		return c
+	}
+	counts, price := map[string]int{}, map[string]float64{}
+	for _, n := range snap.Nodes {
+		p, ok := fit(z.Plans, n.CPUMilli, n.MemoryBytes)
+		if !ok {
+			c.Missing = append(c.Missing, "node "+n.Name+": no plan of this size")
+			continue
+		}
+		counts[p.Name]++
+		price[p.Name] = p.Monthly
+	}
+	names := make([]string, 0, len(counts))
+	for k := range counts {
+		names = append(names, k)
+	}
+	sort.Strings(names)
+	for _, k := range names {
+		c.Lines = append(c.Lines, Line{Item: fmt.Sprintf("%d × %s", counts[k], k), Detail: "plan matched by vCPU and memory", Monthly: float64(counts[k]) * price[k]})
+	}
+	if z.ControlPlaneMonthly > 0 {
+		c.Lines = append(c.Lines, Line{Item: "Managed Kubernetes control plane", Detail: "production plan assumed", Monthly: z.ControlPlaneMonthly})
+	}
+	var gb, cost float64
+	for _, v := range snap.Volumes {
+		p := z.StorageMaxIOPSMonth
+		if v.Type == "standard" && z.StorageStandardMonth > 0 {
+			p = z.StorageStandardMonth
+		}
+		gb += v.GB
+		cost += v.GB * p
+	}
+	if gb > 0 {
+		c.Lines = append(c.Lines, Line{Item: "Block storage", Detail: fmt.Sprintf("%.0f GB", gb), Monthly: cost})
+	}
+	if n := len(snap.LoadBalancers); n > 0 {
+		c.Lines = append(c.Lines, Line{Item: fmt.Sprintf("%d × managed load balancer", n), Monthly: float64(n) * z.LoadBalancerMonthly})
+	}
+	c.Missing = append(c.Missing, "data transfer, backups and other services outside Kubernetes")
+	for _, l := range c.Lines {
+		c.Total += l.Monthly
+	}
+	c.TotalEUR = c.Total
 	return c
 }
 
@@ -529,6 +600,9 @@ func notes(r *Report, o Options) []string {
 		n = append(n, fmt.Sprintf("Usage collected for %.1f days. A full week covers weekly peaks.", h/24))
 	}
 	n = append(n, fmt.Sprintf("UpCloud zone %s, list prices in EUR excluding VAT. Current costs are list prices converted to EUR with the ECB rate of %s.", r.Zone, r.PriceDates["fx"]))
+	if r.Current.Provider == "upcloud" {
+		n = append(n, "This cluster already runs on UpCloud: today's cost is estimated from node sizes, and the scenarios show what right-sizing saves.")
+	}
 	if r.Current.Provider == "azure" {
 		n = append(n, "Azure: control plane counted at the AKS Standard tier. Clusters on the Free tier pay no control plane fee.")
 	}

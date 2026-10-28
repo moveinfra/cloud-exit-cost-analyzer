@@ -197,3 +197,25 @@ func TestBuild(t *testing.T) {
 		t.Errorf("expected a coverage warning for one day of data, got %q", r.Warning)
 	}
 }
+
+func TestAlreadyOnUpCloud(t *testing.T) {
+	snap := &collect.Snapshot{
+		Nodes: []collect.Node{
+			{Name: "n1", Provider: "upcloud", Region: "de-fra1", CPUMilli: 4000, MemoryBytes: 16 << 30},
+			{Name: "n2", Provider: "upcloud", Region: "de-fra1", CPUMilli: 4000, MemoryBytes: 16 << 30},
+		},
+		Volumes:       []collect.Volume{{Name: "pv", Type: "maxiops", GB: 100, Phase: "Bound"}},
+		LoadBalancers: []string{"ns/web"},
+	}
+	r, err := estimate.Build(snap, usage.New(), book(), estimate.Options{})
+	if err != nil {
+		t.Fatal(err)
+	}
+	// 2 × 4xCPU-16GB (55) + UKS 30 + 100 GB × 0.22 + LB 10
+	if want := 2*55.0 + 30 + 22 + 10; r.Current.Currency != "EUR" || r.Current.TotalEUR < want-0.01 || r.Current.TotalEUR > want+0.01 {
+		t.Fatalf("current %s %.2f, want EUR %.2f: %+v", r.Current.Currency, r.Current.TotalEUR, want, r.Current.Lines)
+	}
+	if r.Recommendations == nil || r.Scenarios[0].Lines == nil {
+		t.Fatal("lists must be empty, not nil, so the JSON has [] instead of null")
+	}
+}

@@ -18,7 +18,7 @@ import (
 // Node is one worker node and where it runs.
 type Node struct {
 	Name          string `json:"name"`
-	Provider      string `json:"provider"` // aws, azure, gcp, digitalocean, or "" when unknown
+	Provider      string `json:"provider"` // aws, azure, gcp, digitalocean, upcloud, or "" when unknown
 	Region        string `json:"region"`
 	InstanceType  string `json:"instanceType"`
 	Pool          string `json:"pool,omitempty"`
@@ -119,6 +119,9 @@ func (c *Collector) Snapshot(ctx context.Context) (*Snapshot, error) {
 			if t == "" {
 				t = sc.Parameters["skuName"] // Azure disk CSI
 			}
+			if t == "" {
+				t = sc.Parameters["tier"] // UpCloud CSI: maxiops, standard, hdd
+			}
 			classes[sc.Name] = t
 		}
 	}
@@ -194,7 +197,7 @@ func toNode(n *corev1.Node) Node {
 
 func provider(n *corev1.Node) string {
 	id := n.Spec.ProviderID
-	for prefix, p := range map[string]string{"aws://": "aws", "azure://": "azure", "gce://": "gcp", "digitalocean://": "digitalocean"} {
+	for prefix, p := range map[string]string{"aws://": "aws", "azure://": "azure", "gce://": "gcp", "digitalocean://": "digitalocean", "upcloud://": "upcloud"} {
 		if strings.HasPrefix(id, prefix) {
 			return p
 		}
