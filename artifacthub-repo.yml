@@ -1,0 +1,5 @@
+# Artifact Hub repository metadata, copied to the Helm repository (gh-pages) on every release.
+repositoryID: 19348196-1ff3-4785-974a-ee517ad9f7c7
+owners:
+  - name: MoveInfra
+    email: hello@moveinfra.eu
