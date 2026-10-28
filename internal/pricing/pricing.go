@@ -7,6 +7,7 @@ import (
 	"embed"
 	"encoding/json"
 	"fmt"
+	"slices"
 	"sort"
 	"strings"
 )
@@ -40,11 +41,13 @@ type UpCloud struct {
 }
 
 type UpCloudZone struct {
-	Plans                []Plan  `json:"plans"`
-	StorageMaxIOPSMonth  float64 `json:"storageMaxiopsGBMonth"` // per GB-month
-	StorageStandardMonth float64 `json:"storageStandardGBMonth,omitempty"`
-	LoadBalancerMonthly  float64 `json:"loadBalancerMonthly,omitempty"` // smallest production managed load balancer
-	ControlPlaneMonthly  float64 `json:"controlPlaneMonthly,omitempty"` // managed Kubernetes (UKS) production control plane
+	Plans                []Plan             `json:"plans"`
+	StorageMaxIOPSMonth  float64            `json:"storageMaxiopsGBMonth"` // per GB-month
+	StorageStandardMonth float64            `json:"storageStandardGBMonth,omitempty"`
+	LoadBalancerMonthly  float64            `json:"loadBalancerMonthly,omitempty"` // managed load balancer plan used in estimates
+	ControlPlaneMonthly  float64            `json:"controlPlaneMonthly,omitempty"` // managed Kubernetes (UKS) control plane used in estimates
+	LoadBalancerPlans    map[string]float64 `json:"loadBalancerPlans,omitempty"`   // all managed load balancer plans, per month
+	KubernetesPlans      map[string]float64 `json:"kubernetesPlans,omitempty"`     // all UKS control plane plans, per month
 }
 
 // Plan is one UpCloud Cloud Server plan.
@@ -116,9 +119,30 @@ func (f *FX) ToEUR(amount float64, cur string) (float64, bool) {
 	return amount / r, true
 }
 
-// Zone returns the UpCloud zone's prices with plans sorted cheapest first.
-func (u *UpCloud) Zone(name string) (*UpCloudZone, error) {
-	z := u.Zones[name]
+// Family is the plan family: the upper-case prefix (DEV, STARTER, PREMIUM, HICPU, HIMEM, CLOUDNATIVE)
+// or "general" for General Purpose plans, which have none (2xCPU-4GB).
+func (p Plan) Family() string {
+	if prefix, _, ok := strings.Cut(p.Name, "-"); ok && prefix != "" && prefix == strings.ToUpper(prefix) && !strings.ContainsAny(prefix[:1], "0123456789") {
+		return prefix
+	}
+	return "general"
+}
+
+// Zone returns the UpCloud zone's prices, keeping only plans of the given families (all when none are given),
+// sorted cheapest first.
+func (u *UpCloud) Zone(name string, families ...string) (*UpCloudZone, error) {
+	src := u.Zones[name]
+	var z *UpCloudZone
+	if src != nil {
+		cp := *src
+		cp.Plans = nil
+		for _, p := range src.Plans {
+			if len(families) == 0 || slices.ContainsFunc(families, func(f string) bool { return strings.EqualFold(f, p.Family()) }) {
+				cp.Plans = append(cp.Plans, p)
+			}
+		}
+		z = &cp
+	}
 	if z == nil || len(z.Plans) == 0 {
 		names := make([]string, 0, len(u.Zones))
 		for n := range u.Zones {

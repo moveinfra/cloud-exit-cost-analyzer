@@ -19,14 +19,14 @@ const upcloudAPI = "https://api.upcloud.com/1.3"
 // The API returns prices in the account's currency, per hour, with "amount" as the quantity the price applies to.
 // Check the printed table against the UpCloud price list before committing; -unit and -hours exist because
 // the docs do not state the unit.
-// Managed Load Balancer and Managed Kubernetes are not in the price API, so their monthly prices come from flags
-// (copy them from https://upcloud.com/pricing/).
+// Managed Kubernetes and Managed Load Balancer plans are stored as well; -uks-plan and -lb-plan pick the one
+// the estimate uses.
 func genUpCloud(args []string) error {
 	fs := flag.NewFlagSet("upcloud", flag.ExitOnError)
 	unit := fs.Float64("unit", 100, "divide API prices by this to get EUR (100 = prices are in cents)")
 	hours := fs.Float64("hours", 672, "billable hours per month (UpCloud caps monthly cost at this many hours)")
-	lb := fs.Float64("lb-monthly", 0, "Managed Load Balancer, smallest production plan, EUR per month")
-	uks := fs.Float64("uks-monthly", 0, "Managed Kubernetes production control plane, EUR per month")
+	lbPlan := fs.String("lb-plan", "production-small", "Managed Load Balancer plan used in estimates")
+	uksPlan := fs.String("uks-plan", "production-small", "Managed Kubernetes control plane plan used in estimates")
 	fs.Parse(args)
 
 	token := os.Getenv("UPCLOUD_TOKEN")
@@ -71,7 +71,7 @@ func genUpCloud(args []string) error {
 		if err := json.Unmarshal(zone["name"], &name); err != nil {
 			return fmt.Errorf("zone without name: %w", err)
 		}
-		z := &pricing.UpCloudZone{LoadBalancerMonthly: *lb, ControlPlaneMonthly: *uks}
+		z := &pricing.UpCloudZone{LoadBalancerPlans: map[string]float64{}, KubernetesPlans: map[string]float64{}}
 		for key, raw := range zone {
 			var it item
 			if key == "name" || json.Unmarshal(raw, &it) != nil || it.Amount == 0 {
@@ -84,6 +84,10 @@ func genUpCloud(args []string) error {
 				z.StorageMaxIOPSMonth = monthly(it) / it.Amount
 			case key == "storage_standard":
 				z.StorageStandardMonth = monthly(it) / it.Amount
+			case strings.HasPrefix(key, "managed_kubernetes_"):
+				z.KubernetesPlans[strings.TrimPrefix(key, "managed_kubernetes_")] = round2(monthly(it))
+			case strings.HasPrefix(key, "managed_loadbalancer_"):
+				z.LoadBalancerPlans[strings.TrimPrefix(key, "managed_loadbalancer_")] = round2(monthly(it))
 			default:
 				other[key] = true
 			}
@@ -97,6 +101,11 @@ func genUpCloud(args []string) error {
 			z.Plans = append(z.Plans, pricing.Plan{Name: p.Name, Cores: p.Cores, MemoryMiB: p.Memory, StorageGB: p.StorageSize, Monthly: round2(monthly(it))})
 		}
 		sort.Slice(z.Plans, func(i, j int) bool { return z.Plans[i].Monthly < z.Plans[j].Monthly })
+		z.ControlPlaneMonthly = z.KubernetesPlans[*uksPlan]
+		z.LoadBalancerMonthly = z.LoadBalancerPlans[*lbPlan]
+		if z.ControlPlaneMonthly == 0 || z.LoadBalancerMonthly == 0 {
+			fmt.Printf("warning: %s has no price for UKS plan %q or load balancer plan %q\n", name, *uksPlan, *lbPlan)
+		}
 		out.Zones[name] = z
 	}
 
@@ -106,6 +115,8 @@ func genUpCloud(args []string) error {
 			fmt.Printf("  %-22s %3d vCPU %6d MiB  %8.2f\n", p.Name, p.Cores, p.MemoryMiB, p.Monthly)
 		}
 		fmt.Printf("  MaxIOPS storage %.4f per GB-month\n", z.StorageMaxIOPSMonth)
+		fmt.Printf("  Managed Kubernetes: %v (using %s)\n", z.KubernetesPlans, *uksPlan)
+		fmt.Printf("  Managed Load Balancer: %v (using %s)\n", z.LoadBalancerPlans, *lbPlan)
 	}
 	keys := make([]string, 0, len(other))
 	for k := range other {

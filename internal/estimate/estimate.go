@@ -24,6 +24,7 @@ type Options struct {
 	InstancePrices      map[string]float64 // instance type -> price per hour, overrides list prices (GCP, DigitalOcean, discounts)
 	CurrentDiscount     float64            // 0.2 = you pay 20% below list price (savings plans, EDP); applied to compute
 	PriceSpotAsOnDemand bool               // count spot nodes at on-demand prices instead of leaving them out
+	PlanFamilies        []string           // UpCloud plan families to use for nodes (general, HICPU, HIMEM, ...)
 }
 
 func (o *Options) defaults() {
@@ -38,6 +39,10 @@ func (o *Options) defaults() {
 	}
 	if o.MemoryHeadroom == 0 {
 		o.MemoryHeadroom = 0.15
+	}
+	if len(o.PlanFamilies) == 0 {
+		// Production plans. DEV and STARTER are hobby tiers, CLOUDNATIVE is billed by use.
+		o.PlanFamilies = []string{"general", "HICPU", "HIMEM"}
 	}
 	if o.NodeReserve == 0 {
 		o.NodeReserve = 0.1
@@ -124,7 +129,7 @@ const gib = 1 << 30
 // Build computes the report.
 func Build(snap *collect.Snapshot, store *usage.Store, book *pricing.Book, o Options) (*Report, error) {
 	o.defaults()
-	zone, err := book.UpCloud.Zone(o.Zone)
+	zone, err := book.UpCloud.Zone(o.Zone, o.PlanFamilies...)
 	if err != nil {
 		return nil, err
 	}

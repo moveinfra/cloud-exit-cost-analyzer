@@ -13,6 +13,7 @@ import (
 	"os/signal"
 	"path/filepath"
 	"strconv"
+	"strings"
 	"sync"
 	"syscall"
 	"time"
@@ -49,6 +50,9 @@ func run(log *slog.Logger) error {
 		CurrentDiscount:     num("CURRENT_DISCOUNT", 0),
 		PriceSpotAsOnDemand: env("PRICE_SPOT_AS_ON_DEMAND", "false") == "true",
 	}
+	if f := os.Getenv("PLAN_FAMILIES"); f != "" {
+		opts.PlanFamilies = strings.Split(f, ",")
+	}
 	if raw := os.Getenv("INSTANCE_PRICES"); raw != "" {
 		// numbers from a values file, strings from helm --set
 		var m map[string]any
@@ -74,7 +78,7 @@ func run(log *slog.Logger) error {
 	if err != nil {
 		return err
 	}
-	if _, err := book.UpCloud.Zone(opts.Zone); err != nil {
+	if _, err := book.UpCloud.Zone(opts.Zone, opts.PlanFamilies...); err != nil {
 		return err
 	}
 

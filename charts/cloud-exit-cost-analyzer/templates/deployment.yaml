@@ -28,6 +28,7 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - { name: UPCLOUD_ZONE, value: {{ .Values.upcloud.zone | quote }} }
+            - { name: PLAN_FAMILIES, value: {{ join "," .Values.upcloud.planFamilies | quote }} }
             - { name: MIN_NODES, value: {{ .Values.estimate.minNodes | quote }} }
             - { name: CPU_HEADROOM, value: {{ .Values.estimate.cpuHeadroom | quote }} }
             - { name: MEMORY_HEADROOM, value: {{ .Values.estimate.memoryHeadroom | quote }} }

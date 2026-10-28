@@ -49,6 +49,7 @@ Current-cloud prices are converted to EUR with the ECB reference rate. Prices ex
 | Value | Default | Meaning |
 |---|---|---|
 | `upcloud.zone` | `de-fra1` | UpCloud zone to price |
+| `upcloud.planFamilies` | `[general, HICPU, HIMEM]` | Server plan families for worker nodes |
 | `estimate.minNodes` | `3` | Never plan fewer worker nodes |
 | `estimate.cpuHeadroom` | `0.25` | Right-sized CPU = p95 usage + 25% |
 | `estimate.memoryHeadroom` | `0.15` | Right-sized memory = peak usage + 15% |

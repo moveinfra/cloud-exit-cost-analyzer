@@ -5,7 +5,8 @@ image:
 
 # How the UpCloud estimate is built
 upcloud:
-  zone: de-fra1          # de-fra1, fi-hel1, nl-ams1, se-sto1, pl-waw1, es-mad1, uk-lon1, ...
+  zone: de-fra1          # de-fra1, fi-hel1, fi-hel2, nl-ams1, se-sto1, dk-cph1, no-svg1, pl-waw1, es-mad1, uk-lon1, ...
+  planFamilies: [general, HICPU, HIMEM]  # server plans for worker nodes (also: PREMIUM, CLOUDNATIVE, DEV, STARTER)
 estimate:
   minNodes: 3            # never plan fewer worker nodes than this
   cpuHeadroom: 0.25      # right-sized CPU = p95 usage + 25%
