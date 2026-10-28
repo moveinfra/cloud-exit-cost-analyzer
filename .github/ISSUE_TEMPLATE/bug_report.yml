@@ -1,0 +1,37 @@
+name: Bug report
+description: Something does not work or a number looks wrong
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Please do not paste your full report or JSON: it lists your workload names.
+        Security issues: use Security → Report a vulnerability instead.
+  - type: input
+    id: version
+    attributes:
+      label: Analyzer version
+      description: Chart version from `helm list -n cost-analyzer`
+      placeholder: 0.1.0
+    validations:
+      required: true
+  - type: input
+    id: cluster
+    attributes:
+      label: Cluster
+      description: Provider, region, Kubernetes version
+      placeholder: EKS, eu-central-1, 1.33
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log lines
+      description: "`kubectl -n cost-analyzer logs deploy/cost-cloud-exit-cost-analyzer`"
+      render: text

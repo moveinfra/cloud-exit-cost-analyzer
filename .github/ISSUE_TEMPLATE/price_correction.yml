@@ -1,0 +1,29 @@
+name: Price correction or missing price
+description: A list price is wrong, or an instance type, region or zone is missing
+labels: [prices]
+body:
+  - type: dropdown
+    id: cloud
+    attributes:
+      label: Cloud
+      options: [AWS, Azure, UpCloud, Google Cloud, DigitalOcean, Other]
+    validations:
+      required: true
+  - type: input
+    id: item
+    attributes:
+      label: Region / zone and instance type, plan or volume type
+      placeholder: eu-central-1, m7i.large
+    validations:
+      required: true
+  - type: input
+    id: values
+    attributes:
+      label: Price in the analyzer vs. the provider's price
+      placeholder: "0.115 vs 0.1008 USD per hour"
+  - type: input
+    id: source
+    attributes:
+      label: Link to the provider's price page
+    validations:
+      required: true

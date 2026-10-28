@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security issue
+    url: https://github.com/moveinfra/cloud-exit-cost-analyzer/security/advisories/new
+    about: Report vulnerabilities privately.
+  - name: Moving your cluster to UpCloud
+    url: https://moveinfra.eu
+    about: Questions about a migration, not about this tool.

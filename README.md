@@ -9,6 +9,13 @@ then shows a side-by-side monthly cost report with concrete ways to pay less.
 - **Real usage, not guesses.** CPU at the 95th percentile and memory at its peak, per workload, collected while it runs.
 - **Open source**, Apache-2.0.
 
+## Documentation
+
+[How it works](docs/architecture.md) · [How the estimate is calculated](docs/estimates.md) ·
+[Configuration](docs/configuration.md) · [Price data](docs/pricing-data.md) · [Development](docs/development.md) ·
+[Releasing](docs/releasing.md) · [Forking](docs/forking.md) · [Troubleshooting](docs/troubleshooting.md) ·
+[Contributing](CONTRIBUTING.md) · [Security](SECURITY.md)
+
 ## Quick start
 
 Needs [metrics-server](https://github.com/kubernetes-sigs/metrics-server) (`kubectl top pods` works).
