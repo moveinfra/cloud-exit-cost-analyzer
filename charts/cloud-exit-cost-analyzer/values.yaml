@@ -1,0 +1,42 @@
+image:
+  repository: ghcr.io/moveinfra/cloud-exit-cost-analyzer
+  tag: ""  # defaults to the chart appVersion
+  pullPolicy: IfNotPresent
+
+# How the UpCloud estimate is built
+upcloud:
+  zone: de-fra1          # de-fra1, fi-hel1, nl-ams1, se-sto1, pl-waw1, es-mad1, uk-lon1, ...
+estimate:
+  minNodes: 3            # never plan fewer worker nodes than this
+  cpuHeadroom: 0.25      # right-sized CPU = p95 usage + 25%
+  memoryHeadroom: 0.15   # right-sized memory = peak usage + 15%
+  nodeReserve: 0.1       # share of each server kept for the OS and kubelet
+
+# What you pay today. List prices are built in for AWS and Azure.
+current:
+  discount: 0            # 0.2 = you pay 20% below list price for compute (savings plans, EDP, ...)
+  priceSpotAsOnDemand: false
+  instancePrices: {}     # instance type -> price per hour, for GCP, DigitalOcean or negotiated prices
+  #  e2-standard-4: 0.155
+  #  s-4vcpu-8gb: 0.0714
+
+sampleInterval: 60s      # how often usage is read from metrics-server
+
+# Keeps usage history across restarts. Without it, history starts over when the pod restarts.
+persistence:
+  enabled: true
+  size: 1Gi
+  storageClass: ""       # empty = cluster default
+
+service:
+  type: ClusterIP
+  port: 8080
+
+resources:
+  requests: { cpu: 20m, memory: 64Mi }
+  limits: { memory: 256Mi }
+
+nodeSelector: {}
+tolerations: []
+affinity: {}
+podAnnotations: {}

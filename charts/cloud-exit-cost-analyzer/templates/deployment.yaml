@@ -1,0 +1,70 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "ceca.fullname" . }}
+  labels: {{- include "ceca.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate  # one writer for the usage history volume
+  selector:
+    matchLabels: {{- include "ceca.selector" . | nindent 6 }}
+  template:
+    metadata:
+      labels: {{- include "ceca.selector" . | nindent 8 }}
+      {{- with .Values.podAnnotations }}
+      annotations: {{- toYaml . | nindent 8 }}
+      {{- end }}
+    spec:
+      serviceAccountName: {{ include "ceca.fullname" . }}
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 65532
+        fsGroup: 65532
+        seccompProfile: { type: RuntimeDefault }
+      containers:
+        - name: analyzer
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - { name: UPCLOUD_ZONE, value: {{ .Values.upcloud.zone | quote }} }
+            - { name: MIN_NODES, value: {{ .Values.estimate.minNodes | quote }} }
+            - { name: CPU_HEADROOM, value: {{ .Values.estimate.cpuHeadroom | quote }} }
+            - { name: MEMORY_HEADROOM, value: {{ .Values.estimate.memoryHeadroom | quote }} }
+            - { name: NODE_RESERVE, value: {{ .Values.estimate.nodeReserve | quote }} }
+            - { name: CURRENT_DISCOUNT, value: {{ .Values.current.discount | quote }} }
+            - { name: PRICE_SPOT_AS_ON_DEMAND, value: {{ .Values.current.priceSpotAsOnDemand | quote }} }
+            - { name: INSTANCE_PRICES, value: {{ .Values.current.instancePrices | toJson | quote }} }
+            - { name: SAMPLE_INTERVAL, value: {{ .Values.sampleInterval | quote }} }
+            - { name: DATA_DIR, value: /data }
+          ports:
+            - { name: http, containerPort: 8080 }
+          readinessProbe:
+            httpGet: { path: /healthz, port: http }
+          livenessProbe:
+            httpGet: { path: /healthz, port: http }
+            periodSeconds: 30
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities: { drop: [ALL] }
+          resources: {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - { name: data, mountPath: /data }
+      volumes:
+        - name: data
+          {{- if .Values.persistence.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ include "ceca.fullname" . }}
+          {{- else }}
+          emptyDir: {}
+          {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector: {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations: {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity: {{- toYaml . | nindent 8 }}
+      {{- end }}

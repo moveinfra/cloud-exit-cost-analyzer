@@ -1,0 +1,7 @@
+The analyzer is collecting usage every {{ .Values.sampleInterval }}. Open the report:
+
+  kubectl -n {{ .Release.Namespace }} port-forward svc/{{ include "ceca.fullname" . }} 8080:{{ .Values.service.port }}
+  open http://localhost:8080
+
+The first report is ready in about a minute. Usage-based numbers get reliable after a few days;
+leave it running for a week to cover weekly peaks. Needs metrics-server (kubectl top pods should work).

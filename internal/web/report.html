@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kubernetes cost on UpCloud</title>
+<style>
+  :root { --bg:#f6f6f3; --card:#fff; --ink:#191919; --mute:#686868; --line:#e3e3de; --now:#9a9a94; --eu:#1f5eff; --good:#11804a; --warn:#a55a00; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#131313; --card:#1c1c1c; --ink:#ececec; --mute:#9b9b9b; --line:#2d2d2d; --now:#6d6d6d; --eu:#7aa2ff; --good:#4cc38a; --warn:#f0a548; } }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif; }
+  main { max-width:1080px; margin:0 auto; padding:28px 16px 56px; }
+  h1 { font-size:24px; margin:0 0 4px; } h2 { font-size:17px; margin:0 0 12px; } h3 { font-size:15px; margin:0 0 6px; }
+  a { color:var(--eu); }
+  .mute { color:var(--mute); font-size:13px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px; margin:16px 0; overflow-x:auto; }
+  .hero { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; }
+  .big { font-size:30px; font-weight:650; font-variant-numeric:tabular-nums; }
+  .good { color:var(--good); } .warn { color:var(--warn); }
+  .notice { border-left:4px solid var(--warn); }
+  .bars div.row { display:grid; grid-template-columns:170px 1fr 110px; gap:10px; align-items:center; margin:6px 0; }
+  .track { background:var(--line); border-radius:4px; height:14px; }
+  .fill { height:14px; border-radius:4px; background:var(--eu); } .fill.now { background:var(--now); }
+  .grid3 { display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:16px; }
+  .grid3 .card { margin:0; }
+  table { width:100%; border-collapse:collapse; font-size:14px; }
+  th, td { text-align:left; padding:6px 8px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { color:var(--mute); font-weight:500; font-size:13px; }
+  .r { text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
+  tfoot td { font-weight:650; border-bottom:0; }
+  ul { margin:6px 0; padding-left:20px; }
+  .cta { display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between; }
+  .btn { display:inline-block; background:var(--eu); color:#fff; padding:9px 16px; border-radius:8px; text-decoration:none; font-weight:600; }
+  .actions a { margin-right:14px; font-size:14px; }
+  @media print { .actions { display:none; } body { background:#fff; } }
+</style>
+</head>
+<body>
+<main>
+{{$max := maxTotal .}}{{$best := best .}}
+<header>
+  <h1>Your Kubernetes cluster on UpCloud</h1>
+  <div class="mute">Generated {{date .Generated}} · {{.Totals.Nodes}} nodes · {{len .Workloads}} workloads · UpCloud zone {{.Zone}}</div>
+  <div class="actions" style="margin-top:8px"><a href="report.html">Download report (HTML)</a><a href="api/report">JSON</a></div>
+</header>
+
+{{with .Warning}}<div class="card notice"><strong>Note:</strong> {{.}}</div>{{end}}
+
+<section class="card hero">
+  <div><div class="mute">Today on {{if .Current.Provider}}{{upper .Current.Provider}}{{else}}your cloud{{end}} {{.Current.Region}} (list prices)</div>
+    <div class="big">€{{money .Current.TotalEUR}}<span class="mute"> /month</span></div>
+    {{if ne .Current.Currency "EUR"}}<div class="mute">{{.Current.Currency}} {{money .Current.Total}}{{if .Current.Missing}} · lower bound, see “Not included”{{end}}</div>{{end}}</div>
+  {{with $best}}<div><div class="mute">On UpCloud, no app changes ({{.Name}})</div>
+    <div class="big">€{{money .TotalEUR}}<span class="mute"> /month</span></div>
+    {{if gt .SavingsEUR 0.0}}<div class="good">€{{money .SavingsEUR}} less per month ({{pct .SavingsPct}})</div>{{else if lt .SavingsEUR 0.0}}<div class="warn">€{{money (neg .SavingsEUR)}} more per month</div>{{end}}</div>{{end}}
+  {{range .Scenarios}}{{if eq .ID "rightsized"}}{{if not .Error}}<div><div class="mute">On UpCloud, right-sized</div>
+    <div class="big">€{{money .TotalEUR}}<span class="mute"> /month</span></div>
+    {{if gt .SavingsEUR 0.0}}<div class="good">€{{money .SavingsEUR}} less per month ({{pct .SavingsPct}})</div>{{end}}</div>{{end}}{{end}}{{end}}
+</section>
+
+<section class="card bars">
+  <h2>Monthly cost compared</h2>
+  <div class="row"><div>Today{{if .Current.Provider}} ({{upper .Current.Provider}}){{end}}</div><div class="track"><div class="fill now" style="width:{{bar .Current.TotalEUR $max}}%"></div></div><div class="r">€{{money .Current.TotalEUR}}</div></div>
+  {{range .Scenarios}}{{if not .Error}}<div class="row"><div>UpCloud: {{.Name}}</div><div class="track"><div class="fill" style="width:{{bar .TotalEUR $max}}%"></div></div><div class="r">€{{money .TotalEUR}}</div></div>{{end}}{{end}}
+</section>
+
+<section class="grid3">
+  {{range .Scenarios}}
+  <div class="card">
+    <h3>{{.Name}}</h3>
+    <p class="mute">{{.Description}}</p>
+    {{if .Error}}<p class="warn">{{.Error}}</p>{{else}}
+    <table>
+      {{range .Nodes}}<tr><td>{{.Count}} × {{.Plan}}</td><td class="r">€{{money .Monthly}}</td></tr>{{end}}
+      {{range .Lines}}<tr><td>{{.Item}}{{if .Detail}} <span class="mute">{{.Detail}}</span>{{end}}</td><td class="r">€{{money .Monthly}}</td></tr>{{end}}
+      <tfoot><tr><td>Total per month</td><td class="r">€{{money .TotalEUR}}</td></tr></tfoot>
+    </table>{{end}}
+  </div>
+  {{end}}
+</section>
+
+<section class="card">
+  <h2>What you pay today (list prices)</h2>
+  <table>
+    <thead><tr><th>Item</th><th>Detail</th><th class="r">{{.Current.Currency}}/month</th></tr></thead>
+    {{range .Current.Lines}}<tr><td>{{.Item}}</td><td class="mute">{{.Detail}}</td><td class="r">{{money .Monthly}}</td></tr>{{end}}
+    <tfoot><tr><td>Total</td><td></td><td class="r">{{money .Current.Total}}</td></tr></tfoot>
+  </table>
+  {{if .Current.Missing}}<h3 style="margin-top:14px">Not included</h3><ul class="mute">{{range .Current.Missing}}<li>{{.}}</li>{{end}}</ul>{{end}}
+</section>
+
+{{if .Recommendations}}
+<section class="card">
+  <h2>Ways to pay less (on any cloud)</h2>
+  <table>
+    <thead><tr><th>Change</th><th>Where</th><th>Why</th><th class="r">Saves on UpCloud</th></tr></thead>
+    {{range .Recommendations}}<tr><td>{{.Kind}}</td><td><code>{{.Target}}</code></td><td>{{.Detail}}</td><td class="r">{{if .SavingsEUR}}€{{money .SavingsEUR}}/mo{{end}}</td></tr>{{end}}
+  </table>
+</section>
+{{end}}
+
+<section class="card">
+  <h2>Workloads</h2>
+  <p class="mute">Requests are what the scheduler reserves. Usage: CPU at the 95th percentile, memory at its peak, summed over the pods{{if .Samples}}, from {{.Samples}} samples since {{date .Since}}{{end}}.</p>
+  <table>
+    <thead><tr><th>Workload</th><th class="r">Pods</th><th class="r">CPU request</th><th class="r">CPU used (p95)</th><th class="r">Memory request</th><th class="r">Memory used (peak)</th></tr></thead>
+    {{range limit 60 .Workloads}}<tr><td>{{.Key}}</td><td class="r">{{.Pods}}</td><td class="r">{{cpu .ReqCPUMilli}}</td><td class="r">{{if .Samples}}{{cpu .UsageCPUP95Milli}}{{else}}–{{end}}</td><td class="r">{{mem .ReqMemory}}</td><td class="r">{{if .Samples}}{{mem .UsageMemMaxBytes}}{{else}}–{{end}}</td></tr>{{end}}
+    <tfoot><tr><td>All {{len .Workloads}} workloads</td><td></td><td class="r">{{cpu .Totals.ReqCPUMilli}}</td><td class="r">{{cpu .Totals.UseCPUMilli}}</td><td class="r">{{mem .Totals.ReqMemoryBytes}}</td><td class="r">{{mem .Totals.UseMemoryBytes}}</td></tr></tfoot>
+  </table>
+  <p class="mute">Cluster capacity: {{cpu .Totals.CPUMilli}} vCPU, {{mem .Totals.MemoryBytes}} on {{.Totals.Nodes}} nodes{{if .Totals.SpotNodes}} ({{.Totals.SpotNodes}} spot){{end}}. Volumes: {{printf "%.0f" .Totals.VolumeGB}} GB. Load balancers: {{.Totals.LoadBalancers}}.</p>
+</section>
+
+<section class="card">
+  <h2>How this was calculated</h2>
+  <ul class="mute">{{range .Notes}}<li>{{.}}</li>{{end}}
+    <li>Prices: UpCloud {{index .PriceDates "upcloud"}}{{range $k, $v := .PriceDates}}{{if and (ne $k "upcloud") (ne $k "fx")}}, {{upper $k}} {{$v}}{{end}}{{end}}. List prices from each provider's public price list, before VAT and discounts.</li>
+    <li>This is an estimate from what runs in the cluster. It does not see your bill: data transfer, backups and services outside Kubernetes are not included.</li>
+  </ul>
+</section>
+
+<section class="card cta">
+  <div><h2 style="margin:0">Want a fixed-price move to UpCloud?</h2>
+  <div class="mute">MoveInfra copies the environment, syncs the data and switches with a 30-day rollback. Send this report to get a quote.</div></div>
+  <a class="btn" href="https://moveinfra.eu/?utm_source=cloud-exit-cost-analyzer&utm_medium=report" target="_blank" rel="noopener">Get a quote</a>
+</section>
+
+<p class="mute">Made by <a href="https://github.com/moveinfra/cloud-exit-cost-analyzer">cloud-exit-cost-analyzer</a>, open source (Apache-2.0).</p>
+</main>
+</body>
+</html>

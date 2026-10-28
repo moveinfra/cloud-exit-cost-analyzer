@@ -1,0 +1,37 @@
+# Refreshes the built-in price lists monthly and opens a pull request with the changes.
+# UpCloud needs the UPCLOUD_TOKEN secret plus the UPCLOUD_LB_MONTHLY and UPCLOUD_UKS_MONTHLY variables
+# (Managed Load Balancer and Managed Kubernetes prices are not in the UpCloud price API).
+name: Refresh prices
+on:
+  schedule:
+    - cron: '0 5 2 * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  prices:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      UPCLOUD_TOKEN: ${{ secrets.UPCLOUD_TOKEN }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-go@v6
+        with:
+          go-version-file: go.mod
+      - run: go run ./tools/pricegen fx
+      - run: go run ./tools/pricegen azure
+      - run: go run ./tools/pricegen aws
+      - name: UpCloud
+        if: env.UPCLOUD_TOKEN != ''
+        run: go run ./tools/pricegen upcloud -lb-monthly "${{ vars.UPCLOUD_LB_MONTHLY }}" -uks-monthly "${{ vars.UPCLOUD_UKS_MONTHLY }}"
+      - run: go test ./...
+      - uses: peter-evans/create-pull-request@v7
+        with:
+          branch: prices/refresh
+          commit-message: "prices: monthly refresh"
+          title: "Monthly price refresh"
+          body: Regenerated from the AWS Price List, Azure Retail Prices, ECB and UpCloud APIs by `tools/pricegen`.
