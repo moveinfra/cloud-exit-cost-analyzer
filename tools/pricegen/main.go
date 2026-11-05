@@ -15,6 +15,7 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"strconv"
 	"time"
 )
 
@@ -54,9 +55,23 @@ func get(url string, header http.Header) (io.ReadCloser, error) {
 	for k, v := range header {
 		req.Header[k] = v
 	}
-	resp, err := client.Do(req)
-	if err != nil {
-		return nil, err
+	var resp *http.Response
+	for attempt := 0; ; attempt++ {
+		resp, err = client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+		retryable := resp.StatusCode == http.StatusTooManyRequests || resp.StatusCode >= 500
+		if !retryable || attempt == 6 {
+			break
+		}
+		wait := time.Duration(10<<attempt) * time.Second // 10s, 20s, 40s ... ~5 min
+		if s, err := strconv.Atoi(resp.Header.Get("Retry-After")); err == nil && s > 0 {
+			wait = time.Duration(s) * time.Second
+		}
+		resp.Body.Close()
+		fmt.Fprintf(os.Stderr, "pricegen: %s, retrying in %s\n", resp.Status, wait)
+		time.Sleep(wait)
 	}
 	if resp.StatusCode != http.StatusOK {
 		body, _ := io.ReadAll(io.LimitReader(resp.Body, 500))
