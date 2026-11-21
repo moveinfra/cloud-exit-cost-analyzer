@@ -1,7 +1,7 @@
 {
   "provider": "aws",
   "currency": "USD",
-  "generated": "2026-10-28",
+  "generated": "2026-11-21",
   "source": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws",
   "regions": {
     "eu-central-1": {
@@ -708,6 +708,8 @@
         "p3.8xlarge": 15.292,
         "p4d.24xlarge": 27.43298,
         "p4de.24xlarge": 34.29122,
+        "p5.48xlarge": 68.8,
+        "p5.4xlarge": 8.6,
         "r3.2xlarge": 0.8,
         "r3.4xlarge": 1.6,
         "r3.8xlarge": 3.201,
@@ -1036,6 +1038,10 @@
         "t8i.micro": 0.0144,
         "t8i.nano": 0.0072,
         "t8i.small": 0.0288,
+        "t9g.medium": 0.04762,
+        "t9g.micro": 0.0119,
+        "t9g.nano": 0.00595,
+        "t9g.small": 0.02381,
         "u-12tb1.112xlarge": 131.733,
         "u-18tb1.112xlarge": 197.6,
         "u-3tb1.56xlarge": 32.9335,
@@ -1104,7 +1110,7 @@
         "standard": 0.059
       },
       "controlPlaneHourly": 0.1,
-      "loadBalancerHourly": 0.027
+      "loadBalancerHourly": 0.006
     },
     "eu-central-2": {
       "instances": {
@@ -2169,7 +2175,7 @@
         "standard": 0.05225
       },
       "controlPlaneHourly": 0.1,
-      "loadBalancerHourly": 0.02394
+      "loadBalancerHourly": 0.0053
     },
     "eu-south-1": {
       "instances": {
@@ -2634,7 +2640,7 @@
         "standard": 0.05775
       },
       "controlPlaneHourly": 0.1,
-      "loadBalancerHourly": 0.0265
+      "loadBalancerHourly": 0.0059
     },
     "eu-south-2": {
       "instances": {
@@ -2802,6 +2808,26 @@
         "c8in.96xlarge": 29.4912,
         "c8in.large": 0.1536,
         "c8in.xlarge": 0.3072,
+        "c9g.12xlarge": 2.23056,
+        "c9g.16xlarge": 2.97408,
+        "c9g.24xlarge": 4.46112,
+        "c9g.2xlarge": 0.37176,
+        "c9g.48xlarge": 8.92224,
+        "c9g.4xlarge": 0.74352,
+        "c9g.8xlarge": 1.48704,
+        "c9g.large": 0.09294,
+        "c9g.medium": 0.04647,
+        "c9g.xlarge": 0.18588,
+        "c9gd.12xlarge": 2.91024,
+        "c9gd.16xlarge": 3.88032,
+        "c9gd.24xlarge": 5.82048,
+        "c9gd.2xlarge": 0.48504,
+        "c9gd.48xlarge": 11.64096,
+        "c9gd.4xlarge": 0.97008,
+        "c9gd.8xlarge": 1.94016,
+        "c9gd.large": 0.12126,
+        "c9gd.medium": 0.06063,
+        "c9gd.xlarge": 0.24252,
         "g5.12xlarge": 5.97646,
         "g5.16xlarge": 4.31586,
         "g5.24xlarge": 8.58115,
@@ -3325,6 +3351,10 @@
         "t4g.nano": 0.0046,
         "t4g.small": 0.0184,
         "t4g.xlarge": 0.1472,
+        "t9g.medium": 0.04563,
+        "t9g.micro": 0.01141,
+        "t9g.nano": 0.0057,
+        "t9g.small": 0.02282,
         "u-6tb1.112xlarge": 61.1,
         "u-6tb1.56xlarge": 51.92818,
         "u7i-12tb.224xlarge": 140.53219,
@@ -3361,7 +3391,7 @@
         "standard": 0.055
       },
       "controlPlaneHourly": 0.1,
-      "loadBalancerHourly": 0.0252
+      "loadBalancerHourly": 0.0056
     },
     "eu-west-1": {
       "instances": {
@@ -3611,6 +3641,32 @@
         "c8in.96xlarge": 29.51424,
         "c8in.large": 0.15372,
         "c8in.xlarge": 0.30744,
+        "c8ine.12xlarge": 4.6116,
+        "c8ine.2xlarge": 0.7686,
+        "c8ine.4xlarge": 1.5372,
+        "c8ine.8xlarge": 3.0744,
+        "c8ine.large": 0.19215,
+        "c8ine.xlarge": 0.3843,
+        "c9g.12xlarge": 2.23104,
+        "c9g.16xlarge": 2.97472,
+        "c9g.24xlarge": 4.46208,
+        "c9g.2xlarge": 0.37184,
+        "c9g.48xlarge": 8.92416,
+        "c9g.4xlarge": 0.74368,
+        "c9g.8xlarge": 1.48736,
+        "c9g.large": 0.09296,
+        "c9g.medium": 0.04648,
+        "c9g.xlarge": 0.18592,
+        "c9gd.12xlarge": 2.91024,
+        "c9gd.16xlarge": 3.88032,
+        "c9gd.24xlarge": 5.82048,
+        "c9gd.2xlarge": 0.48504,
+        "c9gd.48xlarge": 11.64096,
+        "c9gd.4xlarge": 0.97008,
+        "c9gd.8xlarge": 1.94016,
+        "c9gd.large": 0.12126,
+        "c9gd.medium": 0.06063,
+        "c9gd.xlarge": 0.24252,
         "cr1.8xlarge": 3.75,
         "d2.2xlarge": 1.47,
         "d2.4xlarge": 2.94,
@@ -4734,6 +4790,12 @@
         "g6f.4xlarge": 1.20595,
         "g6f.large": 0.25642,
         "g6f.xlarge": 0.30149,
+        "g7.12xlarge": 10.81298,
+        "g7.24xlarge": 21.62597,
+        "g7.2xlarge": 3.8226,
+        "g7.48xlarge": 43.25193,
+        "g7.4xlarge": 4.61455,
+        "g7.8xlarge": 6.19844,
         "g7e.12xlarge": 14.40172,
         "g7e.24xlarge": 28.80344,
         "g7e.2xlarge": 5.84531,
@@ -5019,6 +5081,7 @@
         "p4d.24xlarge": 28.54493,
         "p5.48xlarge": 71.552,
         "p5.4xlarge": 8.944,
+        "p5e.48xlarge": 82.2848,
         "p6-b300.48xlarge": 217.54,
         "r4.16xlarge": 4.992,
         "r4.2xlarge": 0.624,
@@ -7086,6 +7149,10 @@
         "t8i.micro": 0.01248,
         "t8i.nano": 0.00624,
         "t8i.small": 0.02496,
+        "t9g.medium": 0.04166,
+        "t9g.micro": 0.01042,
+        "t9g.nano": 0.00521,
+        "t9g.small": 0.02083,
         "trn1.2xlarge": 1.34375,
         "trn1.32xlarge": 21.5,
         "trn1n.32xlarge": 24.78,
@@ -7175,7 +7242,7 @@
         "standard": 0.05
       },
       "controlPlaneHourly": 0.1,
-      "loadBalancerHourly": 0.0225
+      "loadBalancerHourly": 0.005
     },
     "us-east-2": {
       "instances": {
@@ -7918,6 +7985,7 @@
         "p4d.24xlarge": 21.95764,
         "p5.48xlarge": 55.04,
         "p5.4xlarge": 6.88,
+        "p5e.48xlarge": 63.296,
         "p5en.48xlarge": 63.296,
         "p6-b200.48xlarge": 113.9328,
         "r3.2xlarge": 0.664,
@@ -8248,6 +8316,10 @@
         "t8i.micro": 0.01248,
         "t8i.nano": 0.00624,
         "t8i.small": 0.02496,
+        "t9g.medium": 0.04166,
+        "t9g.micro": 0.01042,
+        "t9g.nano": 0.00521,
+        "t9g.small": 0.02083,
         "trn1.2xlarge": 1.34375,
         "trn1.32xlarge": 21.5,
         "trn1n.32xlarge": 24.78,
@@ -9149,6 +9221,7 @@
         "p4de.24xlarge": 27.44705,
         "p5.48xlarge": 55.04,
         "p5.4xlarge": 6.88,
+        "p5e.48xlarge": 63.296,
         "p5en.48xlarge": 63.296,
         "p6-b200.48xlarge": 113.9328,
         "p6-b300.48xlarge": 142.416,
@@ -9501,6 +9574,10 @@
         "t8i.micro": 0.01248,
         "t8i.nano": 0.00624,
         "t8i.small": 0.02496,
+        "t9g.medium": 0.04166,
+        "t9g.micro": 0.01042,
+        "t9g.nano": 0.00521,
+        "t9g.small": 0.02083,
         "trn1.2xlarge": 1.34375,
         "trn1.32xlarge": 21.5,
         "trn1n.32xlarge": 24.78,
