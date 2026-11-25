@@ -1,19 +1,19 @@
 {
   "currency": "EUR",
-  "generated": "2026-11-21",
+  "generated": "2026-11-25",
   "source": "https://api.upcloud.com/1.3/price",
   "zones": {
     "au-syd1": {
       "plans": [
         {
-          "name": "STARTER-1xCPU-1GB",
+          "name": "DEV-1xCPU-1GB-10GB",
           "cores": 1,
           "memoryMiB": 1024,
           "storageGB": 10,
           "monthly": 3
         },
         {
-          "name": "DEV-1xCPU-1GB-10GB",
+          "name": "STARTER-1xCPU-1GB",
           "cores": 1,
           "memoryMiB": 1024,
           "storageGB": 10,
@@ -41,15 +41,15 @@
           "monthly": 6
         },
         {
-          "name": "STARTER-2xCPU-2GB",
-          "cores": 2,
+          "name": "DEV-1xCPU-2GB",
+          "cores": 1,
           "memoryMiB": 2048,
           "storageGB": 30,
           "monthly": 8
         },
         {
-          "name": "DEV-1xCPU-2GB",
-          "cores": 1,
+          "name": "STARTER-2xCPU-2GB",
+          "cores": 2,
           "memoryMiB": 2048,
           "storageGB": 30,
           "monthly": 8
@@ -69,13 +69,6 @@
           "monthly": 10
         },
         {
-          "name": "CLOUDNATIVE-1xCPU-4GB",
-          "cores": 1,
-          "memoryMiB": 4096,
-          "storageGB": 0,
-          "monthly": 12
-        },
-        {
           "name": "STARTER-2xCPU-4GB",
           "cores": 2,
           "memoryMiB": 4096,
@@ -90,17 +83,22 @@
           "monthly": 12
         },
         {
-          "name": "CLOUDNATIVE-2xCPU-4GB",
-          "cores": 2,
+          "name": "CLOUDNATIVE-1xCPU-4GB",
+          "cores": 1,
           "memoryMiB": 4096,
-          "storageGB": 0,
-          "monthly": 15
+          "monthly": 12
         },
         {
           "name": "DEV-1xCPU-4GB",
           "cores": 1,
           "memoryMiB": 4096,
           "storageGB": 40,
+          "monthly": 15
+        },
+        {
+          "name": "CLOUDNATIVE-2xCPU-4GB",
+          "cores": 2,
+          "memoryMiB": 4096,
           "monthly": 15
         },
         {
@@ -132,17 +130,16 @@
           "monthly": 18
         },
         {
-          "name": "CLOUDNATIVE-1xCPU-8GB",
-          "cores": 1,
-          "memoryMiB": 8192,
-          "storageGB": 0,
-          "monthly": 20
-        },
-        {
           "name": "STARTER-4xCPU-8GB",
           "cores": 4,
           "memoryMiB": 8192,
           "storageGB": 40,
+          "monthly": 20
+        },
+        {
+          "name": "CLOUDNATIVE-1xCPU-8GB",
+          "cores": 1,
+          "memoryMiB": 8192,
           "monthly": 20
         },
         {
@@ -163,7 +160,6 @@
           "name": "CLOUDNATIVE-2xCPU-8GB",
           "cores": 2,
           "memoryMiB": 8192,
-          "storageGB": 0,
           "monthly": 24
         },
         {
@@ -198,14 +194,12 @@
           "name": "CLOUDNATIVE-4xCPU-8GB",
           "cores": 4,
           "memoryMiB": 8192,
-          "storageGB": 0,
           "monthly": 32
         },
         {
           "name": "CLOUDNATIVE-2xCPU-16GB",
           "cores": 2,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 34
         },
         {
@@ -247,8 +241,13 @@
           "name": "CLOUDNATIVE-4xCPU-16GB",
           "cores": 4,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 68
+        },
+        {
+          "name": "CLOUDNATIVE-4xCPU-24GB",
+          "cores": 4,
+          "memoryMiB": 24576,
+          "monthly": 72
         },
         {
           "name": "PREMIUM-2xCPU-16GB",
@@ -258,17 +257,9 @@
           "monthly": 72
         },
         {
-          "name": "CLOUDNATIVE-4xCPU-24GB",
-          "cores": 4,
-          "memoryMiB": 24576,
-          "storageGB": 0,
-          "monthly": 72
-        },
-        {
           "name": "CLOUDNATIVE-6xCPU-16GB",
           "cores": 6,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 74
         },
         {
@@ -282,35 +273,30 @@
           "name": "CLOUDNATIVE-6xCPU-24GB",
           "cores": 6,
           "memoryMiB": 24576,
-          "storageGB": 0,
           "monthly": 78
         },
         {
           "name": "CLOUDNATIVE-8xCPU-16GB",
           "cores": 8,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 80
         },
         {
           "name": "CLOUDNATIVE-8xCPU-24GB",
           "cores": 8,
           "memoryMiB": 24576,
-          "storageGB": 0,
           "monthly": 84
-        },
-        {
-          "name": "CLOUDNATIVE-4xCPU-32GB",
-          "cores": 4,
-          "memoryMiB": 32768,
-          "storageGB": 0,
-          "monthly": 90
         },
         {
           "name": "CLOUDNATIVE-12xCPU-24GB",
           "cores": 12,
           "memoryMiB": 24576,
-          "storageGB": 0,
+          "monthly": 90
+        },
+        {
+          "name": "CLOUDNATIVE-4xCPU-32GB",
+          "cores": 4,
+          "memoryMiB": 32768,
           "monthly": 90
         },
         {
@@ -331,7 +317,6 @@
           "name": "CLOUDNATIVE-8xCPU-32GB",
           "cores": 8,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 130
         },
         {
@@ -345,7 +330,6 @@
           "name": "CLOUDNATIVE-12xCPU-32GB",
           "cores": 12,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 145
         },
         {
@@ -373,14 +357,12 @@
           "name": "CLOUDNATIVE-16xCPU-32GB",
           "cores": 16,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 160
         },
         {
           "name": "CLOUDNATIVE-4xCPU-48GB",
           "cores": 4,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 160
         },
         {
@@ -394,7 +376,6 @@
           "name": "CLOUDNATIVE-8xCPU-48GB",
           "cores": 8,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 190
         },
         {
@@ -408,7 +389,6 @@
           "name": "CLOUDNATIVE-8xCPU-64GB",
           "cores": 8,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 220
         },
         {
@@ -422,14 +402,12 @@
           "name": "CLOUDNATIVE-16xCPU-48GB",
           "cores": 16,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 230
         },
         {
           "name": "CLOUDNATIVE-8xCPU-96GB",
           "cores": 8,
           "memoryMiB": 98304,
-          "storageGB": 0,
           "monthly": 240
         },
         {
@@ -443,7 +421,6 @@
           "name": "CLOUDNATIVE-16xCPU-64GB",
           "cores": 16,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 270
         },
         {
@@ -457,14 +434,12 @@
           "name": "CLOUDNATIVE-20xCPU-64GB",
           "cores": 20,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 285
         },
         {
           "name": "CLOUDNATIVE-32xCPU-64GB",
           "cores": 32,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 300
         },
         {
@@ -489,17 +464,15 @@
           "monthly": 337
         },
         {
-          "name": "CLOUDNATIVE-8xCPU-128GB",
-          "cores": 8,
-          "memoryMiB": 131072,
-          "storageGB": 0,
-          "monthly": 340
-        },
-        {
           "name": "CLOUDNATIVE-16xCPU-96GB",
           "cores": 16,
           "memoryMiB": 98304,
-          "storageGB": 0,
+          "monthly": 340
+        },
+        {
+          "name": "CLOUDNATIVE-8xCPU-128GB",
+          "cores": 8,
+          "memoryMiB": 131072,
           "monthly": 340
         },
         {
@@ -513,14 +486,12 @@
           "name": "CLOUDNATIVE-16xCPU-128GB",
           "cores": 16,
           "memoryMiB": 131072,
-          "storageGB": 0,
           "monthly": 370
         },
         {
           "name": "CLOUDNATIVE-20xCPU-96GB",
           "cores": 20,
           "memoryMiB": 98304,
-          "storageGB": 0,
           "monthly": 380
         },
         {
@@ -541,7 +512,6 @@
           "name": "CLOUDNATIVE-32xCPU-128GB",
           "cores": 32,
           "memoryMiB": 131072,
-          "storageGB": 0,
           "monthly": 460
         },
         {
@@ -555,7 +525,6 @@
           "name": "CLOUDNATIVE-16xCPU-192GB",
           "cores": 16,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 560
         },
         {
@@ -590,7 +559,6 @@
           "name": "CLOUDNATIVE-32xCPU-192GB",
           "cores": 32,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 670
         },
         {
@@ -604,14 +572,12 @@
           "name": "CLOUDNATIVE-64xCPU-192GB",
           "cores": 64,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 700
         },
         {
           "name": "CLOUDNATIVE-24xCPU-256GB",
           "cores": 24,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 720
         },
         {
@@ -625,7 +591,6 @@
           "name": "CLOUDNATIVE-32xCPU-256GB",
           "cores": 32,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 740
         },
         {
@@ -639,14 +604,12 @@
           "name": "CLOUDNATIVE-64xCPU-256GB",
           "cores": 64,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 820
         },
         {
           "name": "CLOUDNATIVE-32xCPU-384GB",
           "cores": 32,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 880
         },
         {
@@ -660,14 +623,12 @@
           "name": "CLOUDNATIVE-48xCPU-384GB",
           "cores": 48,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 920
         },
         {
           "name": "CLOUDNATIVE-64xCPU-384GB",
           "cores": 64,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 980
         },
         {
@@ -702,7 +663,6 @@
           "name": "CLOUDNATIVE-48xCPU-512GB",
           "cores": 48,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1200
         },
         {
@@ -737,7 +697,6 @@
           "name": "CLOUDNATIVE-64xCPU-512GB",
           "cores": 64,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1400
         },
         {
@@ -758,7 +717,6 @@
           "name": "CLOUDNATIVE-80xCPU-512GB",
           "cores": 80,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1800
         },
         {
@@ -804,35 +762,35 @@
           "monthly": 2977
         }
       ],
-      "storageMaxiopsGBMonth": 0.20832,
-      "storageStandardGBMonth": 0.10684800000000001,
-      "loadBalancerMonthly": 28,
-      "controlPlaneMonthly": 168,
+      "storageMaxiopsGBMonth": 0.2232,
+      "storageStandardGBMonth": 0.1145,
+      "loadBalancerMonthly": 30,
+      "controlPlaneMonthly": 60,
       "loadBalancerPlans": {
-        "development": 9.33,
+        "development": 10,
         "essentials": 0,
-        "production-medium": 70,
-        "production-small": 28
+        "production-medium": 75,
+        "production-small": 30
       },
       "kubernetesPlans": {
         "dev-md": 0,
-        "development": 84,
-        "prod-md": 56,
-        "prod-md-ha": 56,
-        "production-small": 168
+        "development": 90,
+        "prod-md": 60,
+        "prod-md-ha": 60,
+        "production-small": 180
       }
     },
     "de-fra1": {
       "plans": [
         {
-          "name": "STARTER-1xCPU-1GB",
+          "name": "DEV-1xCPU-1GB-10GB",
           "cores": 1,
           "memoryMiB": 1024,
           "storageGB": 10,
           "monthly": 3
         },
         {
-          "name": "DEV-1xCPU-1GB-10GB",
+          "name": "STARTER-1xCPU-1GB",
           "cores": 1,
           "memoryMiB": 1024,
           "storageGB": 10,
@@ -860,15 +818,15 @@
           "monthly": 6
         },
         {
-          "name": "STARTER-2xCPU-2GB",
-          "cores": 2,
+          "name": "DEV-1xCPU-2GB",
+          "cores": 1,
           "memoryMiB": 2048,
           "storageGB": 30,
           "monthly": 8
         },
         {
-          "name": "DEV-1xCPU-2GB",
-          "cores": 1,
+          "name": "STARTER-2xCPU-2GB",
+          "cores": 2,
           "memoryMiB": 2048,
           "storageGB": 30,
           "monthly": 8
@@ -888,13 +846,6 @@
           "monthly": 10
         },
         {
-          "name": "CLOUDNATIVE-1xCPU-4GB",
-          "cores": 1,
-          "memoryMiB": 4096,
-          "storageGB": 0,
-          "monthly": 12
-        },
-        {
           "name": "STARTER-2xCPU-4GB",
           "cores": 2,
           "memoryMiB": 4096,
@@ -909,17 +860,22 @@
           "monthly": 12
         },
         {
-          "name": "CLOUDNATIVE-2xCPU-4GB",
-          "cores": 2,
+          "name": "CLOUDNATIVE-1xCPU-4GB",
+          "cores": 1,
           "memoryMiB": 4096,
-          "storageGB": 0,
-          "monthly": 15
+          "monthly": 12
         },
         {
           "name": "DEV-1xCPU-4GB",
           "cores": 1,
           "memoryMiB": 4096,
           "storageGB": 40,
+          "monthly": 15
+        },
+        {
+          "name": "CLOUDNATIVE-2xCPU-4GB",
+          "cores": 2,
+          "memoryMiB": 4096,
           "monthly": 15
         },
         {
@@ -951,17 +907,16 @@
           "monthly": 18
         },
         {
-          "name": "CLOUDNATIVE-1xCPU-8GB",
-          "cores": 1,
-          "memoryMiB": 8192,
-          "storageGB": 0,
-          "monthly": 20
-        },
-        {
           "name": "STARTER-4xCPU-8GB",
           "cores": 4,
           "memoryMiB": 8192,
           "storageGB": 40,
+          "monthly": 20
+        },
+        {
+          "name": "CLOUDNATIVE-1xCPU-8GB",
+          "cores": 1,
+          "memoryMiB": 8192,
           "monthly": 20
         },
         {
@@ -982,7 +937,6 @@
           "name": "CLOUDNATIVE-2xCPU-8GB",
           "cores": 2,
           "memoryMiB": 8192,
-          "storageGB": 0,
           "monthly": 24
         },
         {
@@ -1017,14 +971,12 @@
           "name": "CLOUDNATIVE-4xCPU-8GB",
           "cores": 4,
           "memoryMiB": 8192,
-          "storageGB": 0,
           "monthly": 32
         },
         {
           "name": "CLOUDNATIVE-2xCPU-16GB",
           "cores": 2,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 34
         },
         {
@@ -1066,8 +1018,13 @@
           "name": "CLOUDNATIVE-4xCPU-16GB",
           "cores": 4,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 68
+        },
+        {
+          "name": "CLOUDNATIVE-4xCPU-24GB",
+          "cores": 4,
+          "memoryMiB": 24576,
+          "monthly": 72
         },
         {
           "name": "PREMIUM-2xCPU-16GB",
@@ -1077,17 +1034,9 @@
           "monthly": 72
         },
         {
-          "name": "CLOUDNATIVE-4xCPU-24GB",
-          "cores": 4,
-          "memoryMiB": 24576,
-          "storageGB": 0,
-          "monthly": 72
-        },
-        {
           "name": "CLOUDNATIVE-6xCPU-16GB",
           "cores": 6,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 74
         },
         {
@@ -1101,35 +1050,30 @@
           "name": "CLOUDNATIVE-6xCPU-24GB",
           "cores": 6,
           "memoryMiB": 24576,
-          "storageGB": 0,
           "monthly": 78
         },
         {
           "name": "CLOUDNATIVE-8xCPU-16GB",
           "cores": 8,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 80
         },
         {
           "name": "CLOUDNATIVE-8xCPU-24GB",
           "cores": 8,
           "memoryMiB": 24576,
-          "storageGB": 0,
           "monthly": 84
-        },
-        {
-          "name": "CLOUDNATIVE-4xCPU-32GB",
-          "cores": 4,
-          "memoryMiB": 32768,
-          "storageGB": 0,
-          "monthly": 90
         },
         {
           "name": "CLOUDNATIVE-12xCPU-24GB",
           "cores": 12,
           "memoryMiB": 24576,
-          "storageGB": 0,
+          "monthly": 90
+        },
+        {
+          "name": "CLOUDNATIVE-4xCPU-32GB",
+          "cores": 4,
+          "memoryMiB": 32768,
           "monthly": 90
         },
         {
@@ -1150,7 +1094,6 @@
           "name": "CLOUDNATIVE-8xCPU-32GB",
           "cores": 8,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 130
         },
         {
@@ -1164,7 +1107,6 @@
           "name": "CLOUDNATIVE-12xCPU-32GB",
           "cores": 12,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 145
         },
         {
@@ -1192,14 +1134,12 @@
           "name": "CLOUDNATIVE-16xCPU-32GB",
           "cores": 16,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 160
         },
         {
           "name": "CLOUDNATIVE-4xCPU-48GB",
           "cores": 4,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 160
         },
         {
@@ -1213,7 +1153,6 @@
           "name": "CLOUDNATIVE-8xCPU-48GB",
           "cores": 8,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 190
         },
         {
@@ -1227,7 +1166,6 @@
           "name": "CLOUDNATIVE-8xCPU-64GB",
           "cores": 8,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 220
         },
         {
@@ -1241,14 +1179,12 @@
           "name": "CLOUDNATIVE-16xCPU-48GB",
           "cores": 16,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 230
         },
         {
           "name": "CLOUDNATIVE-8xCPU-96GB",
           "cores": 8,
           "memoryMiB": 98304,
-          "storageGB": 0,
           "monthly": 240
         },
         {
@@ -1262,7 +1198,6 @@
           "name": "CLOUDNATIVE-16xCPU-64GB",
           "cores": 16,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 270
         },
         {
@@ -1276,14 +1211,12 @@
           "name": "CLOUDNATIVE-20xCPU-64GB",
           "cores": 20,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 285
         },
         {
           "name": "CLOUDNATIVE-32xCPU-64GB",
           "cores": 32,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 300
         },
         {
@@ -1308,17 +1241,15 @@
           "monthly": 337
         },
         {
-          "name": "CLOUDNATIVE-8xCPU-128GB",
-          "cores": 8,
-          "memoryMiB": 131072,
-          "storageGB": 0,
-          "monthly": 340
-        },
-        {
           "name": "CLOUDNATIVE-16xCPU-96GB",
           "cores": 16,
           "memoryMiB": 98304,
-          "storageGB": 0,
+          "monthly": 340
+        },
+        {
+          "name": "CLOUDNATIVE-8xCPU-128GB",
+          "cores": 8,
+          "memoryMiB": 131072,
           "monthly": 340
         },
         {
@@ -1332,14 +1263,12 @@
           "name": "CLOUDNATIVE-16xCPU-128GB",
           "cores": 16,
           "memoryMiB": 131072,
-          "storageGB": 0,
           "monthly": 370
         },
         {
           "name": "CLOUDNATIVE-20xCPU-96GB",
           "cores": 20,
           "memoryMiB": 98304,
-          "storageGB": 0,
           "monthly": 380
         },
         {
@@ -1360,7 +1289,6 @@
           "name": "CLOUDNATIVE-32xCPU-128GB",
           "cores": 32,
           "memoryMiB": 131072,
-          "storageGB": 0,
           "monthly": 460
         },
         {
@@ -1374,7 +1302,6 @@
           "name": "CLOUDNATIVE-16xCPU-192GB",
           "cores": 16,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 560
         },
         {
@@ -1409,7 +1336,6 @@
           "name": "CLOUDNATIVE-32xCPU-192GB",
           "cores": 32,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 670
         },
         {
@@ -1423,14 +1349,12 @@
           "name": "CLOUDNATIVE-64xCPU-192GB",
           "cores": 64,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 700
         },
         {
           "name": "CLOUDNATIVE-24xCPU-256GB",
           "cores": 24,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 720
         },
         {
@@ -1444,7 +1368,6 @@
           "name": "CLOUDNATIVE-32xCPU-256GB",
           "cores": 32,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 740
         },
         {
@@ -1458,14 +1381,12 @@
           "name": "CLOUDNATIVE-64xCPU-256GB",
           "cores": 64,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 820
         },
         {
           "name": "CLOUDNATIVE-32xCPU-384GB",
           "cores": 32,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 880
         },
         {
@@ -1479,14 +1400,12 @@
           "name": "CLOUDNATIVE-48xCPU-384GB",
           "cores": 48,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 920
         },
         {
           "name": "CLOUDNATIVE-64xCPU-384GB",
           "cores": 64,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 980
         },
         {
@@ -1521,7 +1440,6 @@
           "name": "CLOUDNATIVE-48xCPU-512GB",
           "cores": 48,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1200
         },
         {
@@ -1556,7 +1474,6 @@
           "name": "CLOUDNATIVE-64xCPU-512GB",
           "cores": 64,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1400
         },
         {
@@ -1577,7 +1494,6 @@
           "name": "CLOUDNATIVE-80xCPU-512GB",
           "cores": 80,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1800
         },
         {
@@ -1623,35 +1539,35 @@
           "monthly": 2977
         }
       ],
-      "storageMaxiopsGBMonth": 0.20832,
-      "storageStandardGBMonth": 0.10684800000000001,
-      "loadBalancerMonthly": 28,
-      "controlPlaneMonthly": 168,
+      "storageMaxiopsGBMonth": 0.2232,
+      "storageStandardGBMonth": 0.1145,
+      "loadBalancerMonthly": 30,
+      "controlPlaneMonthly": 60,
       "loadBalancerPlans": {
-        "development": 9.33,
+        "development": 10,
         "essentials": 0,
-        "production-medium": 70,
-        "production-small": 28
+        "production-medium": 75,
+        "production-small": 30
       },
       "kubernetesPlans": {
         "dev-md": 0,
-        "development": 84,
-        "prod-md": 56,
-        "prod-md-ha": 56,
-        "production-small": 168
+        "development": 90,
+        "prod-md": 60,
+        "prod-md-ha": 60,
+        "production-small": 180
       }
     },
     "dk-cph1": {
       "plans": [
         {
-          "name": "STARTER-1xCPU-1GB",
+          "name": "DEV-1xCPU-1GB-10GB",
           "cores": 1,
           "memoryMiB": 1024,
           "storageGB": 10,
           "monthly": 3
         },
         {
-          "name": "DEV-1xCPU-1GB-10GB",
+          "name": "STARTER-1xCPU-1GB",
           "cores": 1,
           "memoryMiB": 1024,
           "storageGB": 10,
@@ -1679,15 +1595,15 @@
           "monthly": 6
         },
         {
-          "name": "STARTER-2xCPU-2GB",
-          "cores": 2,
+          "name": "DEV-1xCPU-2GB",
+          "cores": 1,
           "memoryMiB": 2048,
           "storageGB": 30,
           "monthly": 8
         },
         {
-          "name": "DEV-1xCPU-2GB",
-          "cores": 1,
+          "name": "STARTER-2xCPU-2GB",
+          "cores": 2,
           "memoryMiB": 2048,
           "storageGB": 30,
           "monthly": 8
@@ -1707,13 +1623,6 @@
           "monthly": 10
         },
         {
-          "name": "CLOUDNATIVE-1xCPU-4GB",
-          "cores": 1,
-          "memoryMiB": 4096,
-          "storageGB": 0,
-          "monthly": 12
-        },
-        {
           "name": "STARTER-2xCPU-4GB",
           "cores": 2,
           "memoryMiB": 4096,
@@ -1728,17 +1637,22 @@
           "monthly": 12
         },
         {
-          "name": "CLOUDNATIVE-2xCPU-4GB",
-          "cores": 2,
+          "name": "CLOUDNATIVE-1xCPU-4GB",
+          "cores": 1,
           "memoryMiB": 4096,
-          "storageGB": 0,
-          "monthly": 15
+          "monthly": 12
         },
         {
           "name": "DEV-1xCPU-4GB",
           "cores": 1,
           "memoryMiB": 4096,
           "storageGB": 40,
+          "monthly": 15
+        },
+        {
+          "name": "CLOUDNATIVE-2xCPU-4GB",
+          "cores": 2,
+          "memoryMiB": 4096,
           "monthly": 15
         },
         {
@@ -1770,17 +1684,16 @@
           "monthly": 18
         },
         {
-          "name": "CLOUDNATIVE-1xCPU-8GB",
-          "cores": 1,
-          "memoryMiB": 8192,
-          "storageGB": 0,
-          "monthly": 20
-        },
-        {
           "name": "STARTER-4xCPU-8GB",
           "cores": 4,
           "memoryMiB": 8192,
           "storageGB": 40,
+          "monthly": 20
+        },
+        {
+          "name": "CLOUDNATIVE-1xCPU-8GB",
+          "cores": 1,
+          "memoryMiB": 8192,
           "monthly": 20
         },
         {
@@ -1801,7 +1714,6 @@
           "name": "CLOUDNATIVE-2xCPU-8GB",
           "cores": 2,
           "memoryMiB": 8192,
-          "storageGB": 0,
           "monthly": 24
         },
         {
@@ -1836,14 +1748,12 @@
           "name": "CLOUDNATIVE-4xCPU-8GB",
           "cores": 4,
           "memoryMiB": 8192,
-          "storageGB": 0,
           "monthly": 32
         },
         {
           "name": "CLOUDNATIVE-2xCPU-16GB",
           "cores": 2,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 34
         },
         {
@@ -1885,8 +1795,13 @@
           "name": "CLOUDNATIVE-4xCPU-16GB",
           "cores": 4,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 68
+        },
+        {
+          "name": "CLOUDNATIVE-4xCPU-24GB",
+          "cores": 4,
+          "memoryMiB": 24576,
+          "monthly": 72
         },
         {
           "name": "PREMIUM-2xCPU-16GB",
@@ -1896,17 +1811,9 @@
           "monthly": 72
         },
         {
-          "name": "CLOUDNATIVE-4xCPU-24GB",
-          "cores": 4,
-          "memoryMiB": 24576,
-          "storageGB": 0,
-          "monthly": 72
-        },
-        {
           "name": "CLOUDNATIVE-6xCPU-16GB",
           "cores": 6,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 74
         },
         {
@@ -1920,35 +1827,30 @@
           "name": "CLOUDNATIVE-6xCPU-24GB",
           "cores": 6,
           "memoryMiB": 24576,
-          "storageGB": 0,
           "monthly": 78
         },
         {
           "name": "CLOUDNATIVE-8xCPU-16GB",
           "cores": 8,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 80
         },
         {
           "name": "CLOUDNATIVE-8xCPU-24GB",
           "cores": 8,
           "memoryMiB": 24576,
-          "storageGB": 0,
           "monthly": 84
-        },
-        {
-          "name": "CLOUDNATIVE-4xCPU-32GB",
-          "cores": 4,
-          "memoryMiB": 32768,
-          "storageGB": 0,
-          "monthly": 90
         },
         {
           "name": "CLOUDNATIVE-12xCPU-24GB",
           "cores": 12,
           "memoryMiB": 24576,
-          "storageGB": 0,
+          "monthly": 90
+        },
+        {
+          "name": "CLOUDNATIVE-4xCPU-32GB",
+          "cores": 4,
+          "memoryMiB": 32768,
           "monthly": 90
         },
         {
@@ -1969,7 +1871,6 @@
           "name": "CLOUDNATIVE-8xCPU-32GB",
           "cores": 8,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 130
         },
         {
@@ -1983,7 +1884,6 @@
           "name": "CLOUDNATIVE-12xCPU-32GB",
           "cores": 12,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 145
         },
         {
@@ -2011,14 +1911,12 @@
           "name": "CLOUDNATIVE-16xCPU-32GB",
           "cores": 16,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 160
         },
         {
           "name": "CLOUDNATIVE-4xCPU-48GB",
           "cores": 4,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 160
         },
         {
@@ -2032,7 +1930,6 @@
           "name": "CLOUDNATIVE-8xCPU-48GB",
           "cores": 8,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 190
         },
         {
@@ -2046,7 +1943,6 @@
           "name": "CLOUDNATIVE-8xCPU-64GB",
           "cores": 8,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 220
         },
         {
@@ -2060,14 +1956,12 @@
           "name": "CLOUDNATIVE-16xCPU-48GB",
           "cores": 16,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 230
         },
         {
           "name": "CLOUDNATIVE-8xCPU-96GB",
           "cores": 8,
           "memoryMiB": 98304,
-          "storageGB": 0,
           "monthly": 240
         },
         {
@@ -2081,7 +1975,6 @@
           "name": "CLOUDNATIVE-16xCPU-64GB",
           "cores": 16,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 270
         },
         {
@@ -2095,14 +1988,12 @@
           "name": "CLOUDNATIVE-20xCPU-64GB",
           "cores": 20,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 285
         },
         {
           "name": "CLOUDNATIVE-32xCPU-64GB",
           "cores": 32,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 300
         },
         {
@@ -2127,17 +2018,15 @@
           "monthly": 337
         },
         {
-          "name": "CLOUDNATIVE-8xCPU-128GB",
-          "cores": 8,
-          "memoryMiB": 131072,
-          "storageGB": 0,
-          "monthly": 340
-        },
-        {
           "name": "CLOUDNATIVE-16xCPU-96GB",
           "cores": 16,
           "memoryMiB": 98304,
-          "storageGB": 0,
+          "monthly": 340
+        },
+        {
+          "name": "CLOUDNATIVE-8xCPU-128GB",
+          "cores": 8,
+          "memoryMiB": 131072,
           "monthly": 340
         },
         {
@@ -2151,14 +2040,12 @@
           "name": "CLOUDNATIVE-16xCPU-128GB",
           "cores": 16,
           "memoryMiB": 131072,
-          "storageGB": 0,
           "monthly": 370
         },
         {
           "name": "CLOUDNATIVE-20xCPU-96GB",
           "cores": 20,
           "memoryMiB": 98304,
-          "storageGB": 0,
           "monthly": 380
         },
         {
@@ -2179,7 +2066,6 @@
           "name": "CLOUDNATIVE-32xCPU-128GB",
           "cores": 32,
           "memoryMiB": 131072,
-          "storageGB": 0,
           "monthly": 460
         },
         {
@@ -2193,7 +2079,6 @@
           "name": "CLOUDNATIVE-16xCPU-192GB",
           "cores": 16,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 560
         },
         {
@@ -2228,7 +2113,6 @@
           "name": "CLOUDNATIVE-32xCPU-192GB",
           "cores": 32,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 670
         },
         {
@@ -2242,14 +2126,12 @@
           "name": "CLOUDNATIVE-64xCPU-192GB",
           "cores": 64,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 700
         },
         {
           "name": "CLOUDNATIVE-24xCPU-256GB",
           "cores": 24,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 720
         },
         {
@@ -2263,7 +2145,6 @@
           "name": "CLOUDNATIVE-32xCPU-256GB",
           "cores": 32,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 740
         },
         {
@@ -2277,14 +2158,12 @@
           "name": "CLOUDNATIVE-64xCPU-256GB",
           "cores": 64,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 820
         },
         {
           "name": "CLOUDNATIVE-32xCPU-384GB",
           "cores": 32,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 880
         },
         {
@@ -2298,14 +2177,12 @@
           "name": "CLOUDNATIVE-48xCPU-384GB",
           "cores": 48,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 920
         },
         {
           "name": "CLOUDNATIVE-64xCPU-384GB",
           "cores": 64,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 980
         },
         {
@@ -2340,7 +2217,6 @@
           "name": "CLOUDNATIVE-48xCPU-512GB",
           "cores": 48,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1200
         },
         {
@@ -2375,7 +2251,6 @@
           "name": "CLOUDNATIVE-64xCPU-512GB",
           "cores": 64,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1400
         },
         {
@@ -2396,7 +2271,6 @@
           "name": "CLOUDNATIVE-80xCPU-512GB",
           "cores": 80,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1800
         },
         {
@@ -2442,35 +2316,35 @@
           "monthly": 2977
         }
       ],
-      "storageMaxiopsGBMonth": 0.20832,
-      "storageStandardGBMonth": 0.10684800000000001,
-      "loadBalancerMonthly": 28,
-      "controlPlaneMonthly": 168,
+      "storageMaxiopsGBMonth": 0.2232,
+      "storageStandardGBMonth": 0.1145,
+      "loadBalancerMonthly": 30,
+      "controlPlaneMonthly": 60,
       "loadBalancerPlans": {
-        "development": 9.33,
+        "development": 10,
         "essentials": 0,
-        "production-medium": 70,
-        "production-small": 28
+        "production-medium": 75,
+        "production-small": 30
       },
       "kubernetesPlans": {
         "dev-md": 0,
-        "development": 84,
-        "prod-md": 56,
-        "prod-md-ha": 56,
-        "production-small": 168
+        "development": 90,
+        "prod-md": 60,
+        "prod-md-ha": 60,
+        "production-small": 180
       }
     },
     "es-mad1": {
       "plans": [
         {
-          "name": "STARTER-1xCPU-1GB",
+          "name": "DEV-1xCPU-1GB-10GB",
           "cores": 1,
           "memoryMiB": 1024,
           "storageGB": 10,
           "monthly": 3
         },
         {
-          "name": "DEV-1xCPU-1GB-10GB",
+          "name": "STARTER-1xCPU-1GB",
           "cores": 1,
           "memoryMiB": 1024,
           "storageGB": 10,
@@ -2498,15 +2372,15 @@
           "monthly": 6
         },
         {
-          "name": "STARTER-2xCPU-2GB",
-          "cores": 2,
+          "name": "DEV-1xCPU-2GB",
+          "cores": 1,
           "memoryMiB": 2048,
           "storageGB": 30,
           "monthly": 8
         },
         {
-          "name": "DEV-1xCPU-2GB",
-          "cores": 1,
+          "name": "STARTER-2xCPU-2GB",
+          "cores": 2,
           "memoryMiB": 2048,
           "storageGB": 30,
           "monthly": 8
@@ -2526,13 +2400,6 @@
           "monthly": 10
         },
         {
-          "name": "CLOUDNATIVE-1xCPU-4GB",
-          "cores": 1,
-          "memoryMiB": 4096,
-          "storageGB": 0,
-          "monthly": 12
-        },
-        {
           "name": "STARTER-2xCPU-4GB",
           "cores": 2,
           "memoryMiB": 4096,
@@ -2547,17 +2414,22 @@
           "monthly": 12
         },
         {
-          "name": "CLOUDNATIVE-2xCPU-4GB",
-          "cores": 2,
+          "name": "CLOUDNATIVE-1xCPU-4GB",
+          "cores": 1,
           "memoryMiB": 4096,
-          "storageGB": 0,
-          "monthly": 15
+          "monthly": 12
         },
         {
           "name": "DEV-1xCPU-4GB",
           "cores": 1,
           "memoryMiB": 4096,
           "storageGB": 40,
+          "monthly": 15
+        },
+        {
+          "name": "CLOUDNATIVE-2xCPU-4GB",
+          "cores": 2,
+          "memoryMiB": 4096,
           "monthly": 15
         },
         {
@@ -2589,17 +2461,16 @@
           "monthly": 18
         },
         {
-          "name": "CLOUDNATIVE-1xCPU-8GB",
-          "cores": 1,
-          "memoryMiB": 8192,
-          "storageGB": 0,
-          "monthly": 20
-        },
-        {
           "name": "STARTER-4xCPU-8GB",
           "cores": 4,
           "memoryMiB": 8192,
           "storageGB": 40,
+          "monthly": 20
+        },
+        {
+          "name": "CLOUDNATIVE-1xCPU-8GB",
+          "cores": 1,
+          "memoryMiB": 8192,
           "monthly": 20
         },
         {
@@ -2620,7 +2491,6 @@
           "name": "CLOUDNATIVE-2xCPU-8GB",
           "cores": 2,
           "memoryMiB": 8192,
-          "storageGB": 0,
           "monthly": 24
         },
         {
@@ -2655,14 +2525,12 @@
           "name": "CLOUDNATIVE-4xCPU-8GB",
           "cores": 4,
           "memoryMiB": 8192,
-          "storageGB": 0,
           "monthly": 32
         },
         {
           "name": "CLOUDNATIVE-2xCPU-16GB",
           "cores": 2,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 34
         },
         {
@@ -2704,8 +2572,13 @@
           "name": "CLOUDNATIVE-4xCPU-16GB",
           "cores": 4,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 68
+        },
+        {
+          "name": "CLOUDNATIVE-4xCPU-24GB",
+          "cores": 4,
+          "memoryMiB": 24576,
+          "monthly": 72
         },
         {
           "name": "PREMIUM-2xCPU-16GB",
@@ -2715,17 +2588,9 @@
           "monthly": 72
         },
         {
-          "name": "CLOUDNATIVE-4xCPU-24GB",
-          "cores": 4,
-          "memoryMiB": 24576,
-          "storageGB": 0,
-          "monthly": 72
-        },
-        {
           "name": "CLOUDNATIVE-6xCPU-16GB",
           "cores": 6,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 74
         },
         {
@@ -2739,35 +2604,30 @@
           "name": "CLOUDNATIVE-6xCPU-24GB",
           "cores": 6,
           "memoryMiB": 24576,
-          "storageGB": 0,
           "monthly": 78
         },
         {
           "name": "CLOUDNATIVE-8xCPU-16GB",
           "cores": 8,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 80
         },
         {
           "name": "CLOUDNATIVE-8xCPU-24GB",
           "cores": 8,
           "memoryMiB": 24576,
-          "storageGB": 0,
           "monthly": 84
-        },
-        {
-          "name": "CLOUDNATIVE-4xCPU-32GB",
-          "cores": 4,
-          "memoryMiB": 32768,
-          "storageGB": 0,
-          "monthly": 90
         },
         {
           "name": "CLOUDNATIVE-12xCPU-24GB",
           "cores": 12,
           "memoryMiB": 24576,
-          "storageGB": 0,
+          "monthly": 90
+        },
+        {
+          "name": "CLOUDNATIVE-4xCPU-32GB",
+          "cores": 4,
+          "memoryMiB": 32768,
           "monthly": 90
         },
         {
@@ -2788,7 +2648,6 @@
           "name": "CLOUDNATIVE-8xCPU-32GB",
           "cores": 8,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 130
         },
         {
@@ -2802,7 +2661,6 @@
           "name": "CLOUDNATIVE-12xCPU-32GB",
           "cores": 12,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 145
         },
         {
@@ -2830,14 +2688,12 @@
           "name": "CLOUDNATIVE-16xCPU-32GB",
           "cores": 16,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 160
         },
         {
           "name": "CLOUDNATIVE-4xCPU-48GB",
           "cores": 4,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 160
         },
         {
@@ -2851,7 +2707,6 @@
           "name": "CLOUDNATIVE-8xCPU-48GB",
           "cores": 8,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 190
         },
         {
@@ -2865,7 +2720,6 @@
           "name": "CLOUDNATIVE-8xCPU-64GB",
           "cores": 8,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 220
         },
         {
@@ -2879,14 +2733,12 @@
           "name": "CLOUDNATIVE-16xCPU-48GB",
           "cores": 16,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 230
         },
         {
           "name": "CLOUDNATIVE-8xCPU-96GB",
           "cores": 8,
           "memoryMiB": 98304,
-          "storageGB": 0,
           "monthly": 240
         },
         {
@@ -2900,7 +2752,6 @@
           "name": "CLOUDNATIVE-16xCPU-64GB",
           "cores": 16,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 270
         },
         {
@@ -2914,14 +2765,12 @@
           "name": "CLOUDNATIVE-20xCPU-64GB",
           "cores": 20,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 285
         },
         {
           "name": "CLOUDNATIVE-32xCPU-64GB",
           "cores": 32,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 300
         },
         {
@@ -2946,17 +2795,15 @@
           "monthly": 337
         },
         {
-          "name": "CLOUDNATIVE-8xCPU-128GB",
-          "cores": 8,
-          "memoryMiB": 131072,
-          "storageGB": 0,
-          "monthly": 340
-        },
-        {
           "name": "CLOUDNATIVE-16xCPU-96GB",
           "cores": 16,
           "memoryMiB": 98304,
-          "storageGB": 0,
+          "monthly": 340
+        },
+        {
+          "name": "CLOUDNATIVE-8xCPU-128GB",
+          "cores": 8,
+          "memoryMiB": 131072,
           "monthly": 340
         },
         {
@@ -2970,14 +2817,12 @@
           "name": "CLOUDNATIVE-16xCPU-128GB",
           "cores": 16,
           "memoryMiB": 131072,
-          "storageGB": 0,
           "monthly": 370
         },
         {
           "name": "CLOUDNATIVE-20xCPU-96GB",
           "cores": 20,
           "memoryMiB": 98304,
-          "storageGB": 0,
           "monthly": 380
         },
         {
@@ -2998,7 +2843,6 @@
           "name": "CLOUDNATIVE-32xCPU-128GB",
           "cores": 32,
           "memoryMiB": 131072,
-          "storageGB": 0,
           "monthly": 460
         },
         {
@@ -3012,7 +2856,6 @@
           "name": "CLOUDNATIVE-16xCPU-192GB",
           "cores": 16,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 560
         },
         {
@@ -3047,7 +2890,6 @@
           "name": "CLOUDNATIVE-32xCPU-192GB",
           "cores": 32,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 670
         },
         {
@@ -3061,14 +2903,12 @@
           "name": "CLOUDNATIVE-64xCPU-192GB",
           "cores": 64,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 700
         },
         {
           "name": "CLOUDNATIVE-24xCPU-256GB",
           "cores": 24,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 720
         },
         {
@@ -3082,7 +2922,6 @@
           "name": "CLOUDNATIVE-32xCPU-256GB",
           "cores": 32,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 740
         },
         {
@@ -3096,14 +2935,12 @@
           "name": "CLOUDNATIVE-64xCPU-256GB",
           "cores": 64,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 820
         },
         {
           "name": "CLOUDNATIVE-32xCPU-384GB",
           "cores": 32,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 880
         },
         {
@@ -3117,14 +2954,12 @@
           "name": "CLOUDNATIVE-48xCPU-384GB",
           "cores": 48,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 920
         },
         {
           "name": "CLOUDNATIVE-64xCPU-384GB",
           "cores": 64,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 980
         },
         {
@@ -3159,7 +2994,6 @@
           "name": "CLOUDNATIVE-48xCPU-512GB",
           "cores": 48,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1200
         },
         {
@@ -3194,7 +3028,6 @@
           "name": "CLOUDNATIVE-64xCPU-512GB",
           "cores": 64,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1400
         },
         {
@@ -3215,7 +3048,6 @@
           "name": "CLOUDNATIVE-80xCPU-512GB",
           "cores": 80,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1800
         },
         {
@@ -3261,22 +3093,22 @@
           "monthly": 2977
         }
       ],
-      "storageMaxiopsGBMonth": 0.20832,
-      "storageStandardGBMonth": 0.10684800000000001,
-      "loadBalancerMonthly": 28,
-      "controlPlaneMonthly": 168,
+      "storageMaxiopsGBMonth": 0.2232,
+      "storageStandardGBMonth": 0.1145,
+      "loadBalancerMonthly": 30,
+      "controlPlaneMonthly": 60,
       "loadBalancerPlans": {
-        "development": 9.33,
+        "development": 10,
         "essentials": 0,
-        "production-medium": 70,
-        "production-small": 28
+        "production-medium": 75,
+        "production-small": 30
       },
       "kubernetesPlans": {
         "dev-md": 0,
-        "development": 84,
-        "prod-md": 56,
-        "prod-md-ha": 56,
-        "production-small": 168
+        "development": 90,
+        "prod-md": 60,
+        "prod-md-ha": 60,
+        "production-small": 180
       }
     },
     "fi-hel1": {
@@ -3317,15 +3149,15 @@
           "monthly": 6
         },
         {
-          "name": "STARTER-2xCPU-2GB",
-          "cores": 2,
+          "name": "DEV-1xCPU-2GB",
+          "cores": 1,
           "memoryMiB": 2048,
           "storageGB": 30,
           "monthly": 8
         },
         {
-          "name": "DEV-1xCPU-2GB",
-          "cores": 1,
+          "name": "STARTER-2xCPU-2GB",
+          "cores": 2,
           "memoryMiB": 2048,
           "storageGB": 30,
           "monthly": 8
@@ -3345,10 +3177,10 @@
           "monthly": 10
         },
         {
-          "name": "CLOUDNATIVE-1xCPU-4GB",
+          "name": "PREMIUM-1xCPU-2GB",
           "cores": 1,
-          "memoryMiB": 4096,
-          "storageGB": 0,
+          "memoryMiB": 2048,
+          "storageGB": 25,
           "monthly": 12
         },
         {
@@ -3359,24 +3191,22 @@
           "monthly": 12
         },
         {
-          "name": "PREMIUM-1xCPU-2GB",
+          "name": "CLOUDNATIVE-1xCPU-4GB",
           "cores": 1,
-          "memoryMiB": 2048,
-          "storageGB": 25,
-          "monthly": 12
-        },
-        {
-          "name": "CLOUDNATIVE-2xCPU-4GB",
-          "cores": 2,
           "memoryMiB": 4096,
-          "storageGB": 0,
-          "monthly": 15
+          "monthly": 12
         },
         {
           "name": "DEV-1xCPU-4GB",
           "cores": 1,
           "memoryMiB": 4096,
           "storageGB": 40,
+          "monthly": 15
+        },
+        {
+          "name": "CLOUDNATIVE-2xCPU-4GB",
+          "cores": 2,
+          "memoryMiB": 4096,
           "monthly": 15
         },
         {
@@ -3394,13 +3224,6 @@
           "monthly": 16.2
         },
         {
-          "name": "STARTER-2xCPU-8GB",
-          "cores": 2,
-          "memoryMiB": 8192,
-          "storageGB": 40,
-          "monthly": 18
-        },
-        {
           "name": "DEV-2xCPU-4GB",
           "cores": 2,
           "memoryMiB": 4096,
@@ -3408,17 +3231,23 @@
           "monthly": 18
         },
         {
-          "name": "CLOUDNATIVE-1xCPU-8GB",
-          "cores": 1,
+          "name": "STARTER-2xCPU-8GB",
+          "cores": 2,
           "memoryMiB": 8192,
-          "storageGB": 0,
-          "monthly": 20
+          "storageGB": 40,
+          "monthly": 18
         },
         {
           "name": "STARTER-4xCPU-8GB",
           "cores": 4,
           "memoryMiB": 8192,
           "storageGB": 40,
+          "monthly": 20
+        },
+        {
+          "name": "CLOUDNATIVE-1xCPU-8GB",
+          "cores": 1,
+          "memoryMiB": 8192,
           "monthly": 20
         },
         {
@@ -3429,17 +3258,16 @@
           "monthly": 21.6
         },
         {
+          "name": "CLOUDNATIVE-2xCPU-8GB",
+          "cores": 2,
+          "memoryMiB": 8192,
+          "monthly": 24
+        },
+        {
           "name": "STARTER-2xCPU-16GB",
           "cores": 2,
           "memoryMiB": 16384,
           "storageGB": 50,
-          "monthly": 24
-        },
-        {
-          "name": "CLOUDNATIVE-2xCPU-8GB",
-          "cores": 2,
-          "memoryMiB": 8192,
-          "storageGB": 0,
           "monthly": 24
         },
         {
@@ -3467,7 +3295,6 @@
           "name": "CLOUDNATIVE-4xCPU-8GB",
           "cores": 4,
           "memoryMiB": 8192,
-          "storageGB": 0,
           "monthly": 32
         },
         {
@@ -3481,7 +3308,6 @@
           "name": "CLOUDNATIVE-2xCPU-16GB",
           "cores": 2,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 34
         },
         {
@@ -3523,15 +3349,7 @@
           "name": "CLOUDNATIVE-4xCPU-16GB",
           "cores": 4,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 68
-        },
-        {
-          "name": "CLOUDNATIVE-4xCPU-24GB",
-          "cores": 4,
-          "memoryMiB": 24576,
-          "storageGB": 0,
-          "monthly": 72
         },
         {
           "name": "PREMIUM-2xCPU-16GB",
@@ -3541,45 +3359,45 @@
           "monthly": 72
         },
         {
+          "name": "CLOUDNATIVE-4xCPU-24GB",
+          "cores": 4,
+          "memoryMiB": 24576,
+          "monthly": 72
+        },
+        {
           "name": "CLOUDNATIVE-6xCPU-16GB",
           "cores": 6,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 74
         },
         {
           "name": "CLOUDNATIVE-6xCPU-24GB",
           "cores": 6,
           "memoryMiB": 24576,
-          "storageGB": 0,
           "monthly": 78
         },
         {
           "name": "CLOUDNATIVE-8xCPU-16GB",
           "cores": 8,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 80
         },
         {
           "name": "CLOUDNATIVE-8xCPU-24GB",
           "cores": 8,
           "memoryMiB": 24576,
-          "storageGB": 0,
           "monthly": 84
         },
         {
           "name": "CLOUDNATIVE-4xCPU-32GB",
           "cores": 4,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 90
         },
         {
           "name": "CLOUDNATIVE-12xCPU-24GB",
           "cores": 12,
           "memoryMiB": 24576,
-          "storageGB": 0,
           "monthly": 90
         },
         {
@@ -3607,7 +3425,6 @@
           "name": "CLOUDNATIVE-8xCPU-32GB",
           "cores": 8,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 130
         },
         {
@@ -3621,7 +3438,6 @@
           "name": "CLOUDNATIVE-12xCPU-32GB",
           "cores": 12,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 145
         },
         {
@@ -3635,14 +3451,12 @@
           "name": "CLOUDNATIVE-16xCPU-32GB",
           "cores": 16,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 160
         },
         {
           "name": "CLOUDNATIVE-4xCPU-48GB",
           "cores": 4,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 160
         },
         {
@@ -3663,7 +3477,6 @@
           "name": "CLOUDNATIVE-8xCPU-48GB",
           "cores": 8,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 190
         },
         {
@@ -3684,21 +3497,18 @@
           "name": "CLOUDNATIVE-8xCPU-64GB",
           "cores": 8,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 220
         },
         {
           "name": "CLOUDNATIVE-16xCPU-48GB",
           "cores": 16,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 230
         },
         {
           "name": "CLOUDNATIVE-8xCPU-96GB",
           "cores": 8,
           "memoryMiB": 98304,
-          "storageGB": 0,
           "monthly": 240
         },
         {
@@ -3719,21 +3529,18 @@
           "name": "CLOUDNATIVE-16xCPU-64GB",
           "cores": 16,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 270
         },
         {
           "name": "CLOUDNATIVE-20xCPU-64GB",
           "cores": 20,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 285
         },
         {
           "name": "CLOUDNATIVE-32xCPU-64GB",
           "cores": 32,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 300
         },
         {
@@ -3754,14 +3561,12 @@
           "name": "CLOUDNATIVE-8xCPU-128GB",
           "cores": 8,
           "memoryMiB": 131072,
-          "storageGB": 0,
           "monthly": 340
         },
         {
           "name": "CLOUDNATIVE-16xCPU-96GB",
           "cores": 16,
           "memoryMiB": 98304,
-          "storageGB": 0,
           "monthly": 340
         },
         {
@@ -3775,14 +3580,12 @@
           "name": "CLOUDNATIVE-16xCPU-128GB",
           "cores": 16,
           "memoryMiB": 131072,
-          "storageGB": 0,
           "monthly": 370
         },
         {
           "name": "CLOUDNATIVE-20xCPU-96GB",
           "cores": 20,
           "memoryMiB": 98304,
-          "storageGB": 0,
           "monthly": 380
         },
         {
@@ -3810,7 +3613,6 @@
           "name": "CLOUDNATIVE-32xCPU-128GB",
           "cores": 32,
           "memoryMiB": 131072,
-          "storageGB": 0,
           "monthly": 460
         },
         {
@@ -3831,7 +3633,6 @@
           "name": "CLOUDNATIVE-16xCPU-192GB",
           "cores": 16,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 560
         },
         {
@@ -3852,21 +3653,18 @@
           "name": "CLOUDNATIVE-32xCPU-192GB",
           "cores": 32,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 670
         },
         {
           "name": "CLOUDNATIVE-64xCPU-192GB",
           "cores": 64,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 700
         },
         {
           "name": "CLOUDNATIVE-24xCPU-256GB",
           "cores": 24,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 720
         },
         {
@@ -3880,7 +3678,6 @@
           "name": "CLOUDNATIVE-32xCPU-256GB",
           "cores": 32,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 740
         },
         {
@@ -3908,7 +3705,6 @@
           "name": "CLOUDNATIVE-64xCPU-256GB",
           "cores": 64,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 820
         },
         {
@@ -3922,21 +3718,18 @@
           "name": "CLOUDNATIVE-32xCPU-384GB",
           "cores": 32,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 880
         },
         {
           "name": "CLOUDNATIVE-48xCPU-384GB",
           "cores": 48,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 920
         },
         {
           "name": "CLOUDNATIVE-64xCPU-384GB",
           "cores": 64,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 980
         },
         {
@@ -3971,7 +3764,6 @@
           "name": "CLOUDNATIVE-48xCPU-512GB",
           "cores": 48,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1200
         },
         {
@@ -4006,7 +3798,6 @@
           "name": "CLOUDNATIVE-64xCPU-512GB",
           "cores": 64,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1400
         },
         {
@@ -4027,7 +3818,6 @@
           "name": "CLOUDNATIVE-80xCPU-512GB",
           "cores": 80,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1800
         },
         {
@@ -4080,22 +3870,22 @@
           "monthly": 3446
         }
       ],
-      "storageMaxiopsGBMonth": 0.20832,
-      "storageStandardGBMonth": 0.10684800000000001,
-      "loadBalancerMonthly": 28,
-      "controlPlaneMonthly": 168,
+      "storageMaxiopsGBMonth": 0.2232,
+      "storageStandardGBMonth": 0.1145,
+      "loadBalancerMonthly": 30,
+      "controlPlaneMonthly": 60,
       "loadBalancerPlans": {
-        "development": 9.33,
+        "development": 10,
         "essentials": 0,
-        "production-medium": 70,
-        "production-small": 28
+        "production-medium": 75,
+        "production-small": 30
       },
       "kubernetesPlans": {
         "dev-md": 0,
-        "development": 84,
-        "prod-md": 56,
-        "prod-md-ha": 56,
-        "production-small": 168
+        "development": 90,
+        "prod-md": 60,
+        "prod-md-ha": 60,
+        "production-small": 180
       }
     },
     "fi-hel2": {
@@ -4136,15 +3926,15 @@
           "monthly": 6
         },
         {
-          "name": "STARTER-2xCPU-2GB",
-          "cores": 2,
+          "name": "DEV-1xCPU-2GB",
+          "cores": 1,
           "memoryMiB": 2048,
           "storageGB": 30,
           "monthly": 8
         },
         {
-          "name": "DEV-1xCPU-2GB",
-          "cores": 1,
+          "name": "STARTER-2xCPU-2GB",
+          "cores": 2,
           "memoryMiB": 2048,
           "storageGB": 30,
           "monthly": 8
@@ -4164,10 +3954,10 @@
           "monthly": 10
         },
         {
-          "name": "CLOUDNATIVE-1xCPU-4GB",
+          "name": "PREMIUM-1xCPU-2GB",
           "cores": 1,
-          "memoryMiB": 4096,
-          "storageGB": 0,
+          "memoryMiB": 2048,
+          "storageGB": 25,
           "monthly": 12
         },
         {
@@ -4178,24 +3968,22 @@
           "monthly": 12
         },
         {
-          "name": "PREMIUM-1xCPU-2GB",
+          "name": "CLOUDNATIVE-1xCPU-4GB",
           "cores": 1,
-          "memoryMiB": 2048,
-          "storageGB": 25,
-          "monthly": 12
-        },
-        {
-          "name": "CLOUDNATIVE-2xCPU-4GB",
-          "cores": 2,
           "memoryMiB": 4096,
-          "storageGB": 0,
-          "monthly": 15
+          "monthly": 12
         },
         {
           "name": "DEV-1xCPU-4GB",
           "cores": 1,
           "memoryMiB": 4096,
           "storageGB": 40,
+          "monthly": 15
+        },
+        {
+          "name": "CLOUDNATIVE-2xCPU-4GB",
+          "cores": 2,
+          "memoryMiB": 4096,
           "monthly": 15
         },
         {
@@ -4213,13 +4001,6 @@
           "monthly": 16.2
         },
         {
-          "name": "STARTER-2xCPU-8GB",
-          "cores": 2,
-          "memoryMiB": 8192,
-          "storageGB": 40,
-          "monthly": 18
-        },
-        {
           "name": "DEV-2xCPU-4GB",
           "cores": 2,
           "memoryMiB": 4096,
@@ -4227,17 +4008,23 @@
           "monthly": 18
         },
         {
-          "name": "CLOUDNATIVE-1xCPU-8GB",
-          "cores": 1,
+          "name": "STARTER-2xCPU-8GB",
+          "cores": 2,
           "memoryMiB": 8192,
-          "storageGB": 0,
-          "monthly": 20
+          "storageGB": 40,
+          "monthly": 18
         },
         {
           "name": "STARTER-4xCPU-8GB",
           "cores": 4,
           "memoryMiB": 8192,
           "storageGB": 40,
+          "monthly": 20
+        },
+        {
+          "name": "CLOUDNATIVE-1xCPU-8GB",
+          "cores": 1,
+          "memoryMiB": 8192,
           "monthly": 20
         },
         {
@@ -4248,17 +4035,16 @@
           "monthly": 21.6
         },
         {
+          "name": "CLOUDNATIVE-2xCPU-8GB",
+          "cores": 2,
+          "memoryMiB": 8192,
+          "monthly": 24
+        },
+        {
           "name": "STARTER-2xCPU-16GB",
           "cores": 2,
           "memoryMiB": 16384,
           "storageGB": 50,
-          "monthly": 24
-        },
-        {
-          "name": "CLOUDNATIVE-2xCPU-8GB",
-          "cores": 2,
-          "memoryMiB": 8192,
-          "storageGB": 0,
           "monthly": 24
         },
         {
@@ -4286,7 +4072,6 @@
           "name": "CLOUDNATIVE-4xCPU-8GB",
           "cores": 4,
           "memoryMiB": 8192,
-          "storageGB": 0,
           "monthly": 32
         },
         {
@@ -4300,7 +4085,6 @@
           "name": "CLOUDNATIVE-2xCPU-16GB",
           "cores": 2,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 34
         },
         {
@@ -4342,15 +4126,7 @@
           "name": "CLOUDNATIVE-4xCPU-16GB",
           "cores": 4,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 68
-        },
-        {
-          "name": "CLOUDNATIVE-4xCPU-24GB",
-          "cores": 4,
-          "memoryMiB": 24576,
-          "storageGB": 0,
-          "monthly": 72
         },
         {
           "name": "PREMIUM-2xCPU-16GB",
@@ -4360,45 +4136,45 @@
           "monthly": 72
         },
         {
+          "name": "CLOUDNATIVE-4xCPU-24GB",
+          "cores": 4,
+          "memoryMiB": 24576,
+          "monthly": 72
+        },
+        {
           "name": "CLOUDNATIVE-6xCPU-16GB",
           "cores": 6,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 74
         },
         {
           "name": "CLOUDNATIVE-6xCPU-24GB",
           "cores": 6,
           "memoryMiB": 24576,
-          "storageGB": 0,
           "monthly": 78
         },
         {
           "name": "CLOUDNATIVE-8xCPU-16GB",
           "cores": 8,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 80
         },
         {
           "name": "CLOUDNATIVE-8xCPU-24GB",
           "cores": 8,
           "memoryMiB": 24576,
-          "storageGB": 0,
           "monthly": 84
         },
         {
           "name": "CLOUDNATIVE-4xCPU-32GB",
           "cores": 4,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 90
         },
         {
           "name": "CLOUDNATIVE-12xCPU-24GB",
           "cores": 12,
           "memoryMiB": 24576,
-          "storageGB": 0,
           "monthly": 90
         },
         {
@@ -4426,7 +4202,6 @@
           "name": "CLOUDNATIVE-8xCPU-32GB",
           "cores": 8,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 130
         },
         {
@@ -4440,7 +4215,6 @@
           "name": "CLOUDNATIVE-12xCPU-32GB",
           "cores": 12,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 145
         },
         {
@@ -4454,14 +4228,12 @@
           "name": "CLOUDNATIVE-16xCPU-32GB",
           "cores": 16,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 160
         },
         {
           "name": "CLOUDNATIVE-4xCPU-48GB",
           "cores": 4,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 160
         },
         {
@@ -4482,7 +4254,6 @@
           "name": "CLOUDNATIVE-8xCPU-48GB",
           "cores": 8,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 190
         },
         {
@@ -4503,21 +4274,18 @@
           "name": "CLOUDNATIVE-8xCPU-64GB",
           "cores": 8,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 220
         },
         {
           "name": "CLOUDNATIVE-16xCPU-48GB",
           "cores": 16,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 230
         },
         {
           "name": "CLOUDNATIVE-8xCPU-96GB",
           "cores": 8,
           "memoryMiB": 98304,
-          "storageGB": 0,
           "monthly": 240
         },
         {
@@ -4538,21 +4306,18 @@
           "name": "CLOUDNATIVE-16xCPU-64GB",
           "cores": 16,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 270
         },
         {
           "name": "CLOUDNATIVE-20xCPU-64GB",
           "cores": 20,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 285
         },
         {
           "name": "CLOUDNATIVE-32xCPU-64GB",
           "cores": 32,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 300
         },
         {
@@ -4573,14 +4338,12 @@
           "name": "CLOUDNATIVE-8xCPU-128GB",
           "cores": 8,
           "memoryMiB": 131072,
-          "storageGB": 0,
           "monthly": 340
         },
         {
           "name": "CLOUDNATIVE-16xCPU-96GB",
           "cores": 16,
           "memoryMiB": 98304,
-          "storageGB": 0,
           "monthly": 340
         },
         {
@@ -4594,14 +4357,12 @@
           "name": "CLOUDNATIVE-16xCPU-128GB",
           "cores": 16,
           "memoryMiB": 131072,
-          "storageGB": 0,
           "monthly": 370
         },
         {
           "name": "CLOUDNATIVE-20xCPU-96GB",
           "cores": 20,
           "memoryMiB": 98304,
-          "storageGB": 0,
           "monthly": 380
         },
         {
@@ -4629,7 +4390,6 @@
           "name": "CLOUDNATIVE-32xCPU-128GB",
           "cores": 32,
           "memoryMiB": 131072,
-          "storageGB": 0,
           "monthly": 460
         },
         {
@@ -4650,7 +4410,6 @@
           "name": "CLOUDNATIVE-16xCPU-192GB",
           "cores": 16,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 560
         },
         {
@@ -4671,21 +4430,18 @@
           "name": "CLOUDNATIVE-32xCPU-192GB",
           "cores": 32,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 670
         },
         {
           "name": "CLOUDNATIVE-64xCPU-192GB",
           "cores": 64,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 700
         },
         {
           "name": "CLOUDNATIVE-24xCPU-256GB",
           "cores": 24,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 720
         },
         {
@@ -4699,7 +4455,6 @@
           "name": "CLOUDNATIVE-32xCPU-256GB",
           "cores": 32,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 740
         },
         {
@@ -4727,7 +4482,6 @@
           "name": "CLOUDNATIVE-64xCPU-256GB",
           "cores": 64,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 820
         },
         {
@@ -4741,21 +4495,18 @@
           "name": "CLOUDNATIVE-32xCPU-384GB",
           "cores": 32,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 880
         },
         {
           "name": "CLOUDNATIVE-48xCPU-384GB",
           "cores": 48,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 920
         },
         {
           "name": "CLOUDNATIVE-64xCPU-384GB",
           "cores": 64,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 980
         },
         {
@@ -4790,7 +4541,6 @@
           "name": "CLOUDNATIVE-48xCPU-512GB",
           "cores": 48,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1200
         },
         {
@@ -4825,7 +4575,6 @@
           "name": "CLOUDNATIVE-64xCPU-512GB",
           "cores": 64,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1400
         },
         {
@@ -4846,7 +4595,6 @@
           "name": "CLOUDNATIVE-80xCPU-512GB",
           "cores": 80,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1800
         },
         {
@@ -4899,35 +4647,35 @@
           "monthly": 3446
         }
       ],
-      "storageMaxiopsGBMonth": 0.20832,
-      "storageStandardGBMonth": 0.10684800000000001,
-      "loadBalancerMonthly": 28,
-      "controlPlaneMonthly": 168,
+      "storageMaxiopsGBMonth": 0.2232,
+      "storageStandardGBMonth": 0.1145,
+      "loadBalancerMonthly": 30,
+      "controlPlaneMonthly": 60,
       "loadBalancerPlans": {
-        "development": 9.33,
+        "development": 10,
         "essentials": 0,
-        "production-medium": 70,
-        "production-small": 28
+        "production-medium": 75,
+        "production-small": 30
       },
       "kubernetesPlans": {
         "dev-md": 0,
-        "development": 84,
-        "prod-md": 56,
-        "prod-md-ha": 56,
-        "production-small": 168
+        "development": 90,
+        "prod-md": 60,
+        "prod-md-ha": 60,
+        "production-small": 180
       }
     },
     "nl-ams1": {
       "plans": [
         {
-          "name": "STARTER-1xCPU-1GB",
+          "name": "DEV-1xCPU-1GB-10GB",
           "cores": 1,
           "memoryMiB": 1024,
           "storageGB": 10,
           "monthly": 3
         },
         {
-          "name": "DEV-1xCPU-1GB-10GB",
+          "name": "STARTER-1xCPU-1GB",
           "cores": 1,
           "memoryMiB": 1024,
           "storageGB": 10,
@@ -4955,15 +4703,15 @@
           "monthly": 6
         },
         {
-          "name": "STARTER-2xCPU-2GB",
-          "cores": 2,
+          "name": "DEV-1xCPU-2GB",
+          "cores": 1,
           "memoryMiB": 2048,
           "storageGB": 30,
           "monthly": 8
         },
         {
-          "name": "DEV-1xCPU-2GB",
-          "cores": 1,
+          "name": "STARTER-2xCPU-2GB",
+          "cores": 2,
           "memoryMiB": 2048,
           "storageGB": 30,
           "monthly": 8
@@ -4983,13 +4731,6 @@
           "monthly": 10
         },
         {
-          "name": "CLOUDNATIVE-1xCPU-4GB",
-          "cores": 1,
-          "memoryMiB": 4096,
-          "storageGB": 0,
-          "monthly": 12
-        },
-        {
           "name": "STARTER-2xCPU-4GB",
           "cores": 2,
           "memoryMiB": 4096,
@@ -5004,17 +4745,22 @@
           "monthly": 12
         },
         {
-          "name": "CLOUDNATIVE-2xCPU-4GB",
-          "cores": 2,
+          "name": "CLOUDNATIVE-1xCPU-4GB",
+          "cores": 1,
           "memoryMiB": 4096,
-          "storageGB": 0,
-          "monthly": 15
+          "monthly": 12
         },
         {
           "name": "DEV-1xCPU-4GB",
           "cores": 1,
           "memoryMiB": 4096,
           "storageGB": 40,
+          "monthly": 15
+        },
+        {
+          "name": "CLOUDNATIVE-2xCPU-4GB",
+          "cores": 2,
+          "memoryMiB": 4096,
           "monthly": 15
         },
         {
@@ -5046,17 +4792,16 @@
           "monthly": 18
         },
         {
-          "name": "CLOUDNATIVE-1xCPU-8GB",
-          "cores": 1,
-          "memoryMiB": 8192,
-          "storageGB": 0,
-          "monthly": 20
-        },
-        {
           "name": "STARTER-4xCPU-8GB",
           "cores": 4,
           "memoryMiB": 8192,
           "storageGB": 40,
+          "monthly": 20
+        },
+        {
+          "name": "CLOUDNATIVE-1xCPU-8GB",
+          "cores": 1,
+          "memoryMiB": 8192,
           "monthly": 20
         },
         {
@@ -5077,7 +4822,6 @@
           "name": "CLOUDNATIVE-2xCPU-8GB",
           "cores": 2,
           "memoryMiB": 8192,
-          "storageGB": 0,
           "monthly": 24
         },
         {
@@ -5112,14 +4856,12 @@
           "name": "CLOUDNATIVE-4xCPU-8GB",
           "cores": 4,
           "memoryMiB": 8192,
-          "storageGB": 0,
           "monthly": 32
         },
         {
           "name": "CLOUDNATIVE-2xCPU-16GB",
           "cores": 2,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 34
         },
         {
@@ -5161,8 +4903,13 @@
           "name": "CLOUDNATIVE-4xCPU-16GB",
           "cores": 4,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 68
+        },
+        {
+          "name": "CLOUDNATIVE-4xCPU-24GB",
+          "cores": 4,
+          "memoryMiB": 24576,
+          "monthly": 72
         },
         {
           "name": "PREMIUM-2xCPU-16GB",
@@ -5172,17 +4919,9 @@
           "monthly": 72
         },
         {
-          "name": "CLOUDNATIVE-4xCPU-24GB",
-          "cores": 4,
-          "memoryMiB": 24576,
-          "storageGB": 0,
-          "monthly": 72
-        },
-        {
           "name": "CLOUDNATIVE-6xCPU-16GB",
           "cores": 6,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 74
         },
         {
@@ -5196,35 +4935,30 @@
           "name": "CLOUDNATIVE-6xCPU-24GB",
           "cores": 6,
           "memoryMiB": 24576,
-          "storageGB": 0,
           "monthly": 78
         },
         {
           "name": "CLOUDNATIVE-8xCPU-16GB",
           "cores": 8,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 80
         },
         {
           "name": "CLOUDNATIVE-8xCPU-24GB",
           "cores": 8,
           "memoryMiB": 24576,
-          "storageGB": 0,
           "monthly": 84
-        },
-        {
-          "name": "CLOUDNATIVE-4xCPU-32GB",
-          "cores": 4,
-          "memoryMiB": 32768,
-          "storageGB": 0,
-          "monthly": 90
         },
         {
           "name": "CLOUDNATIVE-12xCPU-24GB",
           "cores": 12,
           "memoryMiB": 24576,
-          "storageGB": 0,
+          "monthly": 90
+        },
+        {
+          "name": "CLOUDNATIVE-4xCPU-32GB",
+          "cores": 4,
+          "memoryMiB": 32768,
           "monthly": 90
         },
         {
@@ -5245,7 +4979,6 @@
           "name": "CLOUDNATIVE-8xCPU-32GB",
           "cores": 8,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 130
         },
         {
@@ -5259,7 +4992,6 @@
           "name": "CLOUDNATIVE-12xCPU-32GB",
           "cores": 12,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 145
         },
         {
@@ -5287,14 +5019,12 @@
           "name": "CLOUDNATIVE-16xCPU-32GB",
           "cores": 16,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 160
         },
         {
           "name": "CLOUDNATIVE-4xCPU-48GB",
           "cores": 4,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 160
         },
         {
@@ -5308,7 +5038,6 @@
           "name": "CLOUDNATIVE-8xCPU-48GB",
           "cores": 8,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 190
         },
         {
@@ -5322,7 +5051,6 @@
           "name": "CLOUDNATIVE-8xCPU-64GB",
           "cores": 8,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 220
         },
         {
@@ -5336,14 +5064,12 @@
           "name": "CLOUDNATIVE-16xCPU-48GB",
           "cores": 16,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 230
         },
         {
           "name": "CLOUDNATIVE-8xCPU-96GB",
           "cores": 8,
           "memoryMiB": 98304,
-          "storageGB": 0,
           "monthly": 240
         },
         {
@@ -5357,7 +5083,6 @@
           "name": "CLOUDNATIVE-16xCPU-64GB",
           "cores": 16,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 270
         },
         {
@@ -5371,14 +5096,12 @@
           "name": "CLOUDNATIVE-20xCPU-64GB",
           "cores": 20,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 285
         },
         {
           "name": "CLOUDNATIVE-32xCPU-64GB",
           "cores": 32,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 300
         },
         {
@@ -5403,17 +5126,15 @@
           "monthly": 337
         },
         {
-          "name": "CLOUDNATIVE-8xCPU-128GB",
-          "cores": 8,
-          "memoryMiB": 131072,
-          "storageGB": 0,
-          "monthly": 340
-        },
-        {
           "name": "CLOUDNATIVE-16xCPU-96GB",
           "cores": 16,
           "memoryMiB": 98304,
-          "storageGB": 0,
+          "monthly": 340
+        },
+        {
+          "name": "CLOUDNATIVE-8xCPU-128GB",
+          "cores": 8,
+          "memoryMiB": 131072,
           "monthly": 340
         },
         {
@@ -5427,14 +5148,12 @@
           "name": "CLOUDNATIVE-16xCPU-128GB",
           "cores": 16,
           "memoryMiB": 131072,
-          "storageGB": 0,
           "monthly": 370
         },
         {
           "name": "CLOUDNATIVE-20xCPU-96GB",
           "cores": 20,
           "memoryMiB": 98304,
-          "storageGB": 0,
           "monthly": 380
         },
         {
@@ -5455,7 +5174,6 @@
           "name": "CLOUDNATIVE-32xCPU-128GB",
           "cores": 32,
           "memoryMiB": 131072,
-          "storageGB": 0,
           "monthly": 460
         },
         {
@@ -5469,7 +5187,6 @@
           "name": "CLOUDNATIVE-16xCPU-192GB",
           "cores": 16,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 560
         },
         {
@@ -5504,7 +5221,6 @@
           "name": "CLOUDNATIVE-32xCPU-192GB",
           "cores": 32,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 670
         },
         {
@@ -5518,14 +5234,12 @@
           "name": "CLOUDNATIVE-64xCPU-192GB",
           "cores": 64,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 700
         },
         {
           "name": "CLOUDNATIVE-24xCPU-256GB",
           "cores": 24,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 720
         },
         {
@@ -5539,7 +5253,6 @@
           "name": "CLOUDNATIVE-32xCPU-256GB",
           "cores": 32,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 740
         },
         {
@@ -5553,14 +5266,12 @@
           "name": "CLOUDNATIVE-64xCPU-256GB",
           "cores": 64,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 820
         },
         {
           "name": "CLOUDNATIVE-32xCPU-384GB",
           "cores": 32,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 880
         },
         {
@@ -5574,14 +5285,12 @@
           "name": "CLOUDNATIVE-48xCPU-384GB",
           "cores": 48,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 920
         },
         {
           "name": "CLOUDNATIVE-64xCPU-384GB",
           "cores": 64,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 980
         },
         {
@@ -5616,7 +5325,6 @@
           "name": "CLOUDNATIVE-48xCPU-512GB",
           "cores": 48,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1200
         },
         {
@@ -5651,7 +5359,6 @@
           "name": "CLOUDNATIVE-64xCPU-512GB",
           "cores": 64,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1400
         },
         {
@@ -5672,7 +5379,6 @@
           "name": "CLOUDNATIVE-80xCPU-512GB",
           "cores": 80,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1800
         },
         {
@@ -5718,35 +5424,35 @@
           "monthly": 2977
         }
       ],
-      "storageMaxiopsGBMonth": 0.20832,
-      "storageStandardGBMonth": 0.10684800000000001,
-      "loadBalancerMonthly": 28,
-      "controlPlaneMonthly": 168,
+      "storageMaxiopsGBMonth": 0.2232,
+      "storageStandardGBMonth": 0.1145,
+      "loadBalancerMonthly": 30,
+      "controlPlaneMonthly": 60,
       "loadBalancerPlans": {
-        "development": 9.33,
+        "development": 10,
         "essentials": 0,
-        "production-medium": 70,
-        "production-small": 28
+        "production-medium": 75,
+        "production-small": 30
       },
       "kubernetesPlans": {
         "dev-md": 0,
-        "development": 84,
-        "prod-md": 56,
-        "prod-md-ha": 56,
-        "production-small": 168
+        "development": 90,
+        "prod-md": 60,
+        "prod-md-ha": 60,
+        "production-small": 180
       }
     },
     "no-svg1": {
       "plans": [
         {
-          "name": "STARTER-1xCPU-1GB",
+          "name": "DEV-1xCPU-1GB-10GB",
           "cores": 1,
           "memoryMiB": 1024,
           "storageGB": 10,
           "monthly": 3
         },
         {
-          "name": "DEV-1xCPU-1GB-10GB",
+          "name": "STARTER-1xCPU-1GB",
           "cores": 1,
           "memoryMiB": 1024,
           "storageGB": 10,
@@ -5774,15 +5480,15 @@
           "monthly": 6
         },
         {
-          "name": "STARTER-2xCPU-2GB",
-          "cores": 2,
+          "name": "DEV-1xCPU-2GB",
+          "cores": 1,
           "memoryMiB": 2048,
           "storageGB": 30,
           "monthly": 8
         },
         {
-          "name": "DEV-1xCPU-2GB",
-          "cores": 1,
+          "name": "STARTER-2xCPU-2GB",
+          "cores": 2,
           "memoryMiB": 2048,
           "storageGB": 30,
           "monthly": 8
@@ -5802,13 +5508,6 @@
           "monthly": 10
         },
         {
-          "name": "CLOUDNATIVE-1xCPU-4GB",
-          "cores": 1,
-          "memoryMiB": 4096,
-          "storageGB": 0,
-          "monthly": 12
-        },
-        {
           "name": "STARTER-2xCPU-4GB",
           "cores": 2,
           "memoryMiB": 4096,
@@ -5823,17 +5522,22 @@
           "monthly": 12
         },
         {
-          "name": "CLOUDNATIVE-2xCPU-4GB",
-          "cores": 2,
+          "name": "CLOUDNATIVE-1xCPU-4GB",
+          "cores": 1,
           "memoryMiB": 4096,
-          "storageGB": 0,
-          "monthly": 15
+          "monthly": 12
         },
         {
           "name": "DEV-1xCPU-4GB",
           "cores": 1,
           "memoryMiB": 4096,
           "storageGB": 40,
+          "monthly": 15
+        },
+        {
+          "name": "CLOUDNATIVE-2xCPU-4GB",
+          "cores": 2,
+          "memoryMiB": 4096,
           "monthly": 15
         },
         {
@@ -5865,17 +5569,16 @@
           "monthly": 18
         },
         {
-          "name": "CLOUDNATIVE-1xCPU-8GB",
-          "cores": 1,
-          "memoryMiB": 8192,
-          "storageGB": 0,
-          "monthly": 20
-        },
-        {
           "name": "STARTER-4xCPU-8GB",
           "cores": 4,
           "memoryMiB": 8192,
           "storageGB": 40,
+          "monthly": 20
+        },
+        {
+          "name": "CLOUDNATIVE-1xCPU-8GB",
+          "cores": 1,
+          "memoryMiB": 8192,
           "monthly": 20
         },
         {
@@ -5896,7 +5599,6 @@
           "name": "CLOUDNATIVE-2xCPU-8GB",
           "cores": 2,
           "memoryMiB": 8192,
-          "storageGB": 0,
           "monthly": 24
         },
         {
@@ -5931,14 +5633,12 @@
           "name": "CLOUDNATIVE-4xCPU-8GB",
           "cores": 4,
           "memoryMiB": 8192,
-          "storageGB": 0,
           "monthly": 32
         },
         {
           "name": "CLOUDNATIVE-2xCPU-16GB",
           "cores": 2,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 34
         },
         {
@@ -5980,8 +5680,13 @@
           "name": "CLOUDNATIVE-4xCPU-16GB",
           "cores": 4,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 68
+        },
+        {
+          "name": "CLOUDNATIVE-4xCPU-24GB",
+          "cores": 4,
+          "memoryMiB": 24576,
+          "monthly": 72
         },
         {
           "name": "PREMIUM-2xCPU-16GB",
@@ -5991,17 +5696,9 @@
           "monthly": 72
         },
         {
-          "name": "CLOUDNATIVE-4xCPU-24GB",
-          "cores": 4,
-          "memoryMiB": 24576,
-          "storageGB": 0,
-          "monthly": 72
-        },
-        {
           "name": "CLOUDNATIVE-6xCPU-16GB",
           "cores": 6,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 74
         },
         {
@@ -6015,35 +5712,30 @@
           "name": "CLOUDNATIVE-6xCPU-24GB",
           "cores": 6,
           "memoryMiB": 24576,
-          "storageGB": 0,
           "monthly": 78
         },
         {
           "name": "CLOUDNATIVE-8xCPU-16GB",
           "cores": 8,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 80
         },
         {
           "name": "CLOUDNATIVE-8xCPU-24GB",
           "cores": 8,
           "memoryMiB": 24576,
-          "storageGB": 0,
           "monthly": 84
-        },
-        {
-          "name": "CLOUDNATIVE-4xCPU-32GB",
-          "cores": 4,
-          "memoryMiB": 32768,
-          "storageGB": 0,
-          "monthly": 90
         },
         {
           "name": "CLOUDNATIVE-12xCPU-24GB",
           "cores": 12,
           "memoryMiB": 24576,
-          "storageGB": 0,
+          "monthly": 90
+        },
+        {
+          "name": "CLOUDNATIVE-4xCPU-32GB",
+          "cores": 4,
+          "memoryMiB": 32768,
           "monthly": 90
         },
         {
@@ -6064,7 +5756,6 @@
           "name": "CLOUDNATIVE-8xCPU-32GB",
           "cores": 8,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 130
         },
         {
@@ -6078,7 +5769,6 @@
           "name": "CLOUDNATIVE-12xCPU-32GB",
           "cores": 12,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 145
         },
         {
@@ -6106,14 +5796,12 @@
           "name": "CLOUDNATIVE-16xCPU-32GB",
           "cores": 16,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 160
         },
         {
           "name": "CLOUDNATIVE-4xCPU-48GB",
           "cores": 4,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 160
         },
         {
@@ -6127,7 +5815,6 @@
           "name": "CLOUDNATIVE-8xCPU-48GB",
           "cores": 8,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 190
         },
         {
@@ -6141,7 +5828,6 @@
           "name": "CLOUDNATIVE-8xCPU-64GB",
           "cores": 8,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 220
         },
         {
@@ -6155,14 +5841,12 @@
           "name": "CLOUDNATIVE-16xCPU-48GB",
           "cores": 16,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 230
         },
         {
           "name": "CLOUDNATIVE-8xCPU-96GB",
           "cores": 8,
           "memoryMiB": 98304,
-          "storageGB": 0,
           "monthly": 240
         },
         {
@@ -6176,7 +5860,6 @@
           "name": "CLOUDNATIVE-16xCPU-64GB",
           "cores": 16,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 270
         },
         {
@@ -6190,14 +5873,12 @@
           "name": "CLOUDNATIVE-20xCPU-64GB",
           "cores": 20,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 285
         },
         {
           "name": "CLOUDNATIVE-32xCPU-64GB",
           "cores": 32,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 300
         },
         {
@@ -6222,17 +5903,15 @@
           "monthly": 337
         },
         {
-          "name": "CLOUDNATIVE-8xCPU-128GB",
-          "cores": 8,
-          "memoryMiB": 131072,
-          "storageGB": 0,
-          "monthly": 340
-        },
-        {
           "name": "CLOUDNATIVE-16xCPU-96GB",
           "cores": 16,
           "memoryMiB": 98304,
-          "storageGB": 0,
+          "monthly": 340
+        },
+        {
+          "name": "CLOUDNATIVE-8xCPU-128GB",
+          "cores": 8,
+          "memoryMiB": 131072,
           "monthly": 340
         },
         {
@@ -6246,14 +5925,12 @@
           "name": "CLOUDNATIVE-16xCPU-128GB",
           "cores": 16,
           "memoryMiB": 131072,
-          "storageGB": 0,
           "monthly": 370
         },
         {
           "name": "CLOUDNATIVE-20xCPU-96GB",
           "cores": 20,
           "memoryMiB": 98304,
-          "storageGB": 0,
           "monthly": 380
         },
         {
@@ -6274,7 +5951,6 @@
           "name": "CLOUDNATIVE-32xCPU-128GB",
           "cores": 32,
           "memoryMiB": 131072,
-          "storageGB": 0,
           "monthly": 460
         },
         {
@@ -6288,7 +5964,6 @@
           "name": "CLOUDNATIVE-16xCPU-192GB",
           "cores": 16,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 560
         },
         {
@@ -6323,7 +5998,6 @@
           "name": "CLOUDNATIVE-32xCPU-192GB",
           "cores": 32,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 670
         },
         {
@@ -6337,14 +6011,12 @@
           "name": "CLOUDNATIVE-64xCPU-192GB",
           "cores": 64,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 700
         },
         {
           "name": "CLOUDNATIVE-24xCPU-256GB",
           "cores": 24,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 720
         },
         {
@@ -6358,7 +6030,6 @@
           "name": "CLOUDNATIVE-32xCPU-256GB",
           "cores": 32,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 740
         },
         {
@@ -6372,14 +6043,12 @@
           "name": "CLOUDNATIVE-64xCPU-256GB",
           "cores": 64,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 820
         },
         {
           "name": "CLOUDNATIVE-32xCPU-384GB",
           "cores": 32,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 880
         },
         {
@@ -6393,14 +6062,12 @@
           "name": "CLOUDNATIVE-48xCPU-384GB",
           "cores": 48,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 920
         },
         {
           "name": "CLOUDNATIVE-64xCPU-384GB",
           "cores": 64,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 980
         },
         {
@@ -6435,7 +6102,6 @@
           "name": "CLOUDNATIVE-48xCPU-512GB",
           "cores": 48,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1200
         },
         {
@@ -6470,7 +6136,6 @@
           "name": "CLOUDNATIVE-64xCPU-512GB",
           "cores": 64,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1400
         },
         {
@@ -6491,7 +6156,6 @@
           "name": "CLOUDNATIVE-80xCPU-512GB",
           "cores": 80,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1800
         },
         {
@@ -6537,35 +6201,35 @@
           "monthly": 2977
         }
       ],
-      "storageMaxiopsGBMonth": 0.20832,
-      "storageStandardGBMonth": 0.10684800000000001,
-      "loadBalancerMonthly": 28,
-      "controlPlaneMonthly": 168,
+      "storageMaxiopsGBMonth": 0.2232,
+      "storageStandardGBMonth": 0.1145,
+      "loadBalancerMonthly": 30,
+      "controlPlaneMonthly": 60,
       "loadBalancerPlans": {
-        "development": 9.33,
+        "development": 10,
         "essentials": 0,
-        "production-medium": 70,
-        "production-small": 28
+        "production-medium": 75,
+        "production-small": 30
       },
       "kubernetesPlans": {
         "dev-md": 0,
-        "development": 84,
-        "prod-md": 56,
-        "prod-md-ha": 56,
-        "production-small": 168
+        "development": 90,
+        "prod-md": 60,
+        "prod-md-ha": 60,
+        "production-small": 180
       }
     },
     "pl-waw1": {
       "plans": [
         {
-          "name": "STARTER-1xCPU-1GB",
+          "name": "DEV-1xCPU-1GB-10GB",
           "cores": 1,
           "memoryMiB": 1024,
           "storageGB": 10,
           "monthly": 3
         },
         {
-          "name": "DEV-1xCPU-1GB-10GB",
+          "name": "STARTER-1xCPU-1GB",
           "cores": 1,
           "memoryMiB": 1024,
           "storageGB": 10,
@@ -6593,15 +6257,15 @@
           "monthly": 6
         },
         {
-          "name": "STARTER-2xCPU-2GB",
-          "cores": 2,
+          "name": "DEV-1xCPU-2GB",
+          "cores": 1,
           "memoryMiB": 2048,
           "storageGB": 30,
           "monthly": 8
         },
         {
-          "name": "DEV-1xCPU-2GB",
-          "cores": 1,
+          "name": "STARTER-2xCPU-2GB",
+          "cores": 2,
           "memoryMiB": 2048,
           "storageGB": 30,
           "monthly": 8
@@ -6621,13 +6285,6 @@
           "monthly": 10
         },
         {
-          "name": "CLOUDNATIVE-1xCPU-4GB",
-          "cores": 1,
-          "memoryMiB": 4096,
-          "storageGB": 0,
-          "monthly": 12
-        },
-        {
           "name": "STARTER-2xCPU-4GB",
           "cores": 2,
           "memoryMiB": 4096,
@@ -6642,17 +6299,22 @@
           "monthly": 12
         },
         {
-          "name": "CLOUDNATIVE-2xCPU-4GB",
-          "cores": 2,
+          "name": "CLOUDNATIVE-1xCPU-4GB",
+          "cores": 1,
           "memoryMiB": 4096,
-          "storageGB": 0,
-          "monthly": 15
+          "monthly": 12
         },
         {
           "name": "DEV-1xCPU-4GB",
           "cores": 1,
           "memoryMiB": 4096,
           "storageGB": 40,
+          "monthly": 15
+        },
+        {
+          "name": "CLOUDNATIVE-2xCPU-4GB",
+          "cores": 2,
+          "memoryMiB": 4096,
           "monthly": 15
         },
         {
@@ -6684,17 +6346,16 @@
           "monthly": 18
         },
         {
-          "name": "CLOUDNATIVE-1xCPU-8GB",
-          "cores": 1,
-          "memoryMiB": 8192,
-          "storageGB": 0,
-          "monthly": 20
-        },
-        {
           "name": "STARTER-4xCPU-8GB",
           "cores": 4,
           "memoryMiB": 8192,
           "storageGB": 40,
+          "monthly": 20
+        },
+        {
+          "name": "CLOUDNATIVE-1xCPU-8GB",
+          "cores": 1,
+          "memoryMiB": 8192,
           "monthly": 20
         },
         {
@@ -6715,7 +6376,6 @@
           "name": "CLOUDNATIVE-2xCPU-8GB",
           "cores": 2,
           "memoryMiB": 8192,
-          "storageGB": 0,
           "monthly": 24
         },
         {
@@ -6750,14 +6410,12 @@
           "name": "CLOUDNATIVE-4xCPU-8GB",
           "cores": 4,
           "memoryMiB": 8192,
-          "storageGB": 0,
           "monthly": 32
         },
         {
           "name": "CLOUDNATIVE-2xCPU-16GB",
           "cores": 2,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 34
         },
         {
@@ -6799,8 +6457,13 @@
           "name": "CLOUDNATIVE-4xCPU-16GB",
           "cores": 4,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 68
+        },
+        {
+          "name": "CLOUDNATIVE-4xCPU-24GB",
+          "cores": 4,
+          "memoryMiB": 24576,
+          "monthly": 72
         },
         {
           "name": "PREMIUM-2xCPU-16GB",
@@ -6810,17 +6473,9 @@
           "monthly": 72
         },
         {
-          "name": "CLOUDNATIVE-4xCPU-24GB",
-          "cores": 4,
-          "memoryMiB": 24576,
-          "storageGB": 0,
-          "monthly": 72
-        },
-        {
           "name": "CLOUDNATIVE-6xCPU-16GB",
           "cores": 6,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 74
         },
         {
@@ -6834,35 +6489,30 @@
           "name": "CLOUDNATIVE-6xCPU-24GB",
           "cores": 6,
           "memoryMiB": 24576,
-          "storageGB": 0,
           "monthly": 78
         },
         {
           "name": "CLOUDNATIVE-8xCPU-16GB",
           "cores": 8,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 80
         },
         {
           "name": "CLOUDNATIVE-8xCPU-24GB",
           "cores": 8,
           "memoryMiB": 24576,
-          "storageGB": 0,
           "monthly": 84
-        },
-        {
-          "name": "CLOUDNATIVE-4xCPU-32GB",
-          "cores": 4,
-          "memoryMiB": 32768,
-          "storageGB": 0,
-          "monthly": 90
         },
         {
           "name": "CLOUDNATIVE-12xCPU-24GB",
           "cores": 12,
           "memoryMiB": 24576,
-          "storageGB": 0,
+          "monthly": 90
+        },
+        {
+          "name": "CLOUDNATIVE-4xCPU-32GB",
+          "cores": 4,
+          "memoryMiB": 32768,
           "monthly": 90
         },
         {
@@ -6883,7 +6533,6 @@
           "name": "CLOUDNATIVE-8xCPU-32GB",
           "cores": 8,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 130
         },
         {
@@ -6897,7 +6546,6 @@
           "name": "CLOUDNATIVE-12xCPU-32GB",
           "cores": 12,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 145
         },
         {
@@ -6925,14 +6573,12 @@
           "name": "CLOUDNATIVE-16xCPU-32GB",
           "cores": 16,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 160
         },
         {
           "name": "CLOUDNATIVE-4xCPU-48GB",
           "cores": 4,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 160
         },
         {
@@ -6946,7 +6592,6 @@
           "name": "CLOUDNATIVE-8xCPU-48GB",
           "cores": 8,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 190
         },
         {
@@ -6960,7 +6605,6 @@
           "name": "CLOUDNATIVE-8xCPU-64GB",
           "cores": 8,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 220
         },
         {
@@ -6974,14 +6618,12 @@
           "name": "CLOUDNATIVE-16xCPU-48GB",
           "cores": 16,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 230
         },
         {
           "name": "CLOUDNATIVE-8xCPU-96GB",
           "cores": 8,
           "memoryMiB": 98304,
-          "storageGB": 0,
           "monthly": 240
         },
         {
@@ -6995,7 +6637,6 @@
           "name": "CLOUDNATIVE-16xCPU-64GB",
           "cores": 16,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 270
         },
         {
@@ -7009,14 +6650,12 @@
           "name": "CLOUDNATIVE-20xCPU-64GB",
           "cores": 20,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 285
         },
         {
           "name": "CLOUDNATIVE-32xCPU-64GB",
           "cores": 32,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 300
         },
         {
@@ -7041,17 +6680,15 @@
           "monthly": 337
         },
         {
-          "name": "CLOUDNATIVE-8xCPU-128GB",
-          "cores": 8,
-          "memoryMiB": 131072,
-          "storageGB": 0,
-          "monthly": 340
-        },
-        {
           "name": "CLOUDNATIVE-16xCPU-96GB",
           "cores": 16,
           "memoryMiB": 98304,
-          "storageGB": 0,
+          "monthly": 340
+        },
+        {
+          "name": "CLOUDNATIVE-8xCPU-128GB",
+          "cores": 8,
+          "memoryMiB": 131072,
           "monthly": 340
         },
         {
@@ -7065,14 +6702,12 @@
           "name": "CLOUDNATIVE-16xCPU-128GB",
           "cores": 16,
           "memoryMiB": 131072,
-          "storageGB": 0,
           "monthly": 370
         },
         {
           "name": "CLOUDNATIVE-20xCPU-96GB",
           "cores": 20,
           "memoryMiB": 98304,
-          "storageGB": 0,
           "monthly": 380
         },
         {
@@ -7093,7 +6728,6 @@
           "name": "CLOUDNATIVE-32xCPU-128GB",
           "cores": 32,
           "memoryMiB": 131072,
-          "storageGB": 0,
           "monthly": 460
         },
         {
@@ -7107,7 +6741,6 @@
           "name": "CLOUDNATIVE-16xCPU-192GB",
           "cores": 16,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 560
         },
         {
@@ -7142,7 +6775,6 @@
           "name": "CLOUDNATIVE-32xCPU-192GB",
           "cores": 32,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 670
         },
         {
@@ -7156,14 +6788,12 @@
           "name": "CLOUDNATIVE-64xCPU-192GB",
           "cores": 64,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 700
         },
         {
           "name": "CLOUDNATIVE-24xCPU-256GB",
           "cores": 24,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 720
         },
         {
@@ -7177,7 +6807,6 @@
           "name": "CLOUDNATIVE-32xCPU-256GB",
           "cores": 32,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 740
         },
         {
@@ -7191,14 +6820,12 @@
           "name": "CLOUDNATIVE-64xCPU-256GB",
           "cores": 64,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 820
         },
         {
           "name": "CLOUDNATIVE-32xCPU-384GB",
           "cores": 32,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 880
         },
         {
@@ -7212,14 +6839,12 @@
           "name": "CLOUDNATIVE-48xCPU-384GB",
           "cores": 48,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 920
         },
         {
           "name": "CLOUDNATIVE-64xCPU-384GB",
           "cores": 64,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 980
         },
         {
@@ -7254,7 +6879,6 @@
           "name": "CLOUDNATIVE-48xCPU-512GB",
           "cores": 48,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1200
         },
         {
@@ -7289,7 +6913,6 @@
           "name": "CLOUDNATIVE-64xCPU-512GB",
           "cores": 64,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1400
         },
         {
@@ -7310,7 +6933,6 @@
           "name": "CLOUDNATIVE-80xCPU-512GB",
           "cores": 80,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1800
         },
         {
@@ -7356,35 +6978,35 @@
           "monthly": 2977
         }
       ],
-      "storageMaxiopsGBMonth": 0.20832,
-      "storageStandardGBMonth": 0.10684800000000001,
-      "loadBalancerMonthly": 28,
-      "controlPlaneMonthly": 168,
+      "storageMaxiopsGBMonth": 0.2232,
+      "storageStandardGBMonth": 0.1145,
+      "loadBalancerMonthly": 30,
+      "controlPlaneMonthly": 60,
       "loadBalancerPlans": {
-        "development": 9.33,
+        "development": 10,
         "essentials": 0,
-        "production-medium": 70,
-        "production-small": 28
+        "production-medium": 75,
+        "production-small": 30
       },
       "kubernetesPlans": {
         "dev-md": 0,
-        "development": 84,
-        "prod-md": 56,
-        "prod-md-ha": 56,
-        "production-small": 168
+        "development": 90,
+        "prod-md": 60,
+        "prod-md-ha": 60,
+        "production-small": 180
       }
     },
     "se-sto1": {
       "plans": [
         {
-          "name": "STARTER-1xCPU-1GB",
+          "name": "DEV-1xCPU-1GB-10GB",
           "cores": 1,
           "memoryMiB": 1024,
           "storageGB": 10,
           "monthly": 3
         },
         {
-          "name": "DEV-1xCPU-1GB-10GB",
+          "name": "STARTER-1xCPU-1GB",
           "cores": 1,
           "memoryMiB": 1024,
           "storageGB": 10,
@@ -7412,15 +7034,15 @@
           "monthly": 6
         },
         {
-          "name": "STARTER-2xCPU-2GB",
-          "cores": 2,
+          "name": "DEV-1xCPU-2GB",
+          "cores": 1,
           "memoryMiB": 2048,
           "storageGB": 30,
           "monthly": 8
         },
         {
-          "name": "DEV-1xCPU-2GB",
-          "cores": 1,
+          "name": "STARTER-2xCPU-2GB",
+          "cores": 2,
           "memoryMiB": 2048,
           "storageGB": 30,
           "monthly": 8
@@ -7440,13 +7062,6 @@
           "monthly": 10
         },
         {
-          "name": "CLOUDNATIVE-1xCPU-4GB",
-          "cores": 1,
-          "memoryMiB": 4096,
-          "storageGB": 0,
-          "monthly": 12
-        },
-        {
           "name": "STARTER-2xCPU-4GB",
           "cores": 2,
           "memoryMiB": 4096,
@@ -7461,17 +7076,22 @@
           "monthly": 12
         },
         {
-          "name": "CLOUDNATIVE-2xCPU-4GB",
-          "cores": 2,
+          "name": "CLOUDNATIVE-1xCPU-4GB",
+          "cores": 1,
           "memoryMiB": 4096,
-          "storageGB": 0,
-          "monthly": 15
+          "monthly": 12
         },
         {
           "name": "DEV-1xCPU-4GB",
           "cores": 1,
           "memoryMiB": 4096,
           "storageGB": 40,
+          "monthly": 15
+        },
+        {
+          "name": "CLOUDNATIVE-2xCPU-4GB",
+          "cores": 2,
+          "memoryMiB": 4096,
           "monthly": 15
         },
         {
@@ -7503,17 +7123,16 @@
           "monthly": 18
         },
         {
-          "name": "CLOUDNATIVE-1xCPU-8GB",
-          "cores": 1,
-          "memoryMiB": 8192,
-          "storageGB": 0,
-          "monthly": 20
-        },
-        {
           "name": "STARTER-4xCPU-8GB",
           "cores": 4,
           "memoryMiB": 8192,
           "storageGB": 40,
+          "monthly": 20
+        },
+        {
+          "name": "CLOUDNATIVE-1xCPU-8GB",
+          "cores": 1,
+          "memoryMiB": 8192,
           "monthly": 20
         },
         {
@@ -7534,7 +7153,6 @@
           "name": "CLOUDNATIVE-2xCPU-8GB",
           "cores": 2,
           "memoryMiB": 8192,
-          "storageGB": 0,
           "monthly": 24
         },
         {
@@ -7569,14 +7187,12 @@
           "name": "CLOUDNATIVE-4xCPU-8GB",
           "cores": 4,
           "memoryMiB": 8192,
-          "storageGB": 0,
           "monthly": 32
         },
         {
           "name": "CLOUDNATIVE-2xCPU-16GB",
           "cores": 2,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 34
         },
         {
@@ -7618,8 +7234,13 @@
           "name": "CLOUDNATIVE-4xCPU-16GB",
           "cores": 4,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 68
+        },
+        {
+          "name": "CLOUDNATIVE-4xCPU-24GB",
+          "cores": 4,
+          "memoryMiB": 24576,
+          "monthly": 72
         },
         {
           "name": "PREMIUM-2xCPU-16GB",
@@ -7629,17 +7250,9 @@
           "monthly": 72
         },
         {
-          "name": "CLOUDNATIVE-4xCPU-24GB",
-          "cores": 4,
-          "memoryMiB": 24576,
-          "storageGB": 0,
-          "monthly": 72
-        },
-        {
           "name": "CLOUDNATIVE-6xCPU-16GB",
           "cores": 6,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 74
         },
         {
@@ -7653,35 +7266,30 @@
           "name": "CLOUDNATIVE-6xCPU-24GB",
           "cores": 6,
           "memoryMiB": 24576,
-          "storageGB": 0,
           "monthly": 78
         },
         {
           "name": "CLOUDNATIVE-8xCPU-16GB",
           "cores": 8,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 80
         },
         {
           "name": "CLOUDNATIVE-8xCPU-24GB",
           "cores": 8,
           "memoryMiB": 24576,
-          "storageGB": 0,
           "monthly": 84
-        },
-        {
-          "name": "CLOUDNATIVE-4xCPU-32GB",
-          "cores": 4,
-          "memoryMiB": 32768,
-          "storageGB": 0,
-          "monthly": 90
         },
         {
           "name": "CLOUDNATIVE-12xCPU-24GB",
           "cores": 12,
           "memoryMiB": 24576,
-          "storageGB": 0,
+          "monthly": 90
+        },
+        {
+          "name": "CLOUDNATIVE-4xCPU-32GB",
+          "cores": 4,
+          "memoryMiB": 32768,
           "monthly": 90
         },
         {
@@ -7702,7 +7310,6 @@
           "name": "CLOUDNATIVE-8xCPU-32GB",
           "cores": 8,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 130
         },
         {
@@ -7716,7 +7323,6 @@
           "name": "CLOUDNATIVE-12xCPU-32GB",
           "cores": 12,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 145
         },
         {
@@ -7744,14 +7350,12 @@
           "name": "CLOUDNATIVE-16xCPU-32GB",
           "cores": 16,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 160
         },
         {
           "name": "CLOUDNATIVE-4xCPU-48GB",
           "cores": 4,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 160
         },
         {
@@ -7765,7 +7369,6 @@
           "name": "CLOUDNATIVE-8xCPU-48GB",
           "cores": 8,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 190
         },
         {
@@ -7779,7 +7382,6 @@
           "name": "CLOUDNATIVE-8xCPU-64GB",
           "cores": 8,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 220
         },
         {
@@ -7793,14 +7395,12 @@
           "name": "CLOUDNATIVE-16xCPU-48GB",
           "cores": 16,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 230
         },
         {
           "name": "CLOUDNATIVE-8xCPU-96GB",
           "cores": 8,
           "memoryMiB": 98304,
-          "storageGB": 0,
           "monthly": 240
         },
         {
@@ -7814,7 +7414,6 @@
           "name": "CLOUDNATIVE-16xCPU-64GB",
           "cores": 16,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 270
         },
         {
@@ -7828,14 +7427,12 @@
           "name": "CLOUDNATIVE-20xCPU-64GB",
           "cores": 20,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 285
         },
         {
           "name": "CLOUDNATIVE-32xCPU-64GB",
           "cores": 32,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 300
         },
         {
@@ -7860,17 +7457,15 @@
           "monthly": 337
         },
         {
-          "name": "CLOUDNATIVE-8xCPU-128GB",
-          "cores": 8,
-          "memoryMiB": 131072,
-          "storageGB": 0,
-          "monthly": 340
-        },
-        {
           "name": "CLOUDNATIVE-16xCPU-96GB",
           "cores": 16,
           "memoryMiB": 98304,
-          "storageGB": 0,
+          "monthly": 340
+        },
+        {
+          "name": "CLOUDNATIVE-8xCPU-128GB",
+          "cores": 8,
+          "memoryMiB": 131072,
           "monthly": 340
         },
         {
@@ -7884,14 +7479,12 @@
           "name": "CLOUDNATIVE-16xCPU-128GB",
           "cores": 16,
           "memoryMiB": 131072,
-          "storageGB": 0,
           "monthly": 370
         },
         {
           "name": "CLOUDNATIVE-20xCPU-96GB",
           "cores": 20,
           "memoryMiB": 98304,
-          "storageGB": 0,
           "monthly": 380
         },
         {
@@ -7912,7 +7505,6 @@
           "name": "CLOUDNATIVE-32xCPU-128GB",
           "cores": 32,
           "memoryMiB": 131072,
-          "storageGB": 0,
           "monthly": 460
         },
         {
@@ -7926,7 +7518,6 @@
           "name": "CLOUDNATIVE-16xCPU-192GB",
           "cores": 16,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 560
         },
         {
@@ -7961,7 +7552,6 @@
           "name": "CLOUDNATIVE-32xCPU-192GB",
           "cores": 32,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 670
         },
         {
@@ -7975,14 +7565,12 @@
           "name": "CLOUDNATIVE-64xCPU-192GB",
           "cores": 64,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 700
         },
         {
           "name": "CLOUDNATIVE-24xCPU-256GB",
           "cores": 24,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 720
         },
         {
@@ -7996,7 +7584,6 @@
           "name": "CLOUDNATIVE-32xCPU-256GB",
           "cores": 32,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 740
         },
         {
@@ -8010,14 +7597,12 @@
           "name": "CLOUDNATIVE-64xCPU-256GB",
           "cores": 64,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 820
         },
         {
           "name": "CLOUDNATIVE-32xCPU-384GB",
           "cores": 32,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 880
         },
         {
@@ -8031,14 +7616,12 @@
           "name": "CLOUDNATIVE-48xCPU-384GB",
           "cores": 48,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 920
         },
         {
           "name": "CLOUDNATIVE-64xCPU-384GB",
           "cores": 64,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 980
         },
         {
@@ -8073,7 +7656,6 @@
           "name": "CLOUDNATIVE-48xCPU-512GB",
           "cores": 48,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1200
         },
         {
@@ -8108,7 +7690,6 @@
           "name": "CLOUDNATIVE-64xCPU-512GB",
           "cores": 64,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1400
         },
         {
@@ -8129,7 +7710,6 @@
           "name": "CLOUDNATIVE-80xCPU-512GB",
           "cores": 80,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1800
         },
         {
@@ -8175,35 +7755,35 @@
           "monthly": 2977
         }
       ],
-      "storageMaxiopsGBMonth": 0.20832,
-      "storageStandardGBMonth": 0.10684800000000001,
-      "loadBalancerMonthly": 28,
-      "controlPlaneMonthly": 168,
+      "storageMaxiopsGBMonth": 0.2232,
+      "storageStandardGBMonth": 0.1145,
+      "loadBalancerMonthly": 30,
+      "controlPlaneMonthly": 60,
       "loadBalancerPlans": {
-        "development": 9.33,
+        "development": 10,
         "essentials": 0,
-        "production-medium": 70,
-        "production-small": 28
+        "production-medium": 75,
+        "production-small": 30
       },
       "kubernetesPlans": {
         "dev-md": 0,
-        "development": 84,
-        "prod-md": 56,
-        "prod-md-ha": 56,
-        "production-small": 168
+        "development": 90,
+        "prod-md": 60,
+        "prod-md-ha": 60,
+        "production-small": 180
       }
     },
     "sg-sin1": {
       "plans": [
         {
-          "name": "STARTER-1xCPU-1GB",
+          "name": "DEV-1xCPU-1GB-10GB",
           "cores": 1,
           "memoryMiB": 1024,
           "storageGB": 10,
           "monthly": 3
         },
         {
-          "name": "DEV-1xCPU-1GB-10GB",
+          "name": "STARTER-1xCPU-1GB",
           "cores": 1,
           "memoryMiB": 1024,
           "storageGB": 10,
@@ -8231,15 +7811,15 @@
           "monthly": 6
         },
         {
-          "name": "STARTER-2xCPU-2GB",
-          "cores": 2,
+          "name": "DEV-1xCPU-2GB",
+          "cores": 1,
           "memoryMiB": 2048,
           "storageGB": 30,
           "monthly": 8
         },
         {
-          "name": "DEV-1xCPU-2GB",
-          "cores": 1,
+          "name": "STARTER-2xCPU-2GB",
+          "cores": 2,
           "memoryMiB": 2048,
           "storageGB": 30,
           "monthly": 8
@@ -8259,13 +7839,6 @@
           "monthly": 10
         },
         {
-          "name": "CLOUDNATIVE-1xCPU-4GB",
-          "cores": 1,
-          "memoryMiB": 4096,
-          "storageGB": 0,
-          "monthly": 12
-        },
-        {
           "name": "STARTER-2xCPU-4GB",
           "cores": 2,
           "memoryMiB": 4096,
@@ -8280,17 +7853,22 @@
           "monthly": 12
         },
         {
-          "name": "CLOUDNATIVE-2xCPU-4GB",
-          "cores": 2,
+          "name": "CLOUDNATIVE-1xCPU-4GB",
+          "cores": 1,
           "memoryMiB": 4096,
-          "storageGB": 0,
-          "monthly": 15
+          "monthly": 12
         },
         {
           "name": "DEV-1xCPU-4GB",
           "cores": 1,
           "memoryMiB": 4096,
           "storageGB": 40,
+          "monthly": 15
+        },
+        {
+          "name": "CLOUDNATIVE-2xCPU-4GB",
+          "cores": 2,
+          "memoryMiB": 4096,
           "monthly": 15
         },
         {
@@ -8322,17 +7900,16 @@
           "monthly": 18
         },
         {
-          "name": "CLOUDNATIVE-1xCPU-8GB",
-          "cores": 1,
-          "memoryMiB": 8192,
-          "storageGB": 0,
-          "monthly": 20
-        },
-        {
           "name": "STARTER-4xCPU-8GB",
           "cores": 4,
           "memoryMiB": 8192,
           "storageGB": 40,
+          "monthly": 20
+        },
+        {
+          "name": "CLOUDNATIVE-1xCPU-8GB",
+          "cores": 1,
+          "memoryMiB": 8192,
           "monthly": 20
         },
         {
@@ -8353,7 +7930,6 @@
           "name": "CLOUDNATIVE-2xCPU-8GB",
           "cores": 2,
           "memoryMiB": 8192,
-          "storageGB": 0,
           "monthly": 24
         },
         {
@@ -8388,14 +7964,12 @@
           "name": "CLOUDNATIVE-4xCPU-8GB",
           "cores": 4,
           "memoryMiB": 8192,
-          "storageGB": 0,
           "monthly": 32
         },
         {
           "name": "CLOUDNATIVE-2xCPU-16GB",
           "cores": 2,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 34
         },
         {
@@ -8437,8 +8011,13 @@
           "name": "CLOUDNATIVE-4xCPU-16GB",
           "cores": 4,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 68
+        },
+        {
+          "name": "CLOUDNATIVE-4xCPU-24GB",
+          "cores": 4,
+          "memoryMiB": 24576,
+          "monthly": 72
         },
         {
           "name": "PREMIUM-2xCPU-16GB",
@@ -8448,17 +8027,9 @@
           "monthly": 72
         },
         {
-          "name": "CLOUDNATIVE-4xCPU-24GB",
-          "cores": 4,
-          "memoryMiB": 24576,
-          "storageGB": 0,
-          "monthly": 72
-        },
-        {
           "name": "CLOUDNATIVE-6xCPU-16GB",
           "cores": 6,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 74
         },
         {
@@ -8472,35 +8043,30 @@
           "name": "CLOUDNATIVE-6xCPU-24GB",
           "cores": 6,
           "memoryMiB": 24576,
-          "storageGB": 0,
           "monthly": 78
         },
         {
           "name": "CLOUDNATIVE-8xCPU-16GB",
           "cores": 8,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 80
         },
         {
           "name": "CLOUDNATIVE-8xCPU-24GB",
           "cores": 8,
           "memoryMiB": 24576,
-          "storageGB": 0,
           "monthly": 84
-        },
-        {
-          "name": "CLOUDNATIVE-4xCPU-32GB",
-          "cores": 4,
-          "memoryMiB": 32768,
-          "storageGB": 0,
-          "monthly": 90
         },
         {
           "name": "CLOUDNATIVE-12xCPU-24GB",
           "cores": 12,
           "memoryMiB": 24576,
-          "storageGB": 0,
+          "monthly": 90
+        },
+        {
+          "name": "CLOUDNATIVE-4xCPU-32GB",
+          "cores": 4,
+          "memoryMiB": 32768,
           "monthly": 90
         },
         {
@@ -8521,7 +8087,6 @@
           "name": "CLOUDNATIVE-8xCPU-32GB",
           "cores": 8,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 130
         },
         {
@@ -8535,7 +8100,6 @@
           "name": "CLOUDNATIVE-12xCPU-32GB",
           "cores": 12,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 145
         },
         {
@@ -8563,14 +8127,12 @@
           "name": "CLOUDNATIVE-16xCPU-32GB",
           "cores": 16,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 160
         },
         {
           "name": "CLOUDNATIVE-4xCPU-48GB",
           "cores": 4,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 160
         },
         {
@@ -8584,7 +8146,6 @@
           "name": "CLOUDNATIVE-8xCPU-48GB",
           "cores": 8,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 190
         },
         {
@@ -8598,7 +8159,6 @@
           "name": "CLOUDNATIVE-8xCPU-64GB",
           "cores": 8,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 220
         },
         {
@@ -8612,14 +8172,12 @@
           "name": "CLOUDNATIVE-16xCPU-48GB",
           "cores": 16,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 230
         },
         {
           "name": "CLOUDNATIVE-8xCPU-96GB",
           "cores": 8,
           "memoryMiB": 98304,
-          "storageGB": 0,
           "monthly": 240
         },
         {
@@ -8633,7 +8191,6 @@
           "name": "CLOUDNATIVE-16xCPU-64GB",
           "cores": 16,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 270
         },
         {
@@ -8647,14 +8204,12 @@
           "name": "CLOUDNATIVE-20xCPU-64GB",
           "cores": 20,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 285
         },
         {
           "name": "CLOUDNATIVE-32xCPU-64GB",
           "cores": 32,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 300
         },
         {
@@ -8679,17 +8234,15 @@
           "monthly": 337
         },
         {
-          "name": "CLOUDNATIVE-8xCPU-128GB",
-          "cores": 8,
-          "memoryMiB": 131072,
-          "storageGB": 0,
-          "monthly": 340
-        },
-        {
           "name": "CLOUDNATIVE-16xCPU-96GB",
           "cores": 16,
           "memoryMiB": 98304,
-          "storageGB": 0,
+          "monthly": 340
+        },
+        {
+          "name": "CLOUDNATIVE-8xCPU-128GB",
+          "cores": 8,
+          "memoryMiB": 131072,
           "monthly": 340
         },
         {
@@ -8703,14 +8256,12 @@
           "name": "CLOUDNATIVE-16xCPU-128GB",
           "cores": 16,
           "memoryMiB": 131072,
-          "storageGB": 0,
           "monthly": 370
         },
         {
           "name": "CLOUDNATIVE-20xCPU-96GB",
           "cores": 20,
           "memoryMiB": 98304,
-          "storageGB": 0,
           "monthly": 380
         },
         {
@@ -8731,7 +8282,6 @@
           "name": "CLOUDNATIVE-32xCPU-128GB",
           "cores": 32,
           "memoryMiB": 131072,
-          "storageGB": 0,
           "monthly": 460
         },
         {
@@ -8745,7 +8295,6 @@
           "name": "CLOUDNATIVE-16xCPU-192GB",
           "cores": 16,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 560
         },
         {
@@ -8780,7 +8329,6 @@
           "name": "CLOUDNATIVE-32xCPU-192GB",
           "cores": 32,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 670
         },
         {
@@ -8794,14 +8342,12 @@
           "name": "CLOUDNATIVE-64xCPU-192GB",
           "cores": 64,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 700
         },
         {
           "name": "CLOUDNATIVE-24xCPU-256GB",
           "cores": 24,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 720
         },
         {
@@ -8815,7 +8361,6 @@
           "name": "CLOUDNATIVE-32xCPU-256GB",
           "cores": 32,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 740
         },
         {
@@ -8829,14 +8374,12 @@
           "name": "CLOUDNATIVE-64xCPU-256GB",
           "cores": 64,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 820
         },
         {
           "name": "CLOUDNATIVE-32xCPU-384GB",
           "cores": 32,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 880
         },
         {
@@ -8850,14 +8393,12 @@
           "name": "CLOUDNATIVE-48xCPU-384GB",
           "cores": 48,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 920
         },
         {
           "name": "CLOUDNATIVE-64xCPU-384GB",
           "cores": 64,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 980
         },
         {
@@ -8892,7 +8433,6 @@
           "name": "CLOUDNATIVE-48xCPU-512GB",
           "cores": 48,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1200
         },
         {
@@ -8927,7 +8467,6 @@
           "name": "CLOUDNATIVE-64xCPU-512GB",
           "cores": 64,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1400
         },
         {
@@ -8948,7 +8487,6 @@
           "name": "CLOUDNATIVE-80xCPU-512GB",
           "cores": 80,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1800
         },
         {
@@ -8994,35 +8532,35 @@
           "monthly": 2977
         }
       ],
-      "storageMaxiopsGBMonth": 0.20832,
-      "storageStandardGBMonth": 0.10684800000000001,
-      "loadBalancerMonthly": 28,
-      "controlPlaneMonthly": 168,
+      "storageMaxiopsGBMonth": 0.2232,
+      "storageStandardGBMonth": 0.1145,
+      "loadBalancerMonthly": 30,
+      "controlPlaneMonthly": 60,
       "loadBalancerPlans": {
-        "development": 9.33,
+        "development": 10,
         "essentials": 0,
-        "production-medium": 70,
-        "production-small": 28
+        "production-medium": 75,
+        "production-small": 30
       },
       "kubernetesPlans": {
         "dev-md": 0,
-        "development": 84,
-        "prod-md": 56,
-        "prod-md-ha": 56,
-        "production-small": 168
+        "development": 90,
+        "prod-md": 60,
+        "prod-md-ha": 60,
+        "production-small": 180
       }
     },
     "uk-lon1": {
       "plans": [
         {
-          "name": "STARTER-1xCPU-1GB",
+          "name": "DEV-1xCPU-1GB-10GB",
           "cores": 1,
           "memoryMiB": 1024,
           "storageGB": 10,
           "monthly": 3
         },
         {
-          "name": "DEV-1xCPU-1GB-10GB",
+          "name": "STARTER-1xCPU-1GB",
           "cores": 1,
           "memoryMiB": 1024,
           "storageGB": 10,
@@ -9050,15 +8588,15 @@
           "monthly": 6
         },
         {
-          "name": "STARTER-2xCPU-2GB",
-          "cores": 2,
+          "name": "DEV-1xCPU-2GB",
+          "cores": 1,
           "memoryMiB": 2048,
           "storageGB": 30,
           "monthly": 8
         },
         {
-          "name": "DEV-1xCPU-2GB",
-          "cores": 1,
+          "name": "STARTER-2xCPU-2GB",
+          "cores": 2,
           "memoryMiB": 2048,
           "storageGB": 30,
           "monthly": 8
@@ -9078,13 +8616,6 @@
           "monthly": 10
         },
         {
-          "name": "CLOUDNATIVE-1xCPU-4GB",
-          "cores": 1,
-          "memoryMiB": 4096,
-          "storageGB": 0,
-          "monthly": 12
-        },
-        {
           "name": "STARTER-2xCPU-4GB",
           "cores": 2,
           "memoryMiB": 4096,
@@ -9099,17 +8630,22 @@
           "monthly": 12
         },
         {
-          "name": "CLOUDNATIVE-2xCPU-4GB",
-          "cores": 2,
+          "name": "CLOUDNATIVE-1xCPU-4GB",
+          "cores": 1,
           "memoryMiB": 4096,
-          "storageGB": 0,
-          "monthly": 15
+          "monthly": 12
         },
         {
           "name": "DEV-1xCPU-4GB",
           "cores": 1,
           "memoryMiB": 4096,
           "storageGB": 40,
+          "monthly": 15
+        },
+        {
+          "name": "CLOUDNATIVE-2xCPU-4GB",
+          "cores": 2,
+          "memoryMiB": 4096,
           "monthly": 15
         },
         {
@@ -9141,17 +8677,16 @@
           "monthly": 18
         },
         {
-          "name": "CLOUDNATIVE-1xCPU-8GB",
-          "cores": 1,
-          "memoryMiB": 8192,
-          "storageGB": 0,
-          "monthly": 20
-        },
-        {
           "name": "STARTER-4xCPU-8GB",
           "cores": 4,
           "memoryMiB": 8192,
           "storageGB": 40,
+          "monthly": 20
+        },
+        {
+          "name": "CLOUDNATIVE-1xCPU-8GB",
+          "cores": 1,
+          "memoryMiB": 8192,
           "monthly": 20
         },
         {
@@ -9172,7 +8707,6 @@
           "name": "CLOUDNATIVE-2xCPU-8GB",
           "cores": 2,
           "memoryMiB": 8192,
-          "storageGB": 0,
           "monthly": 24
         },
         {
@@ -9207,14 +8741,12 @@
           "name": "CLOUDNATIVE-4xCPU-8GB",
           "cores": 4,
           "memoryMiB": 8192,
-          "storageGB": 0,
           "monthly": 32
         },
         {
           "name": "CLOUDNATIVE-2xCPU-16GB",
           "cores": 2,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 34
         },
         {
@@ -9256,8 +8788,13 @@
           "name": "CLOUDNATIVE-4xCPU-16GB",
           "cores": 4,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 68
+        },
+        {
+          "name": "CLOUDNATIVE-4xCPU-24GB",
+          "cores": 4,
+          "memoryMiB": 24576,
+          "monthly": 72
         },
         {
           "name": "PREMIUM-2xCPU-16GB",
@@ -9267,17 +8804,9 @@
           "monthly": 72
         },
         {
-          "name": "CLOUDNATIVE-4xCPU-24GB",
-          "cores": 4,
-          "memoryMiB": 24576,
-          "storageGB": 0,
-          "monthly": 72
-        },
-        {
           "name": "CLOUDNATIVE-6xCPU-16GB",
           "cores": 6,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 74
         },
         {
@@ -9291,35 +8820,30 @@
           "name": "CLOUDNATIVE-6xCPU-24GB",
           "cores": 6,
           "memoryMiB": 24576,
-          "storageGB": 0,
           "monthly": 78
         },
         {
           "name": "CLOUDNATIVE-8xCPU-16GB",
           "cores": 8,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 80
         },
         {
           "name": "CLOUDNATIVE-8xCPU-24GB",
           "cores": 8,
           "memoryMiB": 24576,
-          "storageGB": 0,
           "monthly": 84
-        },
-        {
-          "name": "CLOUDNATIVE-4xCPU-32GB",
-          "cores": 4,
-          "memoryMiB": 32768,
-          "storageGB": 0,
-          "monthly": 90
         },
         {
           "name": "CLOUDNATIVE-12xCPU-24GB",
           "cores": 12,
           "memoryMiB": 24576,
-          "storageGB": 0,
+          "monthly": 90
+        },
+        {
+          "name": "CLOUDNATIVE-4xCPU-32GB",
+          "cores": 4,
+          "memoryMiB": 32768,
           "monthly": 90
         },
         {
@@ -9340,7 +8864,6 @@
           "name": "CLOUDNATIVE-8xCPU-32GB",
           "cores": 8,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 130
         },
         {
@@ -9354,7 +8877,6 @@
           "name": "CLOUDNATIVE-12xCPU-32GB",
           "cores": 12,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 145
         },
         {
@@ -9382,14 +8904,12 @@
           "name": "CLOUDNATIVE-16xCPU-32GB",
           "cores": 16,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 160
         },
         {
           "name": "CLOUDNATIVE-4xCPU-48GB",
           "cores": 4,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 160
         },
         {
@@ -9403,7 +8923,6 @@
           "name": "CLOUDNATIVE-8xCPU-48GB",
           "cores": 8,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 190
         },
         {
@@ -9417,7 +8936,6 @@
           "name": "CLOUDNATIVE-8xCPU-64GB",
           "cores": 8,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 220
         },
         {
@@ -9431,14 +8949,12 @@
           "name": "CLOUDNATIVE-16xCPU-48GB",
           "cores": 16,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 230
         },
         {
           "name": "CLOUDNATIVE-8xCPU-96GB",
           "cores": 8,
           "memoryMiB": 98304,
-          "storageGB": 0,
           "monthly": 240
         },
         {
@@ -9452,7 +8968,6 @@
           "name": "CLOUDNATIVE-16xCPU-64GB",
           "cores": 16,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 270
         },
         {
@@ -9466,14 +8981,12 @@
           "name": "CLOUDNATIVE-20xCPU-64GB",
           "cores": 20,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 285
         },
         {
           "name": "CLOUDNATIVE-32xCPU-64GB",
           "cores": 32,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 300
         },
         {
@@ -9498,17 +9011,15 @@
           "monthly": 337
         },
         {
-          "name": "CLOUDNATIVE-8xCPU-128GB",
-          "cores": 8,
-          "memoryMiB": 131072,
-          "storageGB": 0,
-          "monthly": 340
-        },
-        {
           "name": "CLOUDNATIVE-16xCPU-96GB",
           "cores": 16,
           "memoryMiB": 98304,
-          "storageGB": 0,
+          "monthly": 340
+        },
+        {
+          "name": "CLOUDNATIVE-8xCPU-128GB",
+          "cores": 8,
+          "memoryMiB": 131072,
           "monthly": 340
         },
         {
@@ -9522,14 +9033,12 @@
           "name": "CLOUDNATIVE-16xCPU-128GB",
           "cores": 16,
           "memoryMiB": 131072,
-          "storageGB": 0,
           "monthly": 370
         },
         {
           "name": "CLOUDNATIVE-20xCPU-96GB",
           "cores": 20,
           "memoryMiB": 98304,
-          "storageGB": 0,
           "monthly": 380
         },
         {
@@ -9550,7 +9059,6 @@
           "name": "CLOUDNATIVE-32xCPU-128GB",
           "cores": 32,
           "memoryMiB": 131072,
-          "storageGB": 0,
           "monthly": 460
         },
         {
@@ -9564,7 +9072,6 @@
           "name": "CLOUDNATIVE-16xCPU-192GB",
           "cores": 16,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 560
         },
         {
@@ -9599,7 +9106,6 @@
           "name": "CLOUDNATIVE-32xCPU-192GB",
           "cores": 32,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 670
         },
         {
@@ -9613,14 +9119,12 @@
           "name": "CLOUDNATIVE-64xCPU-192GB",
           "cores": 64,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 700
         },
         {
           "name": "CLOUDNATIVE-24xCPU-256GB",
           "cores": 24,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 720
         },
         {
@@ -9634,7 +9138,6 @@
           "name": "CLOUDNATIVE-32xCPU-256GB",
           "cores": 32,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 740
         },
         {
@@ -9648,14 +9151,12 @@
           "name": "CLOUDNATIVE-64xCPU-256GB",
           "cores": 64,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 820
         },
         {
           "name": "CLOUDNATIVE-32xCPU-384GB",
           "cores": 32,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 880
         },
         {
@@ -9669,14 +9170,12 @@
           "name": "CLOUDNATIVE-48xCPU-384GB",
           "cores": 48,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 920
         },
         {
           "name": "CLOUDNATIVE-64xCPU-384GB",
           "cores": 64,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 980
         },
         {
@@ -9711,7 +9210,6 @@
           "name": "CLOUDNATIVE-48xCPU-512GB",
           "cores": 48,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1200
         },
         {
@@ -9746,7 +9244,6 @@
           "name": "CLOUDNATIVE-64xCPU-512GB",
           "cores": 64,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1400
         },
         {
@@ -9767,7 +9264,6 @@
           "name": "CLOUDNATIVE-80xCPU-512GB",
           "cores": 80,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1800
         },
         {
@@ -9813,35 +9309,35 @@
           "monthly": 2977
         }
       ],
-      "storageMaxiopsGBMonth": 0.20832,
-      "storageStandardGBMonth": 0.10684800000000001,
-      "loadBalancerMonthly": 28,
-      "controlPlaneMonthly": 168,
+      "storageMaxiopsGBMonth": 0.2232,
+      "storageStandardGBMonth": 0.1145,
+      "loadBalancerMonthly": 30,
+      "controlPlaneMonthly": 60,
       "loadBalancerPlans": {
-        "development": 9.33,
+        "development": 10,
         "essentials": 0,
-        "production-medium": 70,
-        "production-small": 28
+        "production-medium": 75,
+        "production-small": 30
       },
       "kubernetesPlans": {
         "dev-md": 0,
-        "development": 84,
-        "prod-md": 56,
-        "prod-md-ha": 56,
-        "production-small": 168
+        "development": 90,
+        "prod-md": 60,
+        "prod-md-ha": 60,
+        "production-small": 180
       }
     },
     "us-chi1": {
       "plans": [
         {
-          "name": "STARTER-1xCPU-1GB",
+          "name": "DEV-1xCPU-1GB-10GB",
           "cores": 1,
           "memoryMiB": 1024,
           "storageGB": 10,
           "monthly": 3
         },
         {
-          "name": "DEV-1xCPU-1GB-10GB",
+          "name": "STARTER-1xCPU-1GB",
           "cores": 1,
           "memoryMiB": 1024,
           "storageGB": 10,
@@ -9869,15 +9365,15 @@
           "monthly": 6
         },
         {
-          "name": "STARTER-2xCPU-2GB",
-          "cores": 2,
+          "name": "DEV-1xCPU-2GB",
+          "cores": 1,
           "memoryMiB": 2048,
           "storageGB": 30,
           "monthly": 8
         },
         {
-          "name": "DEV-1xCPU-2GB",
-          "cores": 1,
+          "name": "STARTER-2xCPU-2GB",
+          "cores": 2,
           "memoryMiB": 2048,
           "storageGB": 30,
           "monthly": 8
@@ -9897,13 +9393,6 @@
           "monthly": 10
         },
         {
-          "name": "CLOUDNATIVE-1xCPU-4GB",
-          "cores": 1,
-          "memoryMiB": 4096,
-          "storageGB": 0,
-          "monthly": 12
-        },
-        {
           "name": "STARTER-2xCPU-4GB",
           "cores": 2,
           "memoryMiB": 4096,
@@ -9918,17 +9407,22 @@
           "monthly": 12
         },
         {
-          "name": "CLOUDNATIVE-2xCPU-4GB",
-          "cores": 2,
+          "name": "CLOUDNATIVE-1xCPU-4GB",
+          "cores": 1,
           "memoryMiB": 4096,
-          "storageGB": 0,
-          "monthly": 15
+          "monthly": 12
         },
         {
           "name": "DEV-1xCPU-4GB",
           "cores": 1,
           "memoryMiB": 4096,
           "storageGB": 40,
+          "monthly": 15
+        },
+        {
+          "name": "CLOUDNATIVE-2xCPU-4GB",
+          "cores": 2,
+          "memoryMiB": 4096,
           "monthly": 15
         },
         {
@@ -9960,17 +9454,16 @@
           "monthly": 18
         },
         {
-          "name": "CLOUDNATIVE-1xCPU-8GB",
-          "cores": 1,
-          "memoryMiB": 8192,
-          "storageGB": 0,
-          "monthly": 20
-        },
-        {
           "name": "STARTER-4xCPU-8GB",
           "cores": 4,
           "memoryMiB": 8192,
           "storageGB": 40,
+          "monthly": 20
+        },
+        {
+          "name": "CLOUDNATIVE-1xCPU-8GB",
+          "cores": 1,
+          "memoryMiB": 8192,
           "monthly": 20
         },
         {
@@ -9991,7 +9484,6 @@
           "name": "CLOUDNATIVE-2xCPU-8GB",
           "cores": 2,
           "memoryMiB": 8192,
-          "storageGB": 0,
           "monthly": 24
         },
         {
@@ -10026,14 +9518,12 @@
           "name": "CLOUDNATIVE-4xCPU-8GB",
           "cores": 4,
           "memoryMiB": 8192,
-          "storageGB": 0,
           "monthly": 32
         },
         {
           "name": "CLOUDNATIVE-2xCPU-16GB",
           "cores": 2,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 34
         },
         {
@@ -10075,8 +9565,13 @@
           "name": "CLOUDNATIVE-4xCPU-16GB",
           "cores": 4,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 68
+        },
+        {
+          "name": "CLOUDNATIVE-4xCPU-24GB",
+          "cores": 4,
+          "memoryMiB": 24576,
+          "monthly": 72
         },
         {
           "name": "PREMIUM-2xCPU-16GB",
@@ -10086,17 +9581,9 @@
           "monthly": 72
         },
         {
-          "name": "CLOUDNATIVE-4xCPU-24GB",
-          "cores": 4,
-          "memoryMiB": 24576,
-          "storageGB": 0,
-          "monthly": 72
-        },
-        {
           "name": "CLOUDNATIVE-6xCPU-16GB",
           "cores": 6,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 74
         },
         {
@@ -10110,35 +9597,30 @@
           "name": "CLOUDNATIVE-6xCPU-24GB",
           "cores": 6,
           "memoryMiB": 24576,
-          "storageGB": 0,
           "monthly": 78
         },
         {
           "name": "CLOUDNATIVE-8xCPU-16GB",
           "cores": 8,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 80
         },
         {
           "name": "CLOUDNATIVE-8xCPU-24GB",
           "cores": 8,
           "memoryMiB": 24576,
-          "storageGB": 0,
           "monthly": 84
-        },
-        {
-          "name": "CLOUDNATIVE-4xCPU-32GB",
-          "cores": 4,
-          "memoryMiB": 32768,
-          "storageGB": 0,
-          "monthly": 90
         },
         {
           "name": "CLOUDNATIVE-12xCPU-24GB",
           "cores": 12,
           "memoryMiB": 24576,
-          "storageGB": 0,
+          "monthly": 90
+        },
+        {
+          "name": "CLOUDNATIVE-4xCPU-32GB",
+          "cores": 4,
+          "memoryMiB": 32768,
           "monthly": 90
         },
         {
@@ -10159,7 +9641,6 @@
           "name": "CLOUDNATIVE-8xCPU-32GB",
           "cores": 8,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 130
         },
         {
@@ -10173,7 +9654,6 @@
           "name": "CLOUDNATIVE-12xCPU-32GB",
           "cores": 12,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 145
         },
         {
@@ -10201,14 +9681,12 @@
           "name": "CLOUDNATIVE-16xCPU-32GB",
           "cores": 16,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 160
         },
         {
           "name": "CLOUDNATIVE-4xCPU-48GB",
           "cores": 4,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 160
         },
         {
@@ -10222,7 +9700,6 @@
           "name": "CLOUDNATIVE-8xCPU-48GB",
           "cores": 8,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 190
         },
         {
@@ -10236,7 +9713,6 @@
           "name": "CLOUDNATIVE-8xCPU-64GB",
           "cores": 8,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 220
         },
         {
@@ -10250,14 +9726,12 @@
           "name": "CLOUDNATIVE-16xCPU-48GB",
           "cores": 16,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 230
         },
         {
           "name": "CLOUDNATIVE-8xCPU-96GB",
           "cores": 8,
           "memoryMiB": 98304,
-          "storageGB": 0,
           "monthly": 240
         },
         {
@@ -10271,7 +9745,6 @@
           "name": "CLOUDNATIVE-16xCPU-64GB",
           "cores": 16,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 270
         },
         {
@@ -10285,14 +9758,12 @@
           "name": "CLOUDNATIVE-20xCPU-64GB",
           "cores": 20,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 285
         },
         {
           "name": "CLOUDNATIVE-32xCPU-64GB",
           "cores": 32,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 300
         },
         {
@@ -10317,17 +9788,15 @@
           "monthly": 337
         },
         {
-          "name": "CLOUDNATIVE-8xCPU-128GB",
-          "cores": 8,
-          "memoryMiB": 131072,
-          "storageGB": 0,
-          "monthly": 340
-        },
-        {
           "name": "CLOUDNATIVE-16xCPU-96GB",
           "cores": 16,
           "memoryMiB": 98304,
-          "storageGB": 0,
+          "monthly": 340
+        },
+        {
+          "name": "CLOUDNATIVE-8xCPU-128GB",
+          "cores": 8,
+          "memoryMiB": 131072,
           "monthly": 340
         },
         {
@@ -10341,14 +9810,12 @@
           "name": "CLOUDNATIVE-16xCPU-128GB",
           "cores": 16,
           "memoryMiB": 131072,
-          "storageGB": 0,
           "monthly": 370
         },
         {
           "name": "CLOUDNATIVE-20xCPU-96GB",
           "cores": 20,
           "memoryMiB": 98304,
-          "storageGB": 0,
           "monthly": 380
         },
         {
@@ -10369,7 +9836,6 @@
           "name": "CLOUDNATIVE-32xCPU-128GB",
           "cores": 32,
           "memoryMiB": 131072,
-          "storageGB": 0,
           "monthly": 460
         },
         {
@@ -10383,7 +9849,6 @@
           "name": "CLOUDNATIVE-16xCPU-192GB",
           "cores": 16,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 560
         },
         {
@@ -10418,7 +9883,6 @@
           "name": "CLOUDNATIVE-32xCPU-192GB",
           "cores": 32,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 670
         },
         {
@@ -10432,14 +9896,12 @@
           "name": "CLOUDNATIVE-64xCPU-192GB",
           "cores": 64,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 700
         },
         {
           "name": "CLOUDNATIVE-24xCPU-256GB",
           "cores": 24,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 720
         },
         {
@@ -10453,7 +9915,6 @@
           "name": "CLOUDNATIVE-32xCPU-256GB",
           "cores": 32,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 740
         },
         {
@@ -10467,14 +9928,12 @@
           "name": "CLOUDNATIVE-64xCPU-256GB",
           "cores": 64,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 820
         },
         {
           "name": "CLOUDNATIVE-32xCPU-384GB",
           "cores": 32,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 880
         },
         {
@@ -10488,14 +9947,12 @@
           "name": "CLOUDNATIVE-48xCPU-384GB",
           "cores": 48,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 920
         },
         {
           "name": "CLOUDNATIVE-64xCPU-384GB",
           "cores": 64,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 980
         },
         {
@@ -10530,7 +9987,6 @@
           "name": "CLOUDNATIVE-48xCPU-512GB",
           "cores": 48,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1200
         },
         {
@@ -10565,7 +10021,6 @@
           "name": "CLOUDNATIVE-64xCPU-512GB",
           "cores": 64,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1400
         },
         {
@@ -10586,7 +10041,6 @@
           "name": "CLOUDNATIVE-80xCPU-512GB",
           "cores": 80,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1800
         },
         {
@@ -10632,35 +10086,35 @@
           "monthly": 2977
         }
       ],
-      "storageMaxiopsGBMonth": 0.20832,
-      "storageStandardGBMonth": 0.10684800000000001,
-      "loadBalancerMonthly": 28,
-      "controlPlaneMonthly": 168,
+      "storageMaxiopsGBMonth": 0.2232,
+      "storageStandardGBMonth": 0.1145,
+      "loadBalancerMonthly": 30,
+      "controlPlaneMonthly": 60,
       "loadBalancerPlans": {
-        "development": 9.33,
+        "development": 10,
         "essentials": 0,
-        "production-medium": 70,
-        "production-small": 28
+        "production-medium": 75,
+        "production-small": 30
       },
       "kubernetesPlans": {
         "dev-md": 0,
-        "development": 84,
-        "prod-md": 56,
-        "prod-md-ha": 56,
-        "production-small": 168
+        "development": 90,
+        "prod-md": 60,
+        "prod-md-ha": 60,
+        "production-small": 180
       }
     },
     "us-nyc1": {
       "plans": [
         {
-          "name": "STARTER-1xCPU-1GB",
+          "name": "DEV-1xCPU-1GB-10GB",
           "cores": 1,
           "memoryMiB": 1024,
           "storageGB": 10,
           "monthly": 3
         },
         {
-          "name": "DEV-1xCPU-1GB-10GB",
+          "name": "STARTER-1xCPU-1GB",
           "cores": 1,
           "memoryMiB": 1024,
           "storageGB": 10,
@@ -10688,15 +10142,15 @@
           "monthly": 6
         },
         {
-          "name": "STARTER-2xCPU-2GB",
-          "cores": 2,
+          "name": "DEV-1xCPU-2GB",
+          "cores": 1,
           "memoryMiB": 2048,
           "storageGB": 30,
           "monthly": 8
         },
         {
-          "name": "DEV-1xCPU-2GB",
-          "cores": 1,
+          "name": "STARTER-2xCPU-2GB",
+          "cores": 2,
           "memoryMiB": 2048,
           "storageGB": 30,
           "monthly": 8
@@ -10716,13 +10170,6 @@
           "monthly": 10
         },
         {
-          "name": "CLOUDNATIVE-1xCPU-4GB",
-          "cores": 1,
-          "memoryMiB": 4096,
-          "storageGB": 0,
-          "monthly": 12
-        },
-        {
           "name": "STARTER-2xCPU-4GB",
           "cores": 2,
           "memoryMiB": 4096,
@@ -10737,17 +10184,22 @@
           "monthly": 12
         },
         {
-          "name": "CLOUDNATIVE-2xCPU-4GB",
-          "cores": 2,
+          "name": "CLOUDNATIVE-1xCPU-4GB",
+          "cores": 1,
           "memoryMiB": 4096,
-          "storageGB": 0,
-          "monthly": 15
+          "monthly": 12
         },
         {
           "name": "DEV-1xCPU-4GB",
           "cores": 1,
           "memoryMiB": 4096,
           "storageGB": 40,
+          "monthly": 15
+        },
+        {
+          "name": "CLOUDNATIVE-2xCPU-4GB",
+          "cores": 2,
+          "memoryMiB": 4096,
           "monthly": 15
         },
         {
@@ -10779,17 +10231,16 @@
           "monthly": 18
         },
         {
-          "name": "CLOUDNATIVE-1xCPU-8GB",
-          "cores": 1,
-          "memoryMiB": 8192,
-          "storageGB": 0,
-          "monthly": 20
-        },
-        {
           "name": "STARTER-4xCPU-8GB",
           "cores": 4,
           "memoryMiB": 8192,
           "storageGB": 40,
+          "monthly": 20
+        },
+        {
+          "name": "CLOUDNATIVE-1xCPU-8GB",
+          "cores": 1,
+          "memoryMiB": 8192,
           "monthly": 20
         },
         {
@@ -10810,7 +10261,6 @@
           "name": "CLOUDNATIVE-2xCPU-8GB",
           "cores": 2,
           "memoryMiB": 8192,
-          "storageGB": 0,
           "monthly": 24
         },
         {
@@ -10845,14 +10295,12 @@
           "name": "CLOUDNATIVE-4xCPU-8GB",
           "cores": 4,
           "memoryMiB": 8192,
-          "storageGB": 0,
           "monthly": 32
         },
         {
           "name": "CLOUDNATIVE-2xCPU-16GB",
           "cores": 2,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 34
         },
         {
@@ -10894,8 +10342,13 @@
           "name": "CLOUDNATIVE-4xCPU-16GB",
           "cores": 4,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 68
+        },
+        {
+          "name": "CLOUDNATIVE-4xCPU-24GB",
+          "cores": 4,
+          "memoryMiB": 24576,
+          "monthly": 72
         },
         {
           "name": "PREMIUM-2xCPU-16GB",
@@ -10905,17 +10358,9 @@
           "monthly": 72
         },
         {
-          "name": "CLOUDNATIVE-4xCPU-24GB",
-          "cores": 4,
-          "memoryMiB": 24576,
-          "storageGB": 0,
-          "monthly": 72
-        },
-        {
           "name": "CLOUDNATIVE-6xCPU-16GB",
           "cores": 6,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 74
         },
         {
@@ -10929,35 +10374,30 @@
           "name": "CLOUDNATIVE-6xCPU-24GB",
           "cores": 6,
           "memoryMiB": 24576,
-          "storageGB": 0,
           "monthly": 78
         },
         {
           "name": "CLOUDNATIVE-8xCPU-16GB",
           "cores": 8,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 80
         },
         {
           "name": "CLOUDNATIVE-8xCPU-24GB",
           "cores": 8,
           "memoryMiB": 24576,
-          "storageGB": 0,
           "monthly": 84
-        },
-        {
-          "name": "CLOUDNATIVE-4xCPU-32GB",
-          "cores": 4,
-          "memoryMiB": 32768,
-          "storageGB": 0,
-          "monthly": 90
         },
         {
           "name": "CLOUDNATIVE-12xCPU-24GB",
           "cores": 12,
           "memoryMiB": 24576,
-          "storageGB": 0,
+          "monthly": 90
+        },
+        {
+          "name": "CLOUDNATIVE-4xCPU-32GB",
+          "cores": 4,
+          "memoryMiB": 32768,
           "monthly": 90
         },
         {
@@ -10978,7 +10418,6 @@
           "name": "CLOUDNATIVE-8xCPU-32GB",
           "cores": 8,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 130
         },
         {
@@ -10992,7 +10431,6 @@
           "name": "CLOUDNATIVE-12xCPU-32GB",
           "cores": 12,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 145
         },
         {
@@ -11020,14 +10458,12 @@
           "name": "CLOUDNATIVE-16xCPU-32GB",
           "cores": 16,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 160
         },
         {
           "name": "CLOUDNATIVE-4xCPU-48GB",
           "cores": 4,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 160
         },
         {
@@ -11041,7 +10477,6 @@
           "name": "CLOUDNATIVE-8xCPU-48GB",
           "cores": 8,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 190
         },
         {
@@ -11055,7 +10490,6 @@
           "name": "CLOUDNATIVE-8xCPU-64GB",
           "cores": 8,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 220
         },
         {
@@ -11069,14 +10503,12 @@
           "name": "CLOUDNATIVE-16xCPU-48GB",
           "cores": 16,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 230
         },
         {
           "name": "CLOUDNATIVE-8xCPU-96GB",
           "cores": 8,
           "memoryMiB": 98304,
-          "storageGB": 0,
           "monthly": 240
         },
         {
@@ -11090,7 +10522,6 @@
           "name": "CLOUDNATIVE-16xCPU-64GB",
           "cores": 16,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 270
         },
         {
@@ -11104,14 +10535,12 @@
           "name": "CLOUDNATIVE-20xCPU-64GB",
           "cores": 20,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 285
         },
         {
           "name": "CLOUDNATIVE-32xCPU-64GB",
           "cores": 32,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 300
         },
         {
@@ -11136,17 +10565,15 @@
           "monthly": 337
         },
         {
-          "name": "CLOUDNATIVE-8xCPU-128GB",
-          "cores": 8,
-          "memoryMiB": 131072,
-          "storageGB": 0,
-          "monthly": 340
-        },
-        {
           "name": "CLOUDNATIVE-16xCPU-96GB",
           "cores": 16,
           "memoryMiB": 98304,
-          "storageGB": 0,
+          "monthly": 340
+        },
+        {
+          "name": "CLOUDNATIVE-8xCPU-128GB",
+          "cores": 8,
+          "memoryMiB": 131072,
           "monthly": 340
         },
         {
@@ -11160,14 +10587,12 @@
           "name": "CLOUDNATIVE-16xCPU-128GB",
           "cores": 16,
           "memoryMiB": 131072,
-          "storageGB": 0,
           "monthly": 370
         },
         {
           "name": "CLOUDNATIVE-20xCPU-96GB",
           "cores": 20,
           "memoryMiB": 98304,
-          "storageGB": 0,
           "monthly": 380
         },
         {
@@ -11188,7 +10613,6 @@
           "name": "CLOUDNATIVE-32xCPU-128GB",
           "cores": 32,
           "memoryMiB": 131072,
-          "storageGB": 0,
           "monthly": 460
         },
         {
@@ -11202,7 +10626,6 @@
           "name": "CLOUDNATIVE-16xCPU-192GB",
           "cores": 16,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 560
         },
         {
@@ -11237,7 +10660,6 @@
           "name": "CLOUDNATIVE-32xCPU-192GB",
           "cores": 32,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 670
         },
         {
@@ -11251,14 +10673,12 @@
           "name": "CLOUDNATIVE-64xCPU-192GB",
           "cores": 64,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 700
         },
         {
           "name": "CLOUDNATIVE-24xCPU-256GB",
           "cores": 24,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 720
         },
         {
@@ -11272,7 +10692,6 @@
           "name": "CLOUDNATIVE-32xCPU-256GB",
           "cores": 32,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 740
         },
         {
@@ -11286,14 +10705,12 @@
           "name": "CLOUDNATIVE-64xCPU-256GB",
           "cores": 64,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 820
         },
         {
           "name": "CLOUDNATIVE-32xCPU-384GB",
           "cores": 32,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 880
         },
         {
@@ -11307,14 +10724,12 @@
           "name": "CLOUDNATIVE-48xCPU-384GB",
           "cores": 48,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 920
         },
         {
           "name": "CLOUDNATIVE-64xCPU-384GB",
           "cores": 64,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 980
         },
         {
@@ -11349,7 +10764,6 @@
           "name": "CLOUDNATIVE-48xCPU-512GB",
           "cores": 48,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1200
         },
         {
@@ -11384,7 +10798,6 @@
           "name": "CLOUDNATIVE-64xCPU-512GB",
           "cores": 64,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1400
         },
         {
@@ -11405,7 +10818,6 @@
           "name": "CLOUDNATIVE-80xCPU-512GB",
           "cores": 80,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1800
         },
         {
@@ -11451,35 +10863,35 @@
           "monthly": 2977
         }
       ],
-      "storageMaxiopsGBMonth": 0.20832,
-      "storageStandardGBMonth": 0.10684800000000001,
-      "loadBalancerMonthly": 28,
-      "controlPlaneMonthly": 168,
+      "storageMaxiopsGBMonth": 0.2232,
+      "storageStandardGBMonth": 0.1145,
+      "loadBalancerMonthly": 30,
+      "controlPlaneMonthly": 60,
       "loadBalancerPlans": {
-        "development": 9.33,
+        "development": 10,
         "essentials": 0,
-        "production-medium": 70,
-        "production-small": 28
+        "production-medium": 75,
+        "production-small": 30
       },
       "kubernetesPlans": {
         "dev-md": 0,
-        "development": 84,
-        "prod-md": 56,
-        "prod-md-ha": 56,
-        "production-small": 168
+        "development": 90,
+        "prod-md": 60,
+        "prod-md-ha": 60,
+        "production-small": 180
       }
     },
     "us-sjo1": {
       "plans": [
         {
-          "name": "STARTER-1xCPU-1GB",
+          "name": "DEV-1xCPU-1GB-10GB",
           "cores": 1,
           "memoryMiB": 1024,
           "storageGB": 10,
           "monthly": 3
         },
         {
-          "name": "DEV-1xCPU-1GB-10GB",
+          "name": "STARTER-1xCPU-1GB",
           "cores": 1,
           "memoryMiB": 1024,
           "storageGB": 10,
@@ -11507,15 +10919,15 @@
           "monthly": 6
         },
         {
-          "name": "STARTER-2xCPU-2GB",
-          "cores": 2,
+          "name": "DEV-1xCPU-2GB",
+          "cores": 1,
           "memoryMiB": 2048,
           "storageGB": 30,
           "monthly": 8
         },
         {
-          "name": "DEV-1xCPU-2GB",
-          "cores": 1,
+          "name": "STARTER-2xCPU-2GB",
+          "cores": 2,
           "memoryMiB": 2048,
           "storageGB": 30,
           "monthly": 8
@@ -11535,13 +10947,6 @@
           "monthly": 10
         },
         {
-          "name": "CLOUDNATIVE-1xCPU-4GB",
-          "cores": 1,
-          "memoryMiB": 4096,
-          "storageGB": 0,
-          "monthly": 12
-        },
-        {
           "name": "STARTER-2xCPU-4GB",
           "cores": 2,
           "memoryMiB": 4096,
@@ -11556,17 +10961,22 @@
           "monthly": 12
         },
         {
-          "name": "CLOUDNATIVE-2xCPU-4GB",
-          "cores": 2,
+          "name": "CLOUDNATIVE-1xCPU-4GB",
+          "cores": 1,
           "memoryMiB": 4096,
-          "storageGB": 0,
-          "monthly": 15
+          "monthly": 12
         },
         {
           "name": "DEV-1xCPU-4GB",
           "cores": 1,
           "memoryMiB": 4096,
           "storageGB": 40,
+          "monthly": 15
+        },
+        {
+          "name": "CLOUDNATIVE-2xCPU-4GB",
+          "cores": 2,
+          "memoryMiB": 4096,
           "monthly": 15
         },
         {
@@ -11598,17 +11008,16 @@
           "monthly": 18
         },
         {
-          "name": "CLOUDNATIVE-1xCPU-8GB",
-          "cores": 1,
-          "memoryMiB": 8192,
-          "storageGB": 0,
-          "monthly": 20
-        },
-        {
           "name": "STARTER-4xCPU-8GB",
           "cores": 4,
           "memoryMiB": 8192,
           "storageGB": 40,
+          "monthly": 20
+        },
+        {
+          "name": "CLOUDNATIVE-1xCPU-8GB",
+          "cores": 1,
+          "memoryMiB": 8192,
           "monthly": 20
         },
         {
@@ -11629,7 +11038,6 @@
           "name": "CLOUDNATIVE-2xCPU-8GB",
           "cores": 2,
           "memoryMiB": 8192,
-          "storageGB": 0,
           "monthly": 24
         },
         {
@@ -11664,14 +11072,12 @@
           "name": "CLOUDNATIVE-4xCPU-8GB",
           "cores": 4,
           "memoryMiB": 8192,
-          "storageGB": 0,
           "monthly": 32
         },
         {
           "name": "CLOUDNATIVE-2xCPU-16GB",
           "cores": 2,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 34
         },
         {
@@ -11713,8 +11119,13 @@
           "name": "CLOUDNATIVE-4xCPU-16GB",
           "cores": 4,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 68
+        },
+        {
+          "name": "CLOUDNATIVE-4xCPU-24GB",
+          "cores": 4,
+          "memoryMiB": 24576,
+          "monthly": 72
         },
         {
           "name": "PREMIUM-2xCPU-16GB",
@@ -11724,17 +11135,9 @@
           "monthly": 72
         },
         {
-          "name": "CLOUDNATIVE-4xCPU-24GB",
-          "cores": 4,
-          "memoryMiB": 24576,
-          "storageGB": 0,
-          "monthly": 72
-        },
-        {
           "name": "CLOUDNATIVE-6xCPU-16GB",
           "cores": 6,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 74
         },
         {
@@ -11748,35 +11151,30 @@
           "name": "CLOUDNATIVE-6xCPU-24GB",
           "cores": 6,
           "memoryMiB": 24576,
-          "storageGB": 0,
           "monthly": 78
         },
         {
           "name": "CLOUDNATIVE-8xCPU-16GB",
           "cores": 8,
           "memoryMiB": 16384,
-          "storageGB": 0,
           "monthly": 80
         },
         {
           "name": "CLOUDNATIVE-8xCPU-24GB",
           "cores": 8,
           "memoryMiB": 24576,
-          "storageGB": 0,
           "monthly": 84
-        },
-        {
-          "name": "CLOUDNATIVE-4xCPU-32GB",
-          "cores": 4,
-          "memoryMiB": 32768,
-          "storageGB": 0,
-          "monthly": 90
         },
         {
           "name": "CLOUDNATIVE-12xCPU-24GB",
           "cores": 12,
           "memoryMiB": 24576,
-          "storageGB": 0,
+          "monthly": 90
+        },
+        {
+          "name": "CLOUDNATIVE-4xCPU-32GB",
+          "cores": 4,
+          "memoryMiB": 32768,
           "monthly": 90
         },
         {
@@ -11797,7 +11195,6 @@
           "name": "CLOUDNATIVE-8xCPU-32GB",
           "cores": 8,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 130
         },
         {
@@ -11811,7 +11208,6 @@
           "name": "CLOUDNATIVE-12xCPU-32GB",
           "cores": 12,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 145
         },
         {
@@ -11839,14 +11235,12 @@
           "name": "CLOUDNATIVE-16xCPU-32GB",
           "cores": 16,
           "memoryMiB": 32768,
-          "storageGB": 0,
           "monthly": 160
         },
         {
           "name": "CLOUDNATIVE-4xCPU-48GB",
           "cores": 4,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 160
         },
         {
@@ -11860,7 +11254,6 @@
           "name": "CLOUDNATIVE-8xCPU-48GB",
           "cores": 8,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 190
         },
         {
@@ -11874,7 +11267,6 @@
           "name": "CLOUDNATIVE-8xCPU-64GB",
           "cores": 8,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 220
         },
         {
@@ -11888,14 +11280,12 @@
           "name": "CLOUDNATIVE-16xCPU-48GB",
           "cores": 16,
           "memoryMiB": 49152,
-          "storageGB": 0,
           "monthly": 230
         },
         {
           "name": "CLOUDNATIVE-8xCPU-96GB",
           "cores": 8,
           "memoryMiB": 98304,
-          "storageGB": 0,
           "monthly": 240
         },
         {
@@ -11909,7 +11299,6 @@
           "name": "CLOUDNATIVE-16xCPU-64GB",
           "cores": 16,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 270
         },
         {
@@ -11923,14 +11312,12 @@
           "name": "CLOUDNATIVE-20xCPU-64GB",
           "cores": 20,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 285
         },
         {
           "name": "CLOUDNATIVE-32xCPU-64GB",
           "cores": 32,
           "memoryMiB": 65536,
-          "storageGB": 0,
           "monthly": 300
         },
         {
@@ -11955,17 +11342,15 @@
           "monthly": 337
         },
         {
-          "name": "CLOUDNATIVE-8xCPU-128GB",
-          "cores": 8,
-          "memoryMiB": 131072,
-          "storageGB": 0,
-          "monthly": 340
-        },
-        {
           "name": "CLOUDNATIVE-16xCPU-96GB",
           "cores": 16,
           "memoryMiB": 98304,
-          "storageGB": 0,
+          "monthly": 340
+        },
+        {
+          "name": "CLOUDNATIVE-8xCPU-128GB",
+          "cores": 8,
+          "memoryMiB": 131072,
           "monthly": 340
         },
         {
@@ -11979,14 +11364,12 @@
           "name": "CLOUDNATIVE-16xCPU-128GB",
           "cores": 16,
           "memoryMiB": 131072,
-          "storageGB": 0,
           "monthly": 370
         },
         {
           "name": "CLOUDNATIVE-20xCPU-96GB",
           "cores": 20,
           "memoryMiB": 98304,
-          "storageGB": 0,
           "monthly": 380
         },
         {
@@ -12007,7 +11390,6 @@
           "name": "CLOUDNATIVE-32xCPU-128GB",
           "cores": 32,
           "memoryMiB": 131072,
-          "storageGB": 0,
           "monthly": 460
         },
         {
@@ -12021,7 +11403,6 @@
           "name": "CLOUDNATIVE-16xCPU-192GB",
           "cores": 16,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 560
         },
         {
@@ -12056,7 +11437,6 @@
           "name": "CLOUDNATIVE-32xCPU-192GB",
           "cores": 32,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 670
         },
         {
@@ -12070,14 +11450,12 @@
           "name": "CLOUDNATIVE-64xCPU-192GB",
           "cores": 64,
           "memoryMiB": 196608,
-          "storageGB": 0,
           "monthly": 700
         },
         {
           "name": "CLOUDNATIVE-24xCPU-256GB",
           "cores": 24,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 720
         },
         {
@@ -12091,7 +11469,6 @@
           "name": "CLOUDNATIVE-32xCPU-256GB",
           "cores": 32,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 740
         },
         {
@@ -12105,14 +11482,12 @@
           "name": "CLOUDNATIVE-64xCPU-256GB",
           "cores": 64,
           "memoryMiB": 262144,
-          "storageGB": 0,
           "monthly": 820
         },
         {
           "name": "CLOUDNATIVE-32xCPU-384GB",
           "cores": 32,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 880
         },
         {
@@ -12126,14 +11501,12 @@
           "name": "CLOUDNATIVE-48xCPU-384GB",
           "cores": 48,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 920
         },
         {
           "name": "CLOUDNATIVE-64xCPU-384GB",
           "cores": 64,
           "memoryMiB": 393216,
-          "storageGB": 0,
           "monthly": 980
         },
         {
@@ -12168,7 +11541,6 @@
           "name": "CLOUDNATIVE-48xCPU-512GB",
           "cores": 48,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1200
         },
         {
@@ -12203,7 +11575,6 @@
           "name": "CLOUDNATIVE-64xCPU-512GB",
           "cores": 64,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1400
         },
         {
@@ -12224,7 +11595,6 @@
           "name": "CLOUDNATIVE-80xCPU-512GB",
           "cores": 80,
           "memoryMiB": 524288,
-          "storageGB": 0,
           "monthly": 1800
         },
         {
@@ -12270,22 +11640,22 @@
           "monthly": 2977
         }
       ],
-      "storageMaxiopsGBMonth": 0.20832,
-      "storageStandardGBMonth": 0.10684800000000001,
-      "loadBalancerMonthly": 28,
-      "controlPlaneMonthly": 168,
+      "storageMaxiopsGBMonth": 0.2232,
+      "storageStandardGBMonth": 0.1145,
+      "loadBalancerMonthly": 30,
+      "controlPlaneMonthly": 60,
       "loadBalancerPlans": {
-        "development": 9.33,
+        "development": 10,
         "essentials": 0,
-        "production-medium": 70,
-        "production-small": 28
+        "production-medium": 75,
+        "production-small": 30
       },
       "kubernetesPlans": {
         "dev-md": 0,
-        "development": 84,
-        "prod-md": 56,
-        "prod-md-ha": 56,
-        "production-small": 168
+        "development": 90,
+        "prod-md": 60,
+        "prod-md-ha": 60,
+        "production-small": 180
       }
     }
   }

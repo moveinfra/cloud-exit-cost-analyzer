@@ -20,13 +20,16 @@ const upcloudAPI = "https://api.upcloud.com/1.3"
 // Check the printed table against the UpCloud price list before committing; -unit and -hours exist because
 // the docs do not state the unit.
 // Managed Kubernetes and Managed Load Balancer plans are stored as well; -uks-plan and -lb-plan pick the one
-// the estimate uses.
+// the estimate uses. The defaults are the production plans on https://upcloud.com/pricing/: "prod-md" is the
+// Production control plane (up to 120 nodes, EUR 60 per 30-day month). "production-small" and "development" are
+// older Kubernetes plans the API still lists.
 func genUpCloud(args []string) error {
 	fs := flag.NewFlagSet("upcloud", flag.ExitOnError)
 	unit := fs.Float64("unit", 100, "divide API prices by this to get EUR (100 = prices are in cents)")
-	hours := fs.Float64("hours", 672, "billable hours per month (UpCloud caps monthly cost at this many hours)")
+	hours := fs.Float64("hours", 672, "billable hours per month for servers (UpCloud caps a server's monthly cost at this many hours)")
+	serviceHours := fs.Float64("service-hours", 720, "hours per month for storage, Managed Kubernetes and load balancers (UpCloud quotes them for a 30-day month)")
 	lbPlan := fs.String("lb-plan", "production-small", "Managed Load Balancer plan used in estimates")
-	uksPlan := fs.String("uks-plan", "production-small", "Managed Kubernetes control plane plan used in estimates")
+	uksPlan := fs.String("uks-plan", "prod-md", "Managed Kubernetes control plane plan used in estimates")
 	fs.Parse(args)
 
 	token := os.Getenv("UPCLOUD_TOKEN")
@@ -63,6 +66,7 @@ func genUpCloud(args []string) error {
 		Price  float64 `json:"price"`
 	}
 	monthly := func(it item) float64 { return it.Price / *unit * *hours }
+	service := func(it item) float64 { return it.Price / *unit * *serviceHours }
 
 	out := &pricing.UpCloud{Currency: "EUR", Generated: today(), Source: upcloudAPI + "/price", Zones: map[string]*pricing.UpCloudZone{}}
 	other := map[string]bool{}
@@ -81,13 +85,13 @@ func genUpCloud(args []string) error {
 			case strings.HasPrefix(key, "server_plan_"):
 				// handled below, by plan name
 			case key == "storage_maxiops":
-				z.StorageMaxIOPSMonth = monthly(it) / it.Amount
+				z.StorageMaxIOPSMonth = round4(service(it) / it.Amount)
 			case key == "storage_standard":
-				z.StorageStandardMonth = monthly(it) / it.Amount
+				z.StorageStandardMonth = round4(service(it) / it.Amount)
 			case strings.HasPrefix(key, "managed_kubernetes_"):
-				z.KubernetesPlans[strings.TrimPrefix(key, "managed_kubernetes_")] = round2(monthly(it))
+				z.KubernetesPlans[strings.TrimPrefix(key, "managed_kubernetes_")] = round2(service(it))
 			case strings.HasPrefix(key, "managed_loadbalancer_"):
-				z.LoadBalancerPlans[strings.TrimPrefix(key, "managed_loadbalancer_")] = round2(monthly(it))
+				z.LoadBalancerPlans[strings.TrimPrefix(key, "managed_loadbalancer_")] = round2(service(it))
 			default:
 				other[key] = true
 			}
@@ -137,3 +141,4 @@ func getJSON(url string, h http.Header, v any) error {
 }
 
 func round2(f float64) float64 { return float64(int64(f*100+0.5)) / 100 }
+func round4(f float64) float64 { return float64(int64(f*10000+0.5)) / 10000 }

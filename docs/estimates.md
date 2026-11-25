@@ -28,7 +28,7 @@ that provider's prices. What is compared:
 |---|---|---|---|---|
 | Region | `upcloud.zone` (default `de-fra1`) | `fsn1` | Europe (catalogue price) | `fr-par-1` |
 | Worker servers | plans in `upcloud.planFamilies` | dedicated vCPU (CCX) | general, CPU and RAM ranges | general, compute and memory Instances |
-| Kubernetes control plane | Managed Kubernetes, production plan | none: 3 × the cheapest 2 vCPU / 4 GiB server, self-managed | Managed Kubernetes Service Standard | Kapsule Dedicated-4 |
+| Kubernetes control plane | Managed Kubernetes, Production plan (`prod-md`) | none: 3 × the cheapest 2 vCPU / 4 GiB server, self-managed | Managed Kubernetes Service Standard | Kapsule Dedicated-4 |
 | Block storage | MaxIOPS | Volumes | Block Storage high-speed | Block Storage 5K |
 | Load balancer | Managed Load Balancer, production-small | LB11 | Octavia Small | LB-S |
 

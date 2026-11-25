@@ -42,9 +42,13 @@ only when the repository has an `UPCLOUD_TOKEN` secret (an UpCloud API token; re
 ## UpCloud specifics
 
 - The price API returns **euro cents per hour**. `pricegen upcloud` divides by 100 (`-unit`) and multiplies by
-  **672 hours** (`-hours`), UpCloud's monthly cap. Checked against round plan prices (e.g. €3.00, €8.00).
-- Estimates use the `production-small` Managed Kubernetes and Load Balancer plans. Change with
-  `-uks-plan` and `-lb-plan`; all plans are stored in the JSON either way.
+  **672 hours** (`-hours`) for servers, UpCloud's monthly cap. Checked against round plan prices (e.g. €3.00, €8.00).
+- Storage, Managed Kubernetes and Managed Load Balancers have no such cap: UpCloud quotes them for a 30-day month, so
+  they are multiplied by **720 hours** (`-service-hours`). Checked against https://upcloud.com/pricing/ on 2026-11-25:
+  Production control plane €60, Production S load balancer €30.
+- Estimates use the `prod-md` Managed Kubernetes plan (the Production control plane, up to 120 nodes) and the
+  `production-small` Load Balancer plan. Change with `-uks-plan` and `-lb-plan`; all plans are stored in the JSON
+  either way. `production-small` and `development` in `kubernetesPlans` are older plans the API still lists.
 - Plan family is derived from the plan name prefix (`DEV-`, `STARTER-`, `HIMEM-`, …); plans without a prefix are General Purpose.
 
 ## Checking a refresh
