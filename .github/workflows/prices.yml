@@ -27,10 +27,12 @@ jobs:
       - name: UpCloud
         if: env.UPCLOUD_TOKEN != ''
         run: go run ./tools/pricegen upcloud
+      - name: Hetzner, OVHcloud, Scaleway
+        run: go run ./tools/pricegen eu
       - run: go test ./...
       - uses: peter-evans/create-pull-request@v7
         with:
           branch: prices/refresh
           commit-message: "prices: monthly refresh"
           title: "Monthly price refresh"
-          body: Regenerated from the AWS Price List, Azure Retail Prices, ECB and UpCloud APIs by `tools/pricegen`.
+          body: Regenerated from the AWS Price List, Azure Retail Prices, ECB and UpCloud APIs and the EU Cloud Price Index by `tools/pricegen`.

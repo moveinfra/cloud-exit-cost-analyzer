@@ -22,11 +22,13 @@ Then:
 
 ## Adding another target cloud
 
-The estimator is built around UpCloud today. To compare against Hetzner, Scaleway or OVHcloud, add a generator in
-`tools/pricegen`, a price type in `internal/pricing`, and a target option in `internal/estimate`. Pull requests that do
-this upstream are welcome; see [CONTRIBUTING.md](../CONTRIBUTING.md).
+The estimator compares UpCloud, Hetzner, OVHcloud and Scaleway. A provider is one JSON file in
+`internal/pricing/data/` in the `pricing.Provider` shape (server plans with a family, block storage per GB-month, a load
+balancer and a Kubernetes control plane price) plus its id in `pricing.ProviderIDs`; the estimator and the report pick
+it up from there. Write the file with a generator in `tools/pricegen` so it can be refreshed. Pull requests that add a
+provider upstream are welcome; see [CONTRIBUTING.md](../CONTRIBUTING.md).
 
 ## Trademarks
 
-AWS, Azure, Google Cloud, DigitalOcean and UpCloud are trademarks of their owners. A fork must not present itself as
+AWS, Azure, Google Cloud, DigitalOcean, UpCloud, Hetzner, OVHcloud and Scaleway are trademarks of their owners. A fork must not present itself as
 MoveInfra or as an official tool of any cloud provider.

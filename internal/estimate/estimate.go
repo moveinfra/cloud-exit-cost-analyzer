@@ -1,5 +1,6 @@
 // Package estimate turns a cluster snapshot plus usage history into a cost report: what the cluster costs today
-// at list prices, what it would cost on UpCloud in three scenarios, and what to change to pay less anywhere.
+// at list prices, what it would cost on each EU provider (UpCloud, Hetzner, OVHcloud, Scaleway) in three scenarios,
+// and what to change to pay less anywhere.
 package estimate
 
 import (
@@ -16,6 +17,7 @@ import (
 
 // Options come from the Helm values.
 type Options struct {
+	Provider            string             // provider shown in detail: upcloud (default), hetzner, ovhcloud, scaleway
 	Zone                string             // UpCloud zone to price, e.g. de-fra1
 	MinNodes            int                // never plan fewer worker nodes than this (high availability)
 	CPUHeadroom         float64            // right-sized CPU = p95 usage * (1 + CPUHeadroom)
@@ -28,6 +30,9 @@ type Options struct {
 }
 
 func (o *Options) defaults() {
+	if o.Provider == "" {
+		o.Provider = "upcloud"
+	}
 	if o.Zone == "" {
 		o.Zone = "de-fra1"
 	}
@@ -78,7 +83,7 @@ type Scenario struct {
 	Nodes       []NodeGroup `json:"nodes"`
 	Lines       []Line      `json:"lines"`
 	TotalEUR    float64     `json:"totalEUR"`
-	SavingsEUR  float64     `json:"savingsEUR"` // vs current, positive = cheaper on UpCloud
+	SavingsEUR  float64     `json:"savingsEUR"` // vs current, positive = cheaper on the target provider
 	SavingsPct  float64     `json:"savingsPct"`
 	Error       string      `json:"error,omitempty"`
 }
@@ -87,7 +92,7 @@ type Recommendation struct {
 	Kind       string  `json:"kind"`
 	Target     string  `json:"target"`
 	Detail     string  `json:"detail"`
-	SavingsEUR float64 `json:"savingsEUR,omitempty"` // monthly, on UpCloud prices
+	SavingsEUR float64 `json:"savingsEUR,omitempty"` // monthly, at the prices of the provider shown in detail
 }
 
 type WorkloadRow struct {
@@ -108,15 +113,43 @@ type Totals struct {
 	LoadBalancers                     int
 }
 
+// TargetEstimate is the three scenarios on one EU provider.
+type TargetEstimate struct {
+	Provider  string `json:"provider"`
+	Name      string `json:"name"`
+	Zone      string `json:"zone"`
+	PriceDate string `json:"priceDate"`
+	Primary   bool   `json:"primary"` // the provider shown in detail
+	// ControlPlane says how Kubernetes is run there and what it costs per month, in words.
+	ControlPlane string     `json:"controlPlane"`
+	Scenarios    []Scenario `json:"scenarios"`
+	Note         string     `json:"note,omitempty"`
+	Error        string     `json:"error,omitempty"`
+}
+
+// Scenario returns the scenario with the given id, or nil.
+func (t TargetEstimate) Scenario(id string) *Scenario {
+	for i := range t.Scenarios {
+		if t.Scenarios[i].ID == id && t.Scenarios[i].Error == "" {
+			return &t.Scenarios[i]
+		}
+	}
+	return nil
+}
+
 type Report struct {
 	Generated       time.Time         `json:"generated"`
 	Since           time.Time         `json:"usageSince"`
 	Samples         int               `json:"usageSamples"`
 	CoverageHours   float64           `json:"usageHours"`
-	Zone            string            `json:"upcloudZone"`
+	Provider        string            `json:"provider"`     // the provider shown in detail
+	ProviderName    string            `json:"providerName"` //
+	Zone            string            `json:"zone"`         // its zone or region
+	UpCloudZone     string            `json:"upcloudZone"`  // the UpCloud zone used in the comparison
 	Totals          Totals            `json:"totals"`
 	Current         Current           `json:"current"`
-	Scenarios       []Scenario        `json:"scenarios"`
+	Scenarios       []Scenario        `json:"scenarios"` // of the provider shown in detail
+	Targets         []TargetEstimate  `json:"targets"`   // every provider, cheapest first
 	Recommendations []Recommendation  `json:"recommendations"`
 	Workloads       []WorkloadRow     `json:"workloads"`
 	Notes           []string          `json:"notes"`
@@ -129,13 +162,20 @@ const gib = 1 << 30
 // Build computes the report.
 func Build(snap *collect.Snapshot, store *usage.Store, book *pricing.Book, o Options) (*Report, error) {
 	o.defaults()
-	zone, err := book.UpCloud.Zone(o.Zone, o.PlanFamilies...)
+	target := func(id string) (*pricing.Target, error) {
+		if id == "upcloud" {
+			return book.Target(id, o.Zone, o.PlanFamilies...)
+		}
+		return book.Target(id, "")
+	}
+	primary, err := target(o.Provider)
 	if err != nil {
 		return nil, err
 	}
 	first, last, samples := store.Coverage()
-	r := &Report{Generated: time.Now().UTC(), Since: first, Samples: samples, CoverageHours: last.Sub(first).Hours(), Zone: o.Zone,
-		PriceDates: map[string]string{"upcloud": book.UpCloud.Generated, "fx": book.FX.Date}}
+	r := &Report{Generated: time.Now().UTC(), Since: first, Samples: samples, CoverageHours: last.Sub(first).Hours(),
+		Provider: primary.ID, ProviderName: primary.Name, Zone: primary.Zone, UpCloudZone: o.Zone,
+		PriceDates: map[string]string{"fx": book.FX.Date}}
 
 	rows, t := workloads(snap, store, o)
 	r.Workloads = rows
@@ -157,30 +197,51 @@ func Build(snap *collect.Snapshot, store *usage.Store, book *pricing.Book, o Opt
 	r.Totals = t
 
 	r.Current = current(snap, book, o, &r.PriceDates)
-	r.Scenarios = scenarios(snap, rows, zone, o)
-	for i := range r.Scenarios {
-		s := &r.Scenarios[i]
-		if s.Error == "" && r.Current.TotalEUR > 0 {
-			s.SavingsEUR = r.Current.TotalEUR - s.TotalEUR
-			s.SavingsPct = 100 * s.SavingsEUR / r.Current.TotalEUR
+	for _, id := range book.TargetIDs() {
+		t, err := primary, error(nil)
+		if id != primary.ID {
+			t, err = target(id)
 		}
+		if err != nil { // a provider that cannot be priced is listed with the reason, it does not fail the report
+			r.Targets = append(r.Targets, TargetEstimate{Provider: id, Name: id, Scenarios: []Scenario{}, Error: err.Error()})
+			continue
+		}
+		te := TargetEstimate{Provider: t.ID, Name: t.Name, Zone: t.Zone, PriceDate: t.Generated, Primary: t.ID == primary.ID,
+			Scenarios: scenarios(snap, rows, t, o), Note: t.Note, ControlPlane: controlPlaneText(t)}
+		for i := range te.Scenarios {
+			s := &te.Scenarios[i]
+			if s.Error == "" && r.Current.TotalEUR > 0 {
+				s.SavingsEUR = r.Current.TotalEUR - s.TotalEUR
+				s.SavingsPct = 100 * s.SavingsEUR / r.Current.TotalEUR
+			}
+			if s.Nodes == nil { // empty lists, not null, for scripts reading the JSON
+				s.Nodes = []NodeGroup{}
+			}
+			if s.Lines == nil {
+				s.Lines = []Line{}
+			}
+		}
+		if te.Primary {
+			r.Scenarios = te.Scenarios
+		}
+		r.PriceDates[t.ID] = t.Generated
+		r.Targets = append(r.Targets, te)
 	}
-	r.Recommendations = recommendations(snap, rows, zone, r.Scenarios)
-	r.Notes = notes(r, o)
-	// empty lists, not null, for scripts reading the JSON
+	// cheapest first, by the scenario that needs no changes to the apps
+	rank := func(t TargetEstimate) float64 {
+		if s := t.Scenario("requests"); s != nil {
+			return s.TotalEUR
+		}
+		return math.Inf(1)
+	}
+	sort.SliceStable(r.Targets, func(i, j int) bool { return rank(r.Targets[i]) < rank(r.Targets[j]) })
+	r.Recommendations = recommendations(snap, rows, primary, r.Scenarios)
+	r.Notes = notes(r, o, primary)
 	if r.Current.Lines == nil {
 		r.Current.Lines = []Line{}
 	}
 	if r.Recommendations == nil {
 		r.Recommendations = []Recommendation{}
-	}
-	for i := range r.Scenarios {
-		if r.Scenarios[i].Nodes == nil {
-			r.Scenarios[i].Nodes = []NodeGroup{}
-		}
-		if r.Scenarios[i].Lines == nil {
-			r.Scenarios[i].Lines = []Line{}
-		}
 	}
 	if r.Samples == 0 || r.CoverageHours < 24 {
 		r.Warning = r.Notes[0]
@@ -398,7 +459,7 @@ type demand struct {
 	maxCPU, maxMem int64 // largest single pod
 }
 
-func scenarios(snap *collect.Snapshot, rows []WorkloadRow, z *pricing.UpCloudZone, o Options) []Scenario {
+func scenarios(snap *collect.Snapshot, rows []WorkloadRow, z *pricing.Target, o Options) []Scenario {
 	var boundGB, allGB float64
 	for _, v := range snap.Volumes {
 		allGB += v.GB
@@ -409,20 +470,23 @@ func scenarios(snap *collect.Snapshot, rows []WorkloadRow, z *pricing.UpCloudZon
 	shared := func(gb float64, lbs int) []Line {
 		lines := []Line{}
 		if z.ControlPlaneMonthly > 0 {
-			lines = append(lines, Line{Item: "Managed Kubernetes control plane", Monthly: z.ControlPlaneMonthly})
+			lines = append(lines, Line{Item: "Managed Kubernetes control plane", Detail: productDetail(z, z.ControlPlaneProduct), Monthly: z.ControlPlaneMonthly})
+		} else if p, ok := controlPlanePlan(z); ok && z.SelfManaged {
+			lines = append(lines, Line{Item: fmt.Sprintf("%d × %s control plane servers", controlPlaneNodes, p.Name),
+				Detail: z.Name + " has no managed Kubernetes: you run the control plane yourself", Monthly: controlPlaneNodes * p.Monthly})
 		}
 		if gb > 0 {
-			lines = append(lines, Line{Item: "Block storage (MaxIOPS)", Detail: fmt.Sprintf("%.0f GB", gb), Monthly: gb * z.StorageMaxIOPSMonth})
+			lines = append(lines, Line{Item: fmt.Sprintf("Block storage (%s)", z.StorageProduct), Detail: fmt.Sprintf("%.0f GB", gb), Monthly: gb * z.StorageGBMonth})
 		}
 		if lbs > 0 && z.LoadBalancerMonthly > 0 {
-			lines = append(lines, Line{Item: fmt.Sprintf("%d × managed load balancer", lbs), Monthly: float64(lbs) * z.LoadBalancerMonthly})
+			lines = append(lines, Line{Item: fmt.Sprintf("%d × managed load balancer", lbs), Detail: productDetail(z, z.LoadBalancerProduct), Monthly: float64(lbs) * z.LoadBalancerMonthly})
 		}
 		return lines
 	}
 	lbs := len(snap.LoadBalancers)
 
 	// 1. Same servers: each node gets the cheapest plan at least as big.
-	same := Scenario{ID: "same", Name: "Same servers", Description: "Each node replaced by the closest UpCloud plan with at least the same vCPU and memory. No changes to your apps."}
+	same := Scenario{ID: "same", Name: "Same servers", Description: "Each node replaced by the closest " + z.Name + " plan with at least the same vCPU and memory. No changes to your apps."}
 	counts := map[string]int{}
 	price := map[string]float64{}
 	for _, n := range snap.Nodes {
@@ -431,7 +495,7 @@ func scenarios(snap *collect.Snapshot, rows []WorkloadRow, z *pricing.UpCloudZon
 		}
 		p, ok := fit(z.Plans, n.CPUMilli, n.MemoryBytes)
 		if !ok {
-			same.Error = fmt.Sprintf("no UpCloud plan as large as node %s", n.Name)
+			same.Error = fmt.Sprintf("no %s plan as large as node %s", z.Name, n.Name)
 			break
 		}
 		counts[p.Name]++
@@ -467,7 +531,7 @@ func scenarios(snap *collect.Snapshot, rows []WorkloadRow, z *pricing.UpCloudZon
 		}
 	}
 	packed := pack(Scenario{ID: "requests", Name: "Current requests",
-		Description: "Your pods' current CPU and memory requests, packed onto the cheapest set of UpCloud servers. No changes to your apps."}, req, z, o)
+		Description: "Your pods' current CPU and memory requests, packed onto the cheapest set of " + z.Name + " servers. No changes to your apps."}, req, z, o)
 	packed.Lines = append(packed.Lines, shared(boundGB, lbs)...)
 	finish(&packed)
 
@@ -479,7 +543,7 @@ func scenarios(snap *collect.Snapshot, rows []WorkloadRow, z *pricing.UpCloudZon
 }
 
 // pack picks the plan whose cheapest node count fits the demand, keeping NodeReserve of each node free.
-func pack(s Scenario, d demand, z *pricing.UpCloudZone, o Options) Scenario {
+func pack(s Scenario, d demand, z *pricing.Target, o Options) Scenario {
 	best, bestCost, bestN := pricing.Plan{}, math.Inf(1), 0
 	for _, p := range z.Plans {
 		allocCPU := int64(float64(p.Cores*1000)*(1-o.NodeReserve)) - d.dsCPU
@@ -497,7 +561,7 @@ func pack(s Scenario, d demand, z *pricing.UpCloudZone, o Options) Scenario {
 		}
 	}
 	if bestN == 0 {
-		s.Error = "no UpCloud plan fits the largest pod"
+		s.Error = "no " + z.Name + " plan fits the largest pod"
 		return s
 	}
 	s.Nodes = []NodeGroup{{Plan: best.Name, Count: bestN, Monthly: bestCost}}
@@ -523,7 +587,7 @@ func fit(plans []pricing.Plan, cpuMilli, memBytes int64) (pricing.Plan, bool) {
 	return pricing.Plan{}, false
 }
 
-func recommendations(snap *collect.Snapshot, rows []WorkloadRow, z *pricing.UpCloudZone, sc []Scenario) []Recommendation {
+func recommendations(snap *collect.Snapshot, rows []WorkloadRow, z *pricing.Target, sc []Scenario) []Recommendation {
 	var out []Recommendation
 	cpuEUR, memEUR := unitPrices(z)
 	for _, w := range rows {
@@ -559,7 +623,7 @@ func recommendations(snap *collect.Snapshot, rows []WorkloadRow, z *pricing.UpCl
 		}
 	}
 	if loose > 0 {
-		out = append(out, Recommendation{Kind: "Delete unused volumes", Target: strings.Join(names, ", "), SavingsEUR: loose * z.StorageMaxIOPSMonth,
+		out = append(out, Recommendation{Kind: "Delete unused volumes", Target: strings.Join(names, ", "), SavingsEUR: loose * z.StorageGBMonth,
 			Detail: fmt.Sprintf("%.0f GB in volumes no claim uses (Released or Available). Back up, then delete.", loose)})
 	}
 	if n := len(snap.LoadBalancers); n > 1 {
@@ -579,7 +643,7 @@ func recommendations(snap *collect.Snapshot, rows []WorkloadRow, z *pricing.UpCl
 }
 
 // unitPrices estimates EUR per vCPU-month and per GiB-month from the plan list (cheapest plan with 4 GiB per vCPU).
-func unitPrices(z *pricing.UpCloudZone) (cpu, mem float64) {
+func unitPrices(z *pricing.Target) (cpu, mem float64) {
 	for _, p := range z.Plans {
 		if p.Cores >= 2 && p.MemoryMiB == p.Cores*4096 {
 			// split the price evenly between CPU and memory
@@ -589,7 +653,7 @@ func unitPrices(z *pricing.UpCloudZone) (cpu, mem float64) {
 	return 0, 0
 }
 
-func notes(r *Report, o Options) []string {
+func notes(r *Report, o Options, t *pricing.Target) []string {
 	var n []string
 	switch h := r.CoverageHours; {
 	case r.Samples == 0:
@@ -599,7 +663,16 @@ func notes(r *Report, o Options) []string {
 	case h < 24*7:
 		n = append(n, fmt.Sprintf("Usage collected for %.1f days. A full week covers weekly peaks.", h/24))
 	}
-	n = append(n, fmt.Sprintf("UpCloud zone %s, list prices in EUR excluding VAT. Current costs are list prices converted to EUR with the ECB rate of %s.", r.Zone, r.PriceDates["fx"]))
+	n = append(n, fmt.Sprintf("%s %s, list prices in EUR excluding VAT. Current costs are list prices converted to EUR with the ECB rate of %s.", t.Name, t.Zone, r.PriceDates["fx"]))
+	if t.SelfManaged {
+		n = append(n, fmt.Sprintf("%s has no managed Kubernetes. The estimate adds %d small servers for a control plane you run yourself (for example with k3s, Talos or kubeadm); the work of running it is not priced.", t.Name, controlPlaneNodes))
+	}
+	if t.Note != "" {
+		n = append(n, t.Name+" prices: "+t.Note)
+	}
+	if len(r.Targets) > 1 {
+		n = append(n, "The provider table compares dedicated-CPU server plans, each provider's production Kubernetes control plane, its standard SSD block storage and its smallest production load balancer. Products differ in performance and limits: check the ones that matter to you.")
+	}
 	if r.Current.Provider == "upcloud" {
 		n = append(n, "This cluster already runs on UpCloud: today's cost is estimated from node sizes, and the scenarios show what right-sizing saves.")
 	}
@@ -610,6 +683,37 @@ func notes(r *Report, o Options) []string {
 		n = append(n, fmt.Sprintf("Packed scenarios keep at least %d nodes and %.0f%% of each node free for the system.", o.MinNodes, 100*o.NodeReserve))
 	}
 	return n
+}
+
+// controlPlaneNodes is the size of a self-managed, highly available control plane.
+const controlPlaneNodes = 3
+
+// controlPlanePlan is the cheapest server with at least 2 vCPU and 4 GiB, of any family.
+func controlPlanePlan(z *pricing.Target) (pricing.Plan, bool) {
+	for _, p := range z.All { // cheapest first
+		if p.Cores >= 2 && p.MemoryMiB >= 4096 {
+			return p, true
+		}
+	}
+	return pricing.Plan{}, false
+}
+
+func controlPlaneText(z *pricing.Target) string {
+	if z.ControlPlaneMonthly > 0 {
+		return fmt.Sprintf("managed (%s), €%.0f", z.ControlPlaneProduct, z.ControlPlaneMonthly)
+	}
+	if p, ok := controlPlanePlan(z); ok && z.SelfManaged {
+		return fmt.Sprintf("self-managed, %d × %s, €%.0f", controlPlaneNodes, p.Name, controlPlaneNodes*p.Monthly)
+	}
+	return "not priced"
+}
+
+// productDetail names the provider's product in the comparison rows; UpCloud lines stay as short as before.
+func productDetail(z *pricing.Target, product string) string {
+	if z.ID == "upcloud" {
+		return ""
+	}
+	return product
 }
 
 func ceilDiv(a, b int64) int {

@@ -3,7 +3,12 @@ image:
   tag: ""  # defaults to the chart appVersion
   pullPolicy: IfNotPresent
 
-# How the UpCloud estimate is built
+# The report compares UpCloud, Hetzner, OVHcloud and Scaleway. This is the provider it shows in detail.
+target:
+  provider: upcloud      # upcloud, hetzner, ovhcloud or scaleway
+
+# UpCloud has prices per zone and several plan families. The other providers have one price region each
+# (Hetzner fsn1, OVHcloud Europe, Scaleway fr-par-1) and use their dedicated-CPU plans.
 upcloud:
   zone: de-fra1          # de-fra1, fi-hel1, fi-hel2, nl-ams1, se-sto1, dk-cph1, no-svg1, pl-waw1, es-mad1, uk-lon1, ...
   planFamilies: [general, HICPU, HIMEM]  # server plans for worker nodes (also: PREMIUM, CLOUDNATIVE, DEV, STARTER)

@@ -1,0 +1,326 @@
+{
+  "provider": "ovhcloud",
+  "name": "OVHcloud",
+  "region": "DE",
+  "location": "Europe",
+  "currency": "EUR",
+  "generated": "2026-11-21",
+  "source": "https://eu.api.ovh.com/v1/order/catalog/public/cloud?ovhSubsidiary=DE",
+  "note": "Hourly price x 730. OVHcloud also offers cheaper monthly billing for some ranges.",
+  "plans": [
+    {
+      "name": "d2-2",
+      "family": "shared",
+      "cores": 1,
+      "memoryMiB": 2048,
+      "monthly": 7.59
+    },
+    {
+      "name": "d2-4",
+      "family": "shared",
+      "cores": 2,
+      "memoryMiB": 4096,
+      "monthly": 15.04
+    },
+    {
+      "name": "d2-8",
+      "family": "shared",
+      "cores": 4,
+      "memoryMiB": 8192,
+      "monthly": 27.16
+    },
+    {
+      "name": "c3-4",
+      "family": "compute",
+      "cores": 2,
+      "memoryMiB": 4096,
+      "monthly": 33.36
+    },
+    {
+      "name": "b3-8",
+      "family": "general",
+      "cores": 2,
+      "memoryMiB": 8192,
+      "monthly": 37.38
+    },
+    {
+      "name": "r3-16",
+      "family": "memory",
+      "cores": 2,
+      "memoryMiB": 16384,
+      "monthly": 48.4
+    },
+    {
+      "name": "b2-7",
+      "family": "general",
+      "cores": 2,
+      "memoryMiB": 7168,
+      "monthly": 51.76
+    },
+    {
+      "name": "c3-8",
+      "family": "compute",
+      "cores": 4,
+      "memoryMiB": 8192,
+      "monthly": 66.65
+    },
+    {
+      "name": "c2-7",
+      "family": "compute",
+      "cores": 2,
+      "memoryMiB": 7168,
+      "monthly": 74.31
+    },
+    {
+      "name": "r2-15",
+      "family": "memory",
+      "cores": 2,
+      "memoryMiB": 15360,
+      "monthly": 74.31
+    },
+    {
+      "name": "b3-16",
+      "family": "general",
+      "cores": 4,
+      "memoryMiB": 16384,
+      "monthly": 74.68
+    },
+    {
+      "name": "r2-30",
+      "family": "memory",
+      "cores": 2,
+      "memoryMiB": 30720,
+      "monthly": 85.85
+    },
+    {
+      "name": "r3-32",
+      "family": "memory",
+      "cores": 4,
+      "memoryMiB": 32768,
+      "monthly": 96.65
+    },
+    {
+      "name": "b2-15",
+      "family": "general",
+      "cores": 4,
+      "memoryMiB": 15360,
+      "monthly": 97.97
+    },
+    {
+      "name": "c3-16",
+      "family": "compute",
+      "cores": 8,
+      "memoryMiB": 16384,
+      "monthly": 133.23
+    },
+    {
+      "name": "c2-15",
+      "family": "compute",
+      "cores": 4,
+      "memoryMiB": 15360,
+      "monthly": 144.25
+    },
+    {
+      "name": "b3-32",
+      "family": "general",
+      "cores": 8,
+      "memoryMiB": 32768,
+      "monthly": 149.36
+    },
+    {
+      "name": "r2-60",
+      "family": "memory",
+      "cores": 4,
+      "memoryMiB": 61440,
+      "monthly": 167.02
+    },
+    {
+      "name": "r3-64",
+      "family": "memory",
+      "cores": 8,
+      "memoryMiB": 65536,
+      "monthly": 193.3
+    },
+    {
+      "name": "b2-30",
+      "family": "general",
+      "cores": 8,
+      "memoryMiB": 30720,
+      "monthly": 198.2
+    },
+    {
+      "name": "c3-32",
+      "family": "compute",
+      "cores": 16,
+      "memoryMiB": 32768,
+      "monthly": 266.45
+    },
+    {
+      "name": "c2-30",
+      "family": "compute",
+      "cores": 8,
+      "memoryMiB": 30720,
+      "monthly": 290.83
+    },
+    {
+      "name": "b3-64",
+      "family": "general",
+      "cores": 16,
+      "memoryMiB": 65536,
+      "monthly": 298.72
+    },
+    {
+      "name": "i1-45",
+      "family": "storage",
+      "cores": 8,
+      "memoryMiB": 46080,
+      "monthly": 320.47
+    },
+    {
+      "name": "r2-120",
+      "family": "memory",
+      "cores": 8,
+      "memoryMiB": 122880,
+      "monthly": 336.53
+    },
+    {
+      "name": "b2-60",
+      "family": "general",
+      "cores": 16,
+      "memoryMiB": 61440,
+      "monthly": 383.98
+    },
+    {
+      "name": "r3-128",
+      "family": "memory",
+      "cores": 16,
+      "memoryMiB": 131072,
+      "monthly": 386.9
+    },
+    {
+      "name": "c3-64",
+      "family": "compute",
+      "cores": 32,
+      "memoryMiB": 65536,
+      "monthly": 532.97
+    },
+    {
+      "name": "c2-60",
+      "family": "compute",
+      "cores": 16,
+      "memoryMiB": 61440,
+      "monthly": 568.67
+    },
+    {
+      "name": "b3-128",
+      "family": "general",
+      "cores": 32,
+      "memoryMiB": 131072,
+      "monthly": 597.87
+    },
+    {
+      "name": "i1-90",
+      "family": "storage",
+      "cores": 16,
+      "memoryMiB": 92160,
+      "monthly": 641.67
+    },
+    {
+      "name": "r2-240",
+      "family": "memory",
+      "cores": 16,
+      "memoryMiB": 245760,
+      "monthly": 661.38
+    },
+    {
+      "name": "b2-120",
+      "family": "general",
+      "cores": 32,
+      "memoryMiB": 122880,
+      "monthly": 754.09
+    },
+    {
+      "name": "r3-256",
+      "family": "memory",
+      "cores": 32,
+      "memoryMiB": 262144,
+      "monthly": 773.07
+    },
+    {
+      "name": "c3-128",
+      "family": "compute",
+      "cores": 64,
+      "memoryMiB": 131072,
+      "monthly": 1066.53
+    },
+    {
+      "name": "c2-120",
+      "family": "compute",
+      "cores": 32,
+      "memoryMiB": 122880,
+      "monthly": 1124.2
+    },
+    {
+      "name": "b3-256",
+      "family": "general",
+      "cores": 64,
+      "memoryMiB": 262144,
+      "monthly": 1195.01
+    },
+    {
+      "name": "i1-180",
+      "family": "storage",
+      "cores": 32,
+      "memoryMiB": 184320,
+      "monthly": 1284.8
+    },
+    {
+      "name": "r3-512",
+      "family": "memory",
+      "cores": 64,
+      "memoryMiB": 524288,
+      "monthly": 1546.14
+    },
+    {
+      "name": "c3-256",
+      "family": "compute",
+      "cores": 128,
+      "memoryMiB": 262144,
+      "monthly": 2132.33
+    },
+    {
+      "name": "b3-512",
+      "family": "general",
+      "cores": 128,
+      "memoryMiB": 524288,
+      "monthly": 2390.02
+    },
+    {
+      "name": "c3-320",
+      "family": "compute",
+      "cores": 160,
+      "memoryMiB": 327680,
+      "monthly": 2665.23
+    },
+    {
+      "name": "b3-640",
+      "family": "general",
+      "cores": 160,
+      "memoryMiB": 655360,
+      "monthly": 2987.16
+    },
+    {
+      "name": "r3-1024",
+      "family": "memory",
+      "cores": 128,
+      "memoryMiB": 1048576,
+      "monthly": 3092.28
+    }
+  ],
+  "storageGBMonth": 0.086,
+  "storageProduct": "Block Storage high-speed",
+  "loadBalancerMonthly": 6,
+  "loadBalancerProduct": "Octavia Load Balancer Small",
+  "controlPlaneMonthly": 65.7,
+  "controlPlaneProduct": "Managed Kubernetes Service Standard"
+}

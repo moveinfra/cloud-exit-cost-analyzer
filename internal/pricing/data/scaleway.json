@@ -1,0 +1,703 @@
+{
+  "provider": "scaleway",
+  "name": "Scaleway",
+  "region": "fr-par-1",
+  "location": "Paris",
+  "currency": "EUR",
+  "generated": "2026-11-21",
+  "source": "https://api.scaleway.com/product-catalog/v2alpha1/public-catalog/products?product_types=instance",
+  "plans": [
+    {
+      "name": "STARDUST1-S",
+      "family": "shared",
+      "cores": 1,
+      "memoryMiB": 1024,
+      "monthly": 0.44
+    },
+    {
+      "name": "DEV1-S",
+      "family": "shared",
+      "cores": 2,
+      "memoryMiB": 2048,
+      "monthly": 6.55
+    },
+    {
+      "name": "PLAY2-PICO",
+      "family": "shared",
+      "cores": 1,
+      "memoryMiB": 2048,
+      "monthly": 10.42
+    },
+    {
+      "name": "DEV1-M",
+      "family": "shared",
+      "cores": 3,
+      "memoryMiB": 4096,
+      "monthly": 14.74
+    },
+    {
+      "name": "PLAY2-NANO",
+      "family": "shared",
+      "cores": 2,
+      "memoryMiB": 4096,
+      "monthly": 20.1
+    },
+    {
+      "name": "BASIC3-X2C-4G",
+      "family": "shared",
+      "cores": 2,
+      "memoryMiB": 4096,
+      "monthly": 28.8
+    },
+    {
+      "name": "DEV1-L",
+      "family": "shared",
+      "cores": 4,
+      "memoryMiB": 8192,
+      "monthly": 31.27
+    },
+    {
+      "name": "POP2-HC-2C-4G",
+      "family": "compute",
+      "cores": 2,
+      "memoryMiB": 4096,
+      "monthly": 38.84
+    },
+    {
+      "name": "PLAY2-MICRO",
+      "family": "shared",
+      "cores": 4,
+      "memoryMiB": 8192,
+      "monthly": 40.21
+    },
+    {
+      "name": "PRO2-XXS",
+      "family": "general",
+      "cores": 2,
+      "memoryMiB": 8192,
+      "monthly": 40.95
+    },
+    {
+      "name": "COMPUTE3-X2C-4G",
+      "family": "compute",
+      "cores": 2,
+      "memoryMiB": 4096,
+      "monthly": 42.71
+    },
+    {
+      "name": "BASIC3-X2C-8G",
+      "family": "shared",
+      "cores": 2,
+      "memoryMiB": 8192,
+      "monthly": 43.23
+    },
+    {
+      "name": "DEV1-XL",
+      "family": "shared",
+      "cores": 4,
+      "memoryMiB": 12288,
+      "monthly": 47.51
+    },
+    {
+      "name": "POP2-2C-8G",
+      "family": "general",
+      "cores": 2,
+      "memoryMiB": 8192,
+      "monthly": 53.65
+    },
+    {
+      "name": "BASIC3-X4C-8G",
+      "family": "shared",
+      "cores": 4,
+      "memoryMiB": 8192,
+      "monthly": 57.67
+    },
+    {
+      "name": "STANDARD3-X2C-8G",
+      "family": "general",
+      "cores": 2,
+      "memoryMiB": 8192,
+      "monthly": 59.06
+    },
+    {
+      "name": "GP1-XS",
+      "family": "general",
+      "cores": 4,
+      "memoryMiB": 16384,
+      "monthly": 67.76
+    },
+    {
+      "name": "POP2-HM-2C-16G",
+      "family": "memory",
+      "cores": 2,
+      "memoryMiB": 16384,
+      "monthly": 75.19
+    },
+    {
+      "name": "POP2-HC-4C-8G",
+      "family": "compute",
+      "cores": 4,
+      "memoryMiB": 8192,
+      "monthly": 77.67
+    },
+    {
+      "name": "PRO2-XS",
+      "family": "general",
+      "cores": 4,
+      "memoryMiB": 16384,
+      "monthly": 81.91
+    },
+    {
+      "name": "MEMORY3-X2C-16G",
+      "family": "memory",
+      "cores": 2,
+      "memoryMiB": 16384,
+      "monthly": 82.71
+    },
+    {
+      "name": "COMPUTE3-X4C-8G",
+      "family": "compute",
+      "cores": 4,
+      "memoryMiB": 8192,
+      "monthly": 85.41
+    },
+    {
+      "name": "BASIC3-X4C-16G",
+      "family": "shared",
+      "cores": 4,
+      "memoryMiB": 16384,
+      "monthly": 86.47
+    },
+    {
+      "name": "BASIC3-X6C-12G",
+      "family": "shared",
+      "cores": 6,
+      "memoryMiB": 12288,
+      "monthly": 98.99
+    },
+    {
+      "name": "POP2-4C-16G",
+      "family": "general",
+      "cores": 4,
+      "memoryMiB": 16384,
+      "monthly": 107.31
+    },
+    {
+      "name": "BASIC3-X6C-24G",
+      "family": "shared",
+      "cores": 6,
+      "memoryMiB": 24576,
+      "monthly": 113.37
+    },
+    {
+      "name": "POP2-HC-6C-12G",
+      "family": "compute",
+      "cores": 6,
+      "memoryMiB": 12288,
+      "monthly": 116.51
+    },
+    {
+      "name": "STANDARD3-X4C-16G",
+      "family": "general",
+      "cores": 4,
+      "memoryMiB": 16384,
+      "monthly": 118.04
+    },
+    {
+      "name": "COMPUTE3-X6C-12G",
+      "family": "compute",
+      "cores": 6,
+      "memoryMiB": 12288,
+      "monthly": 128.19
+    },
+    {
+      "name": "BASIC3-X8C-16G",
+      "family": "shared",
+      "cores": 8,
+      "memoryMiB": 16384,
+      "monthly": 129.7
+    },
+    {
+      "name": "POP2-2C-8G-WIN",
+      "family": "general",
+      "cores": 2,
+      "memoryMiB": 8192,
+      "monthly": 133.08
+    },
+    {
+      "name": "GP1-S",
+      "family": "general",
+      "cores": 8,
+      "memoryMiB": 32768,
+      "monthly": 139.24
+    },
+    {
+      "name": "POP2-HM-4C-32G",
+      "family": "memory",
+      "cores": 4,
+      "memoryMiB": 32768,
+      "monthly": 150.38
+    },
+    {
+      "name": "POP2-HC-8C-16G",
+      "family": "compute",
+      "cores": 8,
+      "memoryMiB": 16384,
+      "monthly": 155.34
+    },
+    {
+      "name": "POP2-6C-24G",
+      "family": "general",
+      "cores": 6,
+      "memoryMiB": 24576,
+      "monthly": 160.97
+    },
+    {
+      "name": "PRO2-S",
+      "family": "general",
+      "cores": 8,
+      "memoryMiB": 32768,
+      "monthly": 163.07
+    },
+    {
+      "name": "MEMORY3-X4C-32G",
+      "family": "memory",
+      "cores": 4,
+      "memoryMiB": 32768,
+      "monthly": 165.42
+    },
+    {
+      "name": "COMPUTE3-X8C-16G",
+      "family": "compute",
+      "cores": 8,
+      "memoryMiB": 16384,
+      "monthly": 170.89
+    },
+    {
+      "name": "STANDARD3-X6C-24G",
+      "family": "general",
+      "cores": 6,
+      "memoryMiB": 24576,
+      "monthly": 171.19
+    },
+    {
+      "name": "BASIC3-X8C-32G",
+      "family": "shared",
+      "cores": 8,
+      "memoryMiB": 32768,
+      "monthly": 172.86
+    },
+    {
+      "name": "POP2-HN-3",
+      "family": "other",
+      "cores": 2,
+      "memoryMiB": 4096,
+      "monthly": 186.44
+    },
+    {
+      "name": "BASIC3-X12C-24G",
+      "family": "shared",
+      "cores": 12,
+      "memoryMiB": 24576,
+      "monthly": 197.9
+    },
+    {
+      "name": "POP2-8C-32G",
+      "family": "general",
+      "cores": 8,
+      "memoryMiB": 32768,
+      "monthly": 211.7
+    },
+    {
+      "name": "POP2-HM-6C-48G",
+      "family": "memory",
+      "cores": 6,
+      "memoryMiB": 49152,
+      "monthly": 225.57
+    },
+    {
+      "name": "BASIC3-X12C-48G",
+      "family": "shared",
+      "cores": 12,
+      "memoryMiB": 49152,
+      "monthly": 226.59
+    },
+    {
+      "name": "STANDARD3-X8C-32G",
+      "family": "general",
+      "cores": 8,
+      "memoryMiB": 32768,
+      "monthly": 232.87
+    },
+    {
+      "name": "POP2-HC-12C-24G",
+      "family": "compute",
+      "cores": 12,
+      "memoryMiB": 24576,
+      "monthly": 233.02
+    },
+    {
+      "name": "MEMORY3-X6C-48G",
+      "family": "memory",
+      "cores": 6,
+      "memoryMiB": 49152,
+      "monthly": 248.13
+    },
+    {
+      "name": "COMPUTE3-X12C-24G",
+      "family": "compute",
+      "cores": 12,
+      "memoryMiB": 24576,
+      "monthly": 256.3
+    },
+    {
+      "name": "BASIC3-X16C-32G",
+      "family": "shared",
+      "cores": 16,
+      "memoryMiB": 32768,
+      "monthly": 259.33
+    },
+    {
+      "name": "POP2-4C-16G-WIN",
+      "family": "general",
+      "cores": 4,
+      "memoryMiB": 16384,
+      "monthly": 265.5
+    },
+    {
+      "name": "GP1-M",
+      "family": "general",
+      "cores": 16,
+      "memoryMiB": 65536,
+      "monthly": 279.97
+    },
+    {
+      "name": "POP2-HM-8C-64G",
+      "family": "memory",
+      "cores": 8,
+      "memoryMiB": 65536,
+      "monthly": 300.76
+    },
+    {
+      "name": "POP2-HC-16C-32G",
+      "family": "compute",
+      "cores": 16,
+      "memoryMiB": 32768,
+      "monthly": 310.69
+    },
+    {
+      "name": "POP2-12C-48G",
+      "family": "general",
+      "cores": 12,
+      "memoryMiB": 49152,
+      "monthly": 317.55
+    },
+    {
+      "name": "PRO2-M",
+      "family": "general",
+      "cores": 16,
+      "memoryMiB": 65536,
+      "monthly": 326.13
+    },
+    {
+      "name": "POP2-HN-5",
+      "family": "other",
+      "cores": 4,
+      "memoryMiB": 8192,
+      "monthly": 330.25
+    },
+    {
+      "name": "MEMORY3-X8C-64G",
+      "family": "memory",
+      "cores": 8,
+      "memoryMiB": 65536,
+      "monthly": 330.84
+    },
+    {
+      "name": "STANDARD3-X12C-48G",
+      "family": "general",
+      "cores": 12,
+      "memoryMiB": 49152,
+      "monthly": 337.7
+    },
+    {
+      "name": "COMPUTE3-X16C-32G",
+      "family": "compute",
+      "cores": 16,
+      "memoryMiB": 32768,
+      "monthly": 341.79
+    },
+    {
+      "name": "BASIC3-X16C-64G",
+      "family": "shared",
+      "cores": 16,
+      "memoryMiB": 65536,
+      "monthly": 345.5
+    },
+    {
+      "name": "POP2-16C-64G",
+      "family": "general",
+      "cores": 16,
+      "memoryMiB": 65536,
+      "monthly": 430.7
+    },
+    {
+      "name": "POP2-HM-12C-96G",
+      "family": "memory",
+      "cores": 12,
+      "memoryMiB": 98304,
+      "monthly": 451.14
+    },
+    {
+      "name": "POP2-HC-24C-48G",
+      "family": "compute",
+      "cores": 24,
+      "memoryMiB": 49152,
+      "monthly": 466.03
+    },
+    {
+      "name": "STANDARD3-X16C-64G",
+      "family": "general",
+      "cores": 16,
+      "memoryMiB": 65536,
+      "monthly": 473.77
+    },
+    {
+      "name": "MEMORY3-X12C-96G",
+      "family": "memory",
+      "cores": 12,
+      "memoryMiB": 98304,
+      "monthly": 496.25
+    },
+    {
+      "name": "COMPUTE3-X24C-48G",
+      "family": "compute",
+      "cores": 24,
+      "memoryMiB": 49152,
+      "monthly": 512.61
+    },
+    {
+      "name": "POP2-8C-32G-WIN",
+      "family": "general",
+      "cores": 8,
+      "memoryMiB": 32768,
+      "monthly": 528.01
+    },
+    {
+      "name": "POP2-HN-10",
+      "family": "other",
+      "cores": 4,
+      "memoryMiB": 8192,
+      "monthly": 530.27
+    },
+    {
+      "name": "GP1-L",
+      "family": "general",
+      "cores": 32,
+      "memoryMiB": 131072,
+      "monthly": 565.15
+    },
+    {
+      "name": "POP2-HM-16C-128G",
+      "family": "memory",
+      "cores": 16,
+      "memoryMiB": 131072,
+      "monthly": 601.52
+    },
+    {
+      "name": "POP2-HC-32C-64G",
+      "family": "compute",
+      "cores": 32,
+      "memoryMiB": 65536,
+      "monthly": 621.38
+    },
+    {
+      "name": "POP2-24C-96G",
+      "family": "general",
+      "cores": 24,
+      "memoryMiB": 98304,
+      "monthly": 646.05
+    },
+    {
+      "name": "PRO2-L",
+      "family": "general",
+      "cores": 32,
+      "memoryMiB": 131072,
+      "monthly": 653.01
+    },
+    {
+      "name": "MEMORY3-X16C-128G",
+      "family": "memory",
+      "cores": 16,
+      "memoryMiB": 131072,
+      "monthly": 661.67
+    },
+    {
+      "name": "COMPUTE3-X32C-64G",
+      "family": "compute",
+      "cores": 32,
+      "memoryMiB": 65536,
+      "monthly": 683.5
+    },
+    {
+      "name": "STANDARD3-X24C-96G",
+      "family": "general",
+      "cores": 24,
+      "memoryMiB": 98304,
+      "monthly": 687
+    },
+    {
+      "name": "POP2-32C-128G",
+      "family": "general",
+      "cores": 32,
+      "memoryMiB": 131072,
+      "monthly": 861.4
+    },
+    {
+      "name": "POP2-HM-24C-192G",
+      "family": "memory",
+      "cores": 24,
+      "memoryMiB": 196608,
+      "monthly": 902.28
+    },
+    {
+      "name": "POP2-HC-48C-96G",
+      "family": "compute",
+      "cores": 48,
+      "memoryMiB": 98304,
+      "monthly": 927.1
+    },
+    {
+      "name": "STANDARD3-X32C-128G",
+      "family": "general",
+      "cores": 32,
+      "memoryMiB": 131072,
+      "monthly": 947.54
+    },
+    {
+      "name": "MEMORY3-X24C-192G",
+      "family": "memory",
+      "cores": 24,
+      "memoryMiB": 196608,
+      "monthly": 992.51
+    },
+    {
+      "name": "COMPUTE3-X48C-96G",
+      "family": "compute",
+      "cores": 48,
+      "memoryMiB": 98304,
+      "monthly": 1019.81
+    },
+    {
+      "name": "POP2-16C-64G-WIN",
+      "family": "general",
+      "cores": 16,
+      "memoryMiB": 65536,
+      "monthly": 1063.39
+    },
+    {
+      "name": "POP2-HM-32C-256G",
+      "family": "memory",
+      "cores": 32,
+      "memoryMiB": 262144,
+      "monthly": 1203.04
+    },
+    {
+      "name": "GP1-XL",
+      "family": "general",
+      "cores": 48,
+      "memoryMiB": 262144,
+      "monthly": 1221.89
+    },
+    {
+      "name": "POP2-HC-64C-128G",
+      "family": "compute",
+      "cores": 64,
+      "memoryMiB": 131072,
+      "monthly": 1242.75
+    },
+    {
+      "name": "POP2-48C-192G",
+      "family": "general",
+      "cores": 48,
+      "memoryMiB": 196608,
+      "monthly": 1292.1
+    },
+    {
+      "name": "MEMORY3-X32C-256G",
+      "family": "memory",
+      "cores": 32,
+      "memoryMiB": 262144,
+      "monthly": 1323.34
+    },
+    {
+      "name": "COMPUTE3-X64C-128G",
+      "family": "compute",
+      "cores": 64,
+      "memoryMiB": 131072,
+      "monthly": 1367
+    },
+    {
+      "name": "STANDARD3-X48C-192G",
+      "family": "general",
+      "cores": 48,
+      "memoryMiB": 196608,
+      "monthly": 1421.31
+    },
+    {
+      "name": "POP2-64C-256G",
+      "family": "general",
+      "cores": 64,
+      "memoryMiB": 262144,
+      "monthly": 1715.5
+    },
+    {
+      "name": "POP2-HM-48C-384G",
+      "family": "memory",
+      "cores": 48,
+      "memoryMiB": 393216,
+      "monthly": 1803.1
+    },
+    {
+      "name": "STANDARD3-X64C-256G",
+      "family": "general",
+      "cores": 64,
+      "memoryMiB": 262144,
+      "monthly": 1887.05
+    },
+    {
+      "name": "MEMORY3-X48C-384G",
+      "family": "memory",
+      "cores": 48,
+      "memoryMiB": 393216,
+      "monthly": 1983.41
+    },
+    {
+      "name": "COMPUTE3-X96C-192G",
+      "family": "compute",
+      "cores": 96,
+      "memoryMiB": 196608,
+      "monthly": 2039.62
+    },
+    {
+      "name": "POP2-32C-128G-WIN",
+      "family": "general",
+      "cores": 32,
+      "memoryMiB": 131072,
+      "monthly": 2126.71
+    },
+    {
+      "name": "POP2-HM-64C-512G",
+      "family": "memory",
+      "cores": 64,
+      "memoryMiB": 524288,
+      "monthly": 2406.08
+    }
+  ],
+  "storageGBMonth": 0.0949,
+  "storageProduct": "Block Storage 5K",
+  "loadBalancerMonthly": 16.79,
+  "loadBalancerProduct": "LB-S",
+  "controlPlaneMonthly": 80.3,
+  "controlPlaneProduct": "Kapsule Dedicated-4"
+}

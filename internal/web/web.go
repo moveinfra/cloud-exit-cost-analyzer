@@ -50,7 +50,9 @@ var page = template.Must(template.New("report.html").Funcs(template.FuncMap{
 		return m
 	},
 	"best":  best,
+	"cell":  func(t estimate.TargetEstimate, id string) *estimate.Scenario { return t.Scenario(id) },
 	"upper": strings.ToUpper,
+	"tuple": func(v ...string) []string { return v },
 	"limit": func(n int, rows []estimate.WorkloadRow) []estimate.WorkloadRow { return rows[:min(n, len(rows))] },
 }).ParseFS(files, "report.html"))
 
@@ -77,7 +79,7 @@ func Handler(build func() (*estimate.Report, error)) http.Handler {
 		}
 		w.Header().Set("Content-Type", "text/html; charset=utf-8")
 		if download {
-			w.Header().Set("Content-Disposition", fmt.Sprintf(`attachment; filename="upcloud-cost-report-%s.html"`, r.Generated.Format("2006-01-02")))
+			w.Header().Set("Content-Disposition", fmt.Sprintf(`attachment; filename="eu-cloud-cost-report-%s.html"`, r.Generated.Format("2006-01-02")))
 		}
 		if err := page.Execute(w, r); err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)

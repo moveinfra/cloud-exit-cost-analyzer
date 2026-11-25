@@ -4,6 +4,7 @@
 //	go run ./tools/pricegen azure     # Azure Retail Prices API (public)
 //	go run ./tools/pricegen fx        # ECB euro reference rates (public)
 //	go run ./tools/pricegen upcloud   # UpCloud API, needs UPCLOUD_TOKEN (see upcloud.go)
+//	go run ./tools/pricegen eu        # Hetzner, OVHcloud, Scaleway from the open EU Cloud Price Index (public)
 //
 // Run from the repo root. CI runs it monthly and opens a pull request with the changes.
 package main
@@ -25,7 +26,7 @@ var client = &http.Client{Timeout: 30 * time.Minute}
 
 func main() {
 	if len(os.Args) < 2 {
-		fmt.Fprintln(os.Stderr, "usage: pricegen aws|azure|fx|upcloud [flags]")
+		fmt.Fprintln(os.Stderr, "usage: pricegen aws|azure|fx|upcloud|eu [flags]")
 		os.Exit(2)
 	}
 	var err error
@@ -38,6 +39,8 @@ func main() {
 		err = genFX()
 	case "upcloud":
 		err = genUpCloud(os.Args[2:])
+	case "eu":
+		err = genEU(os.Args[2:])
 	default:
 		err = fmt.Errorf("unknown source %q", os.Args[1])
 	}

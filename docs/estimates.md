@@ -18,10 +18,28 @@ in the release.
 `current.priceSpotAsOnDemand`), serverless nodes (Fargate, virtual nodes), instance types missing from the price
 list, volumes of an unknown type, data transfer, backups, snapshots, NAT gateways and anything outside Kubernetes.
 
-## The three UpCloud scenarios
+## The EU providers
 
-All three add the UpCloud Managed Kubernetes control plane, MaxIOPS block storage and Managed Load Balancers.
-Only plans in `upcloud.planFamilies` are used (default: General Purpose, HICPU, HIMEM).
+The report prices the same cluster on UpCloud, Hetzner, OVHcloud and Scaleway and lists them cheapest first, ranked by
+the "Current requests" scenario. `target.provider` picks the one shown line by line; recommendations show savings at
+that provider's prices. What is compared:
+
+| | UpCloud | Hetzner | OVHcloud | Scaleway |
+|---|---|---|---|---|
+| Region | `upcloud.zone` (default `de-fra1`) | `fsn1` | Europe (catalogue price) | `fr-par-1` |
+| Worker servers | plans in `upcloud.planFamilies` | dedicated vCPU (CCX) | general, CPU and RAM ranges | general, compute and memory Instances |
+| Kubernetes control plane | Managed Kubernetes, production plan | none: 3 × the cheapest 2 vCPU / 4 GiB server, self-managed | Managed Kubernetes Service Standard | Kapsule Dedicated-4 |
+| Block storage | MaxIOPS | Volumes | Block Storage high-speed | Block Storage 5K |
+| Load balancer | Managed Load Balancer, production-small | LB11 | Octavia Small | LB-S |
+
+These products are not identical: IOPS, network limits, SLAs and support differ, and most providers also have a free or
+cheaper control plane tier. Running your own control plane on Hetzner costs work that is not priced. Treat the table as
+a first filter, then check the products that matter to you. A provider with no plan large enough for a node or pod is
+listed with the reason instead of a price.
+
+## The three scenarios
+
+Each provider gets the same three scenarios, with its own control plane, block storage and load balancers.
 
 ### 1. Same servers
 Every node becomes the cheapest plan with at least the node's vCPU and memory (5% tolerance on memory, because
@@ -59,7 +77,7 @@ Same packing, with each workload's requests replaced by what it uses:
 | Share one load balancer | more than one `Service type: LoadBalancer` |
 | Right-size the cluster | the right-sized scenario is cheaper than the current-requests scenario |
 
-Savings are shown at UpCloud prices. For request changes, the price of a vCPU-month and a GiB-month is derived from the
+Savings are shown at the prices of the provider in `target.provider` (UpCloud by default). For request changes, the price of a vCPU-month and a GiB-month is derived from the
 cheapest plan with 4 GiB per vCPU, split evenly between CPU and memory.
 
 ## How accurate is it

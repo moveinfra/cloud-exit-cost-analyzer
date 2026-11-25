@@ -11,8 +11,9 @@ Each Helm value becomes an environment variable of the container, so the binary 
 
 | Helm value | Environment variable | Default | Meaning |
 |---|---|---|---|
+| `target.provider` | `TARGET_PROVIDER` | `upcloud` | Provider shown in detail: `upcloud`, `hetzner`, `ovhcloud` or `scaleway`. All four are always compared in the report. |
 | `upcloud.zone` | `UPCLOUD_ZONE` | `de-fra1` | UpCloud zone to price. Must exist in the price data (15 zones, e.g. `fi-hel1`, `nl-ams1`, `se-sto1`, `pl-waw1`, `uk-lon1`). |
-| `upcloud.planFamilies` | `PLAN_FAMILIES` (comma-separated) | `general,HICPU,HIMEM` | Server plan families for worker nodes. Also `PREMIUM`, `CLOUDNATIVE`, `DEV`, `STARTER`. |
+| `upcloud.planFamilies` | `PLAN_FAMILIES` (comma-separated) | `general,HICPU,HIMEM` | UpCloud server plan families for worker nodes. Also `PREMIUM`, `CLOUDNATIVE`, `DEV`, `STARTER`. |
 | `estimate.minNodes` | `MIN_NODES` | `3` | Never plan fewer worker nodes than this. |
 | `estimate.cpuHeadroom` | `CPU_HEADROOM` | `0.25` | Right-sized CPU = p95 use + 25%. |
 | `estimate.memoryHeadroom` | `MEMORY_HEADROOM` | `0.15` | Right-sized memory = peak use + 15%. |
@@ -41,6 +42,13 @@ current:
 ```
 
 With `--set`, quote dotted instance types: `--set current.instancePrices.m5\.large=0.096`.
+
+Hetzner in detail instead of UpCloud:
+
+```yaml
+target:
+  provider: hetzner
+```
 
 AWS with a savings plan, priced in Helsinki:
 

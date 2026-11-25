@@ -1,6 +1,6 @@
 apiVersion: v2
 name: cloud-exit-cost-analyzer
-description: See what your Kubernetes cluster costs today and what it would cost on UpCloud, based on real usage. Read-only, nothing leaves the cluster.
+description: See what your Kubernetes cluster costs today and what it would cost on EU-owned clouds (UpCloud, Hetzner, OVHcloud, Scaleway), based on real usage. Read-only, nothing leaves the cluster.
 type: application
 version: 0.1.0
 appVersion: "0.1.0"
@@ -8,7 +8,7 @@ icon: https://moveinfra.eu/favicon.svg
 home: https://github.com/moveinfra/cloud-exit-cost-analyzer
 sources:
   - https://github.com/moveinfra/cloud-exit-cost-analyzer
-keywords: [kubernetes, cost, finops, upcloud, cloud-migration, eu-cloud, rightsizing]
+keywords: [kubernetes, cost, finops, upcloud, hetzner, scaleway, ovhcloud, cloud-migration, eu-cloud, rightsizing]
 maintainers:
   - name: MoveInfra
     email: hello@moveinfra.eu

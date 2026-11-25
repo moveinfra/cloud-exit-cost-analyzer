@@ -198,6 +198,52 @@ func TestBuild(t *testing.T) {
 	}
 }
 
+// Every provider with prices is estimated; the one in Options.Provider is shown in detail.
+func TestProviders(t *testing.T) {
+	snap, store := cluster(t)
+	b := book()
+	b.Providers = map[string]*pricing.Provider{
+		// no managed Kubernetes: three of the cheapest 2 vCPU / 4 GiB servers are added, shared-CPU plans stay out of the nodes
+		"hetzner": {ID: "hetzner", Name: "Hetzner", Region: "fsn1", Generated: "2026-10-28", StorageGBMonth: 0.05, StorageProduct: "Volumes", LoadBalancerMonthly: 5,
+			Plans: []pricing.Plan{{Name: "CX23", Fam: "shared", Cores: 2, MemoryMiB: 4096, Monthly: 5}, {Name: "CCX23", Fam: "general", Cores: 4, MemoryMiB: 16384, Monthly: 30}}},
+		"scaleway": {ID: "scaleway", Name: "Scaleway", Region: "fr-par-1", Generated: "2026-10-28", StorageGBMonth: 0.1, LoadBalancerMonthly: 15,
+			ControlPlaneMonthly: 80, ControlPlaneProduct: "Kapsule Dedicated-4",
+			Plans: []pricing.Plan{{Name: "POP2-4C-16G", Fam: "general", Cores: 4, MemoryMiB: 16384, Monthly: 100}}},
+		"tiny": {ID: "tiny", Name: "Tiny", Region: "x", StorageGBMonth: 0.1, LoadBalancerMonthly: 1, ControlPlaneMonthly: 1, ControlPlaneProduct: "k8s",
+			Plans: []pricing.Plan{{Name: "small", Fam: "general", Cores: 1, MemoryMiB: 1024, Monthly: 1}}},
+	}
+	r, err := estimate.Build(snap, store, b, estimate.Options{Provider: "hetzner"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if r.Provider != "hetzner" || r.ProviderName != "Hetzner" || r.Zone != "fsn1" || r.UpCloudZone != "de-fra1" {
+		t.Fatalf("primary: %s %s %s %s", r.Provider, r.ProviderName, r.Zone, r.UpCloudZone)
+	}
+	if len(r.Targets) != 4 || r.Targets[0].Provider != "hetzner" || !r.Targets[0].Primary {
+		t.Fatalf("targets must hold every provider, cheapest first: %+v", r.Targets)
+	}
+	same := r.Targets[0].Scenario("same")
+	// 4 × CCX23 + 3 × CX23 control plane + 150 GiB volumes + 2 load balancers
+	if want := 4*30.0 + 3*5 + 150*1.073741824*0.05 + 2*5; same == nil || same.TotalEUR < want-0.01 || same.TotalEUR > want+0.01 {
+		t.Fatalf("hetzner same servers: %+v, want %.2f", same, want)
+	}
+	if r.Scenarios[0].TotalEUR != same.TotalEUR || !strings.Contains(r.Targets[0].ControlPlane, "self-managed, 3 × CX23") {
+		t.Fatalf("report scenarios must be the primary provider's: %+v / %q", r.Scenarios[0], r.Targets[0].ControlPlane)
+	}
+	last := r.Targets[len(r.Targets)-1]
+	if last.Provider != "tiny" || last.Scenario("same") != nil || last.Scenarios[0].Error == "" {
+		t.Fatalf("a provider with no plan large enough is listed last with the reason: %+v", last)
+	}
+	for _, te := range r.Targets {
+		if te.Provider == "scaleway" && (te.Scenario("same").TotalEUR <= 400 || !strings.Contains(te.ControlPlane, "Kapsule")) {
+			t.Fatalf("scaleway: %+v", te)
+		}
+	}
+	if _, err := estimate.Build(snap, store, b, estimate.Options{Provider: "nowhere"}); err == nil {
+		t.Fatal("an unknown provider must fail")
+	}
+}
+
 func TestAlreadyOnUpCloud(t *testing.T) {
 	snap := &collect.Snapshot{
 		Nodes: []collect.Node{

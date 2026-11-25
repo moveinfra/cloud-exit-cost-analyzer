@@ -27,6 +27,7 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
+            - { name: TARGET_PROVIDER, value: {{ .Values.target.provider | quote }} }
             - { name: UPCLOUD_ZONE, value: {{ .Values.upcloud.zone | quote }} }
             - { name: PLAN_FAMILIES, value: {{ join "," .Values.upcloud.planFamilies | quote }} }
             - { name: MIN_NODES, value: {{ .Values.estimate.minNodes | quote }} }

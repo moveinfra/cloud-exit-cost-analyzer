@@ -1,5 +1,6 @@
 // Command analyzer runs inside a Kubernetes cluster, samples what it runs and uses, and serves a report of what
-// the cluster costs today and would cost on UpCloud. Configuration is by environment variable (see the Helm chart).
+// the cluster costs today and would cost on EU-owned clouds (UpCloud, Hetzner, OVHcloud, Scaleway). Configuration is
+// by environment variable (see the Helm chart).
 package main
 
 import (
@@ -42,6 +43,7 @@ func main() {
 
 func run(log *slog.Logger) error {
 	opts := estimate.Options{
+		Provider:            env("TARGET_PROVIDER", "upcloud"),
 		Zone:                env("UPCLOUD_ZONE", "de-fra1"),
 		MinNodes:            int(num("MIN_NODES", 3)),
 		CPUHeadroom:         num("CPU_HEADROOM", 0.25),
@@ -79,6 +81,9 @@ func run(log *slog.Logger) error {
 		return err
 	}
 	if _, err := book.UpCloud.Zone(opts.Zone, opts.PlanFamilies...); err != nil {
+		return err
+	}
+	if _, err := book.Target(opts.Provider, opts.Zone, opts.PlanFamilies...); err != nil {
 		return err
 	}
 
@@ -133,7 +138,7 @@ func run(log *slog.Logger) error {
 			return estimate.Build(s, store, book, opts)
 		})}
 	go func() {
-		log.Info("serving", "addr", srv.Addr, "version", version, "zone", opts.Zone)
+		log.Info("serving", "addr", srv.Addr, "version", version, "provider", opts.Provider, "upcloudZone", opts.Zone)
 		if err := srv.ListenAndServe(); err != nil && !errors.Is(err, http.ErrServerClosed) {
 			log.Error("http", "err", err)
 			stop()

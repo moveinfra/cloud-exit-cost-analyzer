@@ -30,8 +30,8 @@ serves a report. It never writes to the cluster and never sends data anywhere.
 | `cmd/analyzer` | Reads configuration from environment variables, starts the sampling loop and the HTTP server, saves history on shutdown. |
 | `internal/collect` | Lists nodes, pods, persistent volumes, storage classes and services. Groups pods into workloads (Deployment, StatefulSet, DaemonSet, CronJob, Job, bare Pod). Reads pod usage from `metrics.k8s.io`. |
 | `internal/usage` | Keeps usage per workload as log-scale histograms (5% buckets), so weeks of one-minute samples fit in a few MB. Also keeps a 7-day cluster trend at 5-minute resolution. Saves to and loads from `DATA_DIR/usage.json`. |
-| `internal/pricing` | Price lists for AWS, Azure, UpCloud and ECB exchange rates, embedded at build time from `internal/pricing/data/*.json`. |
-| `internal/estimate` | Turns a snapshot plus history into the report: today's cost, three UpCloud scenarios, recommendations. See [estimates.md](estimates.md). |
+| `internal/pricing` | Price lists for AWS, Azure, UpCloud, Hetzner, OVHcloud, Scaleway and ECB exchange rates, embedded at build time from `internal/pricing/data/*.json`. |
+| `internal/estimate` | Turns a snapshot plus history into the report: today's cost, three scenarios on each EU provider, recommendations. See [estimates.md](estimates.md). |
 | `internal/web` | Renders the report (one self-contained HTML file) and the JSON API. |
 | `tools/pricegen` | Regenerates the price lists from the providers' APIs. Not part of the image. |
 

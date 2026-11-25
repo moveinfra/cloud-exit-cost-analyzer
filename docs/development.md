@@ -41,7 +41,7 @@ The Dockerfile cross-compiles on the build machine (no emulation) and runs on `d
 | Change | Files |
 |---|---|
 | A new current cloud (e.g. GCP prices) | `tools/pricegen/<cloud>.go`, `internal/pricing/pricing.go` (`Load`), `internal/estimate/estimate.go` (`current`) |
-| A new target cloud | `internal/pricing` (a type like `UpCloud`), `internal/estimate/estimate.go` (`scenarios`), the report template |
+| A new target cloud | a data file in the `pricing.Provider` shape, its id in `pricing.ProviderIDs`, a generator in `tools/pricegen` |
 | Report layout or wording | `internal/web/report.html` |
 | A new recommendation | `internal/estimate/estimate.go` (`recommendations`) and a case in `estimate_test.go` |
 | A new Helm value | `values.yaml`, `templates/deployment.yaml` (env), `cmd/analyzer/main.go`, `docs/configuration.md` |

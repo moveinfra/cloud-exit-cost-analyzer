@@ -1,0 +1,136 @@
+{
+  "provider": "hetzner",
+  "name": "Hetzner",
+  "region": "fsn1",
+  "location": "Falkenstein",
+  "currency": "EUR",
+  "generated": "2026-11-21",
+  "source": "https://www.hetzner.com/cloud/cost-optimized/",
+  "note": "Plan list checked by hand on the Hetzner website (no API token in this run). A primary IPv4 address is billed separately.",
+  "plans": [
+    {
+      "name": "CX23",
+      "family": "shared",
+      "cores": 2,
+      "memoryMiB": 4096,
+      "monthly": 5.49
+    },
+    {
+      "name": "CX33",
+      "family": "shared",
+      "cores": 4,
+      "memoryMiB": 8192,
+      "monthly": 8.49
+    },
+    {
+      "name": "CX43",
+      "family": "shared",
+      "cores": 8,
+      "memoryMiB": 16384,
+      "monthly": 15.99
+    },
+    {
+      "name": "CX53",
+      "family": "shared",
+      "cores": 16,
+      "memoryMiB": 32768,
+      "monthly": 29.49
+    },
+    {
+      "name": "CPX02",
+      "family": "shared",
+      "cores": 1,
+      "memoryMiB": 1024,
+      "monthly": 5.99
+    },
+    {
+      "name": "CPX12",
+      "family": "shared",
+      "cores": 1,
+      "memoryMiB": 2048,
+      "monthly": 11.49
+    },
+    {
+      "name": "CPX22",
+      "family": "shared",
+      "cores": 2,
+      "memoryMiB": 4096,
+      "monthly": 19.49
+    },
+    {
+      "name": "CPX32",
+      "family": "shared",
+      "cores": 4,
+      "memoryMiB": 8192,
+      "monthly": 35.49
+    },
+    {
+      "name": "CPX42",
+      "family": "shared",
+      "cores": 8,
+      "memoryMiB": 16384,
+      "monthly": 69.49
+    },
+    {
+      "name": "CPX52",
+      "family": "shared",
+      "cores": 12,
+      "memoryMiB": 24576,
+      "monthly": 100.49
+    },
+    {
+      "name": "CPX62",
+      "family": "shared",
+      "cores": 16,
+      "memoryMiB": 32768,
+      "monthly": 129.99
+    },
+    {
+      "name": "CCX13",
+      "family": "general",
+      "cores": 2,
+      "memoryMiB": 8192,
+      "monthly": 42.99
+    },
+    {
+      "name": "CCX23",
+      "family": "general",
+      "cores": 4,
+      "memoryMiB": 16384,
+      "monthly": 85.99
+    },
+    {
+      "name": "CCX33",
+      "family": "general",
+      "cores": 8,
+      "memoryMiB": 32768,
+      "monthly": 138.49
+    },
+    {
+      "name": "CCX43",
+      "family": "general",
+      "cores": 16,
+      "memoryMiB": 65536,
+      "monthly": 275.99
+    },
+    {
+      "name": "CCX53",
+      "family": "general",
+      "cores": 32,
+      "memoryMiB": 131072,
+      "monthly": 533.49
+    },
+    {
+      "name": "CCX63",
+      "family": "general",
+      "cores": 48,
+      "memoryMiB": 196608,
+      "monthly": 853.49
+    }
+  ],
+  "storageGBMonth": 0.044,
+  "storageProduct": "Volumes",
+  "loadBalancerMonthly": 7.49,
+  "loadBalancerProduct": "LB11",
+  "controlPlaneMonthly": 0
+}
